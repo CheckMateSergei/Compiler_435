@@ -39,10 +39,22 @@ program : function+
 function: functionDecl functionBody
 	;
 
-functionDecl: compoundType identifier '(' ')'
+/*
+ * Can we have no formal parameters???
+ */
+functionDecl: compoundType identifier '(' formalParameters ')'
 	;
 
-functionBody: '{' '}'
+formalParameters: compoundType identifier moreFormals*
+	;
+
+moreFormals: ',' compoundType identifier
+	;
+
+functionBody: '{' varDecl* statement* '}'
+	;
+
+varDecl: compoundType identifier ';'
 	;
 
 compoundType: type | type '[' INTEGERCONSTANT ']' 
@@ -51,7 +63,10 @@ compoundType: type | type '[' INTEGERCONSTANT ']'
 identifier : ID
 	;
 
-type:	TYPE
+type: TYPE
+	;
+
+statement: ';'
 	;
 
 literal: stringconstant |
@@ -69,6 +84,25 @@ floatconstant: INTEGERCONSTANT'.'INTEGERCONSTANT
 /* Lexer */
 	 
 IF	: 'if'
+	;
+
+ELSE	: 'else'
+	;
+
+WHILE	: 'while'
+	;
+
+PRINT	: 'print'
+	;
+
+PRINTLN	: 'println'
+	;
+
+RETURN	: 'return'
+	;
+
+BOOL	: 'true'|
+	 'false'
 	;
 
 /* Fixme: add the other types here */

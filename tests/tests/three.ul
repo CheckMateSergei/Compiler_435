@@ -1,0 +1,3 @@
+int[3] foo(int[2] x, char y){}
+
+int bar(string s){}
