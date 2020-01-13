@@ -39,10 +39,13 @@ program : function+
 function: functionDecl functionBody
 	;
 
-functionDecl: type identifier '(' ')'
+functionDecl: compoundType identifier '(' ')'
 	;
 
 functionBody: '{' '}'
+	;
+
+compoundType: type | type '[' INTEGERCONSTANT ']' 
 	;
 
 identifier : ID
@@ -51,20 +54,44 @@ identifier : ID
 type:	TYPE
 	;
 
+literal: stringconstant |
+	INTEGERCONSTANT |
+	CHARACTERCONSTANT |
+	floatconstant
+	;
+
+stringconstant: '"' CHARACTERCONSTANT+ '"'
+	;
+
+floatconstant: INTEGERCONSTANT'.'INTEGERCONSTANT
+	;
+
 /* Lexer */
 	 
 IF	: 'if'
 	;
 
 /* Fixme: add the other types here */
-TYPE	: 'int'
+TYPE	: 'int'|
+	 'float'|
+	 'char'|
+	 'string'|
+	 'boolean'|
+	 'void'
 	;
+
+INTEGERCONSTANT	: ('0'..'9')+
+	;
+
+CHARACTERCONSTANT : '\'' 'a'..'z'|'A'..'Z' '\''
+	;
+
 /*
  * FIXME:
  * Change this to match the specification for identifier
  * 
  */
-ID	: ('a'..'z')+ 
+ID	: ('a'..'z'|'A'..'Z'|'_')+('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
 	;
 
 /* These two lines match whitespace and comments 
