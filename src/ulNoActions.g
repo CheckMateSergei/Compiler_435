@@ -1,4 +1,9 @@
+/*
+ * Grammar for CSC 435 Compiler Assignment #1
+ * Author: Braydon Horcoff V00917594
+ */
 grammar ulNoActions;
+
 				
 @members
 {
@@ -33,16 +38,13 @@ public Object recoverFromMismatchedSet (IntStream input,
  *  - change functionBody to include variable declarations and statements 
  */
 
-program : function+ 
+program : function+ //EOF
 	;
 
 function: functionDecl functionBody
 	;
 
-/*
- * Can we have no formal parameters???
- */
-functionDecl: compoundType identifier '(' formalParameters ')'
+functionDecl: compoundType identifier '(' formalParameters? ')'
 	;
 
 formalParameters: compoundType identifier moreFormals*
@@ -66,13 +68,40 @@ identifier : ID
 type: TYPE
 	;
 
-statement: ';'
+statement: ';' 
 	;
+
+block: '{' statement* '}'
+	;
+
+/*
+expr: compareExpr
+	;
+
+compareExpr:  
+	;
+
+lessExpr:
+	;
+
+plmiExpr:
+	;
+
+multExpr:
+	;
+
+atom: INTEGERCONSTANT |
+	identifier 
+	;
+*/	
+	
+	
 
 literal: stringconstant |
 	INTEGERCONSTANT |
 	CHARACTERCONSTANT |
-	floatconstant
+	floatconstant |
+	BOOL
 	;
 
 stringconstant: '"' CHARACTERCONSTANT+ '"'
@@ -105,7 +134,13 @@ BOOL	: 'true'|
 	 'false'
 	;
 
-/* Fixme: add the other types here */
+OP	: '*' |
+	  '+' |
+	  '-' |
+	  '<' |
+	  '=='
+	;
+
 TYPE	: 'int'|
 	 'float'|
 	 'char'|
@@ -120,12 +155,8 @@ INTEGERCONSTANT	: ('0'..'9')+
 CHARACTERCONSTANT : '\'' 'a'..'z'|'A'..'Z' '\''
 	;
 
-/*
- * FIXME:
- * Change this to match the specification for identifier
- * 
- */
-ID	: ('a'..'z'|'A'..'Z'|'_')+('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
+ 
+ID	: ('a'..'z'|'A'..'Z'|'_')('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
 	;
 
 /* These two lines match whitespace and comments 
