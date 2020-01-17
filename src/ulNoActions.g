@@ -4,6 +4,10 @@
  */
 grammar ulNoActions;
 
+options{
+backtrack=true;
+}
+
 				
 @members
 {
@@ -53,7 +57,7 @@ formalParameters: compoundType identifier moreFormals*
 moreFormals: ',' compoundType identifier
 	;
 
-functionBody: '{' varDecl* statement* '}'
+functionBody: '{' (varDecl | statement)* '}'
 	;
 
 varDecl: compoundType identifier ';'
@@ -68,32 +72,43 @@ identifier : ID
 type: TYPE
 	;
 
-statement: ';' 
+statement:( expr )? ';' |
+	identifier '=' expr ';' |
+	identifier'['expr']' '=' expr ';'
 	;
 
 block: '{' statement* '}'
 	;
 
-/*
-expr: compareExpr
+
+expr: plmiExpr
 	;
 
-compareExpr:  
+//compareExpr: 
+//	;
+
+//lessExpr:
+//	;
+
+plmiExpr: multExpr (('+'|'-') multExpr)*
 	;
 
-lessExpr:
-	;
-
-plmiExpr:
-	;
-
-multExpr:
+multExpr: atom ('*' atom)*
 	;
 
 atom: INTEGERCONSTANT |
-	identifier 
+	identifier |
+	identifier'('expr')' |
+	identifier'['exprList']' |
+	'('expr')'
 	;
-*/	
+
+exprList: expr exprMore*
+	;
+
+exprMore: ',' expr
+	;
+	
 	
 	
 
@@ -104,7 +119,7 @@ literal: stringconstant |
 	BOOL
 	;
 
-stringconstant: '"' CHARACTERCONSTANT+ '"'
+stringconstant: '"' CHARACTERCONSTANT* '"'
 	;
 
 floatconstant: INTEGERCONSTANT'.'INTEGERCONSTANT

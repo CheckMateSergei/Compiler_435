@@ -6,6 +6,7 @@ NC='\33[0m'
 
 export CLASSPATH="$CLASSPATH:./build"
 
+export CLASSPATH="$CLASSPATH:./antlr-3.5.2-complete.jar"
 make
 
 if [ "$1" ]; then
