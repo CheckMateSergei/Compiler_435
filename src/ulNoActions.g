@@ -42,7 +42,7 @@ public Object recoverFromMismatchedSet (IntStream input,
  *  - change functionBody to include variable declarations and statements 
  */
 
-program : function+ //EOF
+program : function+ EOF
 	;
 
 function: functionDecl functionBody
@@ -57,13 +57,17 @@ formalParameters: compoundType identifier moreFormals*
 moreFormals: ',' compoundType identifier
 	;
 
-functionBody: '{' (varDecl | statement)* '}'
+functionBody: '{' varDecl*  statement* '}'
 	;
 
 varDecl: compoundType identifier ';'
 	;
 
-compoundType: type | type '[' INTEGERCONSTANT ']' 
+compoundType: type |
+	  arrayDecl
+	;
+
+arrayDecl: type'['integerconstant']'
 	;
 
 identifier : ID
@@ -72,23 +76,59 @@ identifier : ID
 type: TYPE
 	;
 
-statement:( expr )? ';' |
-	identifier '=' expr ';' |
-	identifier'['expr']' '=' expr ';'
+statement: semiColon |
+	exprColon |
+	idAssign |
+	arrayAssign |
+	ifElseBlock |
+	ifBlock |
+	whileBlock |
+	printlnStmt |
+	printStmt |
+	returnStmt
+	;
+
+whileBlock: WHILE'(' expr')' block
+	;
+
+printlnStmt: PRINTLN expr ';'
+	;
+
+printStmt: PRINT expr ';'
+	;
+
+returnStmt: RETURN expr? ';'
+	;
+
+semiColon: ';'
+	;
+
+exprColon: expr ';'
+	;
+
+idAssign: identifier '=' expr ';'
+	;
+
+arrayAssign: identifier '[' expr']' '=' expr ';'
+	;
+
+ifBlock: IF'('expr')' block
+	;
+
+ifElseBlock: IF'('expr')' block ELSE block
 	;
 
 block: '{' statement* '}'
 	;
 
-
-expr: plmiExpr
+expr: compareExpr
 	;
 
-//compareExpr: 
-//	;
+compareExpr: lessExpr ('==' lessExpr)*
+	;
 
-//lessExpr:
-//	;
+lessExpr: plmiExpr ('<' plmiExpr)*
+	;
 
 plmiExpr: multExpr (('+'|'-') multExpr)*
 	;
@@ -96,11 +136,20 @@ plmiExpr: multExpr (('+'|'-') multExpr)*
 multExpr: atom ('*' atom)*
 	;
 
-atom: INTEGERCONSTANT |
+atom: literal |
 	identifier |
-	identifier'('expr')' |
-	identifier'['exprList']' |
-	'('expr')'
+	functionCall |
+	arrayRef |	
+	parenExpr
+	;
+
+functionCall: identifier'(' expr ')'
+	;
+
+arrayRef: identifier'['exprList']' 
+	;
+
+parenExpr: '(' expr ')'
 	;
 
 exprList: expr exprMore*
@@ -109,20 +158,26 @@ exprList: expr exprMore*
 exprMore: ',' expr
 	;
 	
-	
-	
-
 literal: stringconstant |
-	INTEGERCONSTANT |
-	CHARACTERCONSTANT |
+	integerconstant |
+	characterconstant |
 	floatconstant |
-	BOOL
+	bool
 	;
 
-stringconstant: '"' CHARACTERCONSTANT* '"'
+stringconstant: STRINGCONSTANT
 	;
 
-floatconstant: INTEGERCONSTANT'.'INTEGERCONSTANT
+floatconstant: FLOATCONSTANT
+	;
+
+characterconstant: CHARACTERCONSTANT
+	;
+
+integerconstant: INTEGERCONSTANT
+	;
+
+bool: BOOL
 	;
 
 /* Lexer */
@@ -149,29 +204,27 @@ BOOL	: 'true'|
 	 'false'
 	;
 
-OP	: '*' |
-	  '+' |
-	  '-' |
-	  '<' |
-	  '=='
+TYPE	: 'int' |
+	  'float' |
+	  'string' |
+	  'char' |
+	  'boolean' |
+	  'void'
 	;
 
-TYPE	: 'int'|
-	 'float'|
-	 'char'|
-	 'string'|
-	 'boolean'|
-	 'void'
+ID	: ('a'..'z'|'A'..'Z'|'_')('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
+	;
+
+STRINGCONSTANT	: '\"'(('a'..'z')|('A'..'Z')|('0'..'9')|'!'|','|'.'|':'|'_'|'{'|'}'|' ')*'\"'
 	;
 
 INTEGERCONSTANT	: ('0'..'9')+
 	;
 
-CHARACTERCONSTANT : '\'' 'a'..'z'|'A'..'Z' '\''
+FLOATCONSTANT	: ('0'..'9')+'.'('0'..'9')+
 	;
 
- 
-ID	: ('a'..'z'|'A'..'Z'|'_')('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
+CHARACTERCONSTANT : '\''('a'..'z'|'A'..'Z'|'0'..'9'|'!'|','|'.'|':'|'_'|'{'|'}')'\''
 	;
 
 /* These two lines match whitespace and comments 

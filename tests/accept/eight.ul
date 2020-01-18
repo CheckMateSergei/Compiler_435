@@ -1,0 +1,25 @@
+int foo(){
+
+int x;
+int y;
+string s;
+
+s="My name is Braydon and I like tuna.";
+x = 2;
+y =       x    ;
+
+while(x < 2*2*2*2*2*2){
+
+	if(x == 2*2*2*2*2*2*2){
+		println x + y;
+	}
+
+	if(x < 1024){
+		print x;
+	}else{
+		x = x*y;
+	}
+}
+
+return;
+}

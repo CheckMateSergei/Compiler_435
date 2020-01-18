@@ -1,0 +1,18 @@
+char[9] foooobarrrrr(){
+
+int sixtynine;
+
+sixtynine = 69;
+
+if(sixtynine < 5000)
+{
+sixtynine = 23*3;
+}
+
+if(sixtynine == 69){  }
+
+
+else
+{ sixtynine = 69; }
+
+}

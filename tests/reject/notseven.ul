@@ -1,0 +1,13 @@
+int foobar(){
+
+int x;
+int y;
+
+x = 2;
+y = 3.14;
+
+if(x < y){
+	y=y-x;
+}else
+
+}

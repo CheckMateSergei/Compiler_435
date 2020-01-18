@@ -1,0 +1,30 @@
+string foobarbaby(int x, int y, string s)
+{
+
+	int[2] i;
+	string t;
+
+	int x;
+
+	x = 0;
+
+	while(x < 2)
+	{
+		if(i[x] == 0){
+			i[x] = x*y;
+		}else{
+			return i[x]*7;
+		}
+	}
+	
+	x = 0;
+
+	while(x < 2){
+		if(x == 0){ println; }
+		if(x == 1){ printi[x]; }
+	}
+	
+	t = s;
+
+	return s;
+}
