@@ -1,0 +1,14 @@
+string foobar(char c)
+{
+	char d;
+	d = c;
+	
+	println d;
+	return d+d+d;
+}
+
+void main()
+{
+	print fooar('A');
+	return 3+(9*(3+3));
+}

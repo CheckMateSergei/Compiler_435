@@ -1,4 +1,4 @@
-// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-18 12:36:58
+// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-20 12:54:56
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -58,23 +58,22 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "parenExpr", "synpred12_ulNoActions", "functionDecl", "bool", 
-		"synpred5_ulNoActions", "synpred25_ulNoActions", "expr", "literal", "lessExpr", 
-		"synpred31_ulNoActions", "synpred18_ulNoActions", "exprColon", "idAssign", 
-		"arrayDecl", "synpred9_ulNoActions", "synpred29_ulNoActions", "compareExpr", 
-		"semiColon", "functionCall", "synpred7_ulNoActions", "synpred10_ulNoActions", 
-		"atom", "synpred28_ulNoActions", "synpred17_ulNoActions", "synpred13_ulNoActions", 
-		"moreFormals", "synpred6_ulNoActions", "arrayAssign", "synpred30_ulNoActions", 
-		"formalParameters", "varDecl", "synpred14_ulNoActions", "returnStmt", 
-		"ifElseBlock", "whileBlock", "synpred23_ulNoActions", "synpred3_ulNoActions", 
-		"plmiExpr", "characterconstant", "synpred15_ulNoActions", "block", "synpred11_ulNoActions", 
-		"multExpr", "compoundType", "synpred4_ulNoActions", "synpred24_ulNoActions", 
-		"synpred1_ulNoActions", "stringconstant", "synpred19_ulNoActions", "type", 
-		"synpred8_ulNoActions", "exprList", "synpred26_ulNoActions", "synpred27_ulNoActions", 
-		"functionBody", "ifBlock", "synpred16_ulNoActions", "statement", "synpred21_ulNoActions", 
-		"synpred2_ulNoActions", "printlnStmt", "printStmt", "program", "arrayRef", 
-		"synpred20_ulNoActions", "identifier", "exprMore", "function", "floatconstant", 
-		"synpred22_ulNoActions", "integerconstant"
+		"invalidRule", "atom", "synpred25_ulNoActions", "literal", "synpred21_ulNoActions", 
+		"compareExpr", "synpred5_ulNoActions", "synpred7_ulNoActions", "synpred10_ulNoActions", 
+		"synpred11_ulNoActions", "ifElseBlock", "varDecl", "semiColon", "characterconstant", 
+		"synpred6_ulNoActions", "idAssign", "synpred26_ulNoActions", "synpred29_ulNoActions", 
+		"block", "synpred19_ulNoActions", "program", "multExpr", "expr", "function", 
+		"compoundType", "arrayDecl", "synpred30_ulNoActions", "whileBlock", "synpred13_ulNoActions", 
+		"arrayAssign", "synpred14_ulNoActions", "lessExpr", "parenExpr", "type", 
+		"exprList", "exprMore", "stringconstant", "bool", "printlnStmt", "synpred16_ulNoActions", 
+		"synpred9_ulNoActions", "synpred31_ulNoActions", "synpred22_ulNoActions", 
+		"ifBlock", "functionCall", "returnStmt", "exprColon", "synpred18_ulNoActions", 
+		"synpred8_ulNoActions", "synpred23_ulNoActions", "plmiExpr", "synpred28_ulNoActions", 
+		"arrayRef", "floatconstant", "synpred20_ulNoActions", "integerconstant", 
+		"synpred4_ulNoActions", "moreFormals", "synpred1_ulNoActions", "functionDecl", 
+		"synpred2_ulNoActions", "identifier", "formalParameters", "statement", 
+		"functionBody", "synpred12_ulNoActions", "synpred27_ulNoActions", "synpred17_ulNoActions", 
+		"synpred3_ulNoActions", "printStmt", "synpred15_ulNoActions", "synpred24_ulNoActions"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
