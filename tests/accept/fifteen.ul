@@ -1,0 +1,19 @@
+void main()
+{
+	
+	float x;
+	float y;
+
+	x = 2793.14;
+
+	y = 0.145;
+
+	if(y < x){
+		y = x*y;
+		println y;
+	}else{
+		if(y < 1){
+			return;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+char foobar(char[5] c, int x)
+{
+	return c[x];
+}
+
+void main()
+{
+	char c;
+	char[5] c_;
+	int x;
+
+	x = 0;
+	c_[x] = 'A';
+	
+	println foobar(c_, x);
+}

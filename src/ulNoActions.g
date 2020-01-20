@@ -112,10 +112,10 @@ idAssign: identifier '=' expr ';'
 arrayAssign: identifier '[' expr']' '=' expr ';'
 	;
 
-ifBlock: IF'('expr')' block
+ifElseBlock: IF'('expr')' block ELSE block
 	;
 
-ifElseBlock: IF'('expr')' block ELSE block
+ifBlock: IF'('expr')' block
 	;
 
 block: '{' statement* '}'
@@ -143,10 +143,10 @@ atom: literal |
 	parenExpr
 	;
 
-functionCall: identifier'(' expr ')'
+functionCall: identifier'(' exprList ')'
 	;
 
-arrayRef: identifier'['exprList']' 
+arrayRef: identifier'['expr']' 
 	;
 
 parenExpr: '(' expr ')'
@@ -215,7 +215,7 @@ TYPE	: 'int' |
 ID	: ('a'..'z'|'A'..'Z'|'_')('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
 	;
 
-STRINGCONSTANT	: '\"'(('a'..'z')|('A'..'Z')|('0'..'9')|'!'|','|'.'|':'|'_'|'{'|'}'|' ')*'\"'
+STRINGCONSTANT	: '"'(('a'..'z')|('A'..'Z')|('0'..'9')|'!'|','|'.'|':'|'_'|'{'|'}'|' ')*'"'
 	;
 
 INTEGERCONSTANT	: ('0'..'9')+

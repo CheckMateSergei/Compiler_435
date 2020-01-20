@@ -1,4 +1,4 @@
-// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-17 20:16:46
+// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-18 12:36:58
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -58,22 +58,23 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "arrayDecl", "statement", "synpred29_ulNoActions", "block", 
-		"synpred30_ulNoActions", "printStmt", "moreFormals", "arrayAssign", "synpred5_ulNoActions", 
-		"plmiExpr", "synpred11_ulNoActions", "ifBlock", "atom", "functionBody", 
-		"semiColon", "exprList", "integerconstant", "varDecl", "synpred14_ulNoActions", 
-		"function", "synpred9_ulNoActions", "synpred15_ulNoActions", "synpred20_ulNoActions", 
-		"stringconstant", "functionCall", "synpred23_ulNoActions", "synpred21_ulNoActions", 
-		"synpred27_ulNoActions", "synpred31_ulNoActions", "synpred2_ulNoActions", 
-		"formalParameters", "functionDecl", "synpred3_ulNoActions", "bool", "synpred28_ulNoActions", 
-		"synpred26_ulNoActions", "expr", "synpred7_ulNoActions", "literal", "synpred17_ulNoActions", 
-		"ifElseBlock", "returnStmt", "lessExpr", "compoundType", "synpred13_ulNoActions", 
-		"synpred24_ulNoActions", "compareExpr", "synpred6_ulNoActions", "characterconstant", 
-		"synpred10_ulNoActions", "floatconstant", "type", "program", "synpred18_ulNoActions", 
-		"exprColon", "synpred19_ulNoActions", "synpred8_ulNoActions", "synpred25_ulNoActions", 
-		"identifier", "synpred12_ulNoActions", "synpred4_ulNoActions", "printlnStmt", 
-		"exprMore", "arrayRef", "multExpr", "idAssign", "whileBlock", "synpred22_ulNoActions", 
-		"parenExpr", "synpred1_ulNoActions", "synpred16_ulNoActions"
+		"invalidRule", "parenExpr", "synpred12_ulNoActions", "functionDecl", "bool", 
+		"synpred5_ulNoActions", "synpred25_ulNoActions", "expr", "literal", "lessExpr", 
+		"synpred31_ulNoActions", "synpred18_ulNoActions", "exprColon", "idAssign", 
+		"arrayDecl", "synpred9_ulNoActions", "synpred29_ulNoActions", "compareExpr", 
+		"semiColon", "functionCall", "synpred7_ulNoActions", "synpred10_ulNoActions", 
+		"atom", "synpred28_ulNoActions", "synpred17_ulNoActions", "synpred13_ulNoActions", 
+		"moreFormals", "synpred6_ulNoActions", "arrayAssign", "synpred30_ulNoActions", 
+		"formalParameters", "varDecl", "synpred14_ulNoActions", "returnStmt", 
+		"ifElseBlock", "whileBlock", "synpred23_ulNoActions", "synpred3_ulNoActions", 
+		"plmiExpr", "characterconstant", "synpred15_ulNoActions", "block", "synpred11_ulNoActions", 
+		"multExpr", "compoundType", "synpred4_ulNoActions", "synpred24_ulNoActions", 
+		"synpred1_ulNoActions", "stringconstant", "synpred19_ulNoActions", "type", 
+		"synpred8_ulNoActions", "exprList", "synpred26_ulNoActions", "synpred27_ulNoActions", 
+		"functionBody", "ifBlock", "synpred16_ulNoActions", "statement", "synpred21_ulNoActions", 
+		"synpred2_ulNoActions", "printlnStmt", "printStmt", "program", "arrayRef", 
+		"synpred20_ulNoActions", "identifier", "exprMore", "function", "floatconstant", 
+		"synpred22_ulNoActions", "integerconstant"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
@@ -1550,29 +1551,34 @@ public class ulNoActionsParser extends DebugParser {
 
 
 
-	// $ANTLR start "ifBlock"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:1: ifBlock : IF '(' expr ')' block ;
-	public final void ifBlock() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "ifBlock");
+	// $ANTLR start "ifElseBlock"
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:1: ifElseBlock : IF '(' expr ')' block ELSE block ;
+	public final void ifElseBlock() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "ifElseBlock");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
 		dbg.location(115, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:8: ( IF '(' expr ')' block )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:12: ( IF '(' expr ')' block ELSE block )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:10: IF '(' expr ')' block
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:14: IF '(' expr ')' block ELSE block
 			{
-			dbg.location(115,10);
-			match(input,IF,FOLLOW_IF_in_ifBlock352); if (state.failed) return;dbg.location(115,12);
-			match(input,19,FOLLOW_19_in_ifBlock353); if (state.failed) return;dbg.location(115,15);
-			pushFollow(FOLLOW_expr_in_ifBlock354);
+			dbg.location(115,14);
+			match(input,IF,FOLLOW_IF_in_ifElseBlock352); if (state.failed) return;dbg.location(115,16);
+			match(input,19,FOLLOW_19_in_ifElseBlock353); if (state.failed) return;dbg.location(115,19);
+			pushFollow(FOLLOW_expr_in_ifElseBlock354);
 			expr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(115,19);
-			match(input,20,FOLLOW_20_in_ifBlock355); if (state.failed) return;dbg.location(115,23);
-			pushFollow(FOLLOW_block_in_ifBlock357);
+			if (state.failed) return;dbg.location(115,23);
+			match(input,20,FOLLOW_20_in_ifElseBlock355); if (state.failed) return;dbg.location(115,27);
+			pushFollow(FOLLOW_block_in_ifElseBlock357);
+			block();
+			state._fsp--;
+			if (state.failed) return;dbg.location(115,33);
+			match(input,ELSE,FOLLOW_ELSE_in_ifElseBlock359); if (state.failed) return;dbg.location(115,38);
+			pushFollow(FOLLOW_block_in_ifElseBlock361);
 			block();
 			state._fsp--;
 			if (state.failed) return;
@@ -1592,44 +1598,39 @@ public class ulNoActionsParser extends DebugParser {
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "ifBlock");
+			dbg.exitRule(getGrammarFileName(), "ifElseBlock");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "ifBlock"
+	// $ANTLR end "ifElseBlock"
 
 
 
-	// $ANTLR start "ifElseBlock"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:118:1: ifElseBlock : IF '(' expr ')' block ELSE block ;
-	public final void ifElseBlock() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "ifElseBlock");
+	// $ANTLR start "ifBlock"
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:118:1: ifBlock : IF '(' expr ')' block ;
+	public final void ifBlock() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "ifBlock");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
 		dbg.location(118, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:118:12: ( IF '(' expr ')' block ELSE block )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:118:8: ( IF '(' expr ')' block )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:118:14: IF '(' expr ')' block ELSE block
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:118:10: IF '(' expr ')' block
 			{
-			dbg.location(118,14);
-			match(input,IF,FOLLOW_IF_in_ifElseBlock366); if (state.failed) return;dbg.location(118,16);
-			match(input,19,FOLLOW_19_in_ifElseBlock367); if (state.failed) return;dbg.location(118,19);
-			pushFollow(FOLLOW_expr_in_ifElseBlock368);
+			dbg.location(118,10);
+			match(input,IF,FOLLOW_IF_in_ifBlock370); if (state.failed) return;dbg.location(118,12);
+			match(input,19,FOLLOW_19_in_ifBlock371); if (state.failed) return;dbg.location(118,15);
+			pushFollow(FOLLOW_expr_in_ifBlock372);
 			expr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(118,23);
-			match(input,20,FOLLOW_20_in_ifElseBlock369); if (state.failed) return;dbg.location(118,27);
-			pushFollow(FOLLOW_block_in_ifElseBlock371);
-			block();
-			state._fsp--;
-			if (state.failed) return;dbg.location(118,33);
-			match(input,ELSE,FOLLOW_ELSE_in_ifElseBlock373); if (state.failed) return;dbg.location(118,38);
-			pushFollow(FOLLOW_block_in_ifElseBlock375);
+			if (state.failed) return;dbg.location(118,19);
+			match(input,20,FOLLOW_20_in_ifBlock373); if (state.failed) return;dbg.location(118,23);
+			pushFollow(FOLLOW_block_in_ifBlock375);
 			block();
 			state._fsp--;
 			if (state.failed) return;
@@ -1649,13 +1650,13 @@ public class ulNoActionsParser extends DebugParser {
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "ifElseBlock");
+			dbg.exitRule(getGrammarFileName(), "ifBlock");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "ifElseBlock"
+	// $ANTLR end "ifBlock"
 
 
 
@@ -2283,7 +2284,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "functionCall"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:146:1: functionCall : identifier '(' expr ')' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:146:1: functionCall : identifier '(' exprList ')' ;
 	public final void functionCall() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "functionCall");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
@@ -2291,10 +2292,10 @@ public class ulNoActionsParser extends DebugParser {
 		dbg.location(146, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:146:13: ( identifier '(' expr ')' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:146:13: ( identifier '(' exprList ')' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:146:15: identifier '(' expr ')'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:146:15: identifier '(' exprList ')'
 			{
 			dbg.location(146,15);
 			pushFollow(FOLLOW_identifier_in_functionCall505);
@@ -2302,10 +2303,10 @@ public class ulNoActionsParser extends DebugParser {
 			state._fsp--;
 			if (state.failed) return;dbg.location(146,25);
 			match(input,19,FOLLOW_19_in_functionCall506); if (state.failed) return;dbg.location(146,29);
-			pushFollow(FOLLOW_expr_in_functionCall508);
-			expr();
+			pushFollow(FOLLOW_exprList_in_functionCall508);
+			exprList();
 			state._fsp--;
-			if (state.failed) return;dbg.location(146,34);
+			if (state.failed) return;dbg.location(146,38);
 			match(input,20,FOLLOW_20_in_functionCall510); if (state.failed) return;
 			}
 
@@ -2334,7 +2335,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "arrayRef"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:149:1: arrayRef : identifier '[' exprList ']' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:149:1: arrayRef : identifier '[' expr ']' ;
 	public final void arrayRef() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "arrayRef");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
@@ -2342,10 +2343,10 @@ public class ulNoActionsParser extends DebugParser {
 		dbg.location(149, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:149:9: ( identifier '[' exprList ']' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:149:9: ( identifier '[' expr ']' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:149:11: identifier '[' exprList ']'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:149:11: identifier '[' expr ']'
 			{
 			dbg.location(149,11);
 			pushFollow(FOLLOW_identifier_in_arrayRef519);
@@ -2353,10 +2354,10 @@ public class ulNoActionsParser extends DebugParser {
 			state._fsp--;
 			if (state.failed) return;dbg.location(149,21);
 			match(input,29,FOLLOW_29_in_arrayRef520); if (state.failed) return;dbg.location(149,24);
-			pushFollow(FOLLOW_exprList_in_arrayRef521);
-			exprList();
+			pushFollow(FOLLOW_expr_in_arrayRef521);
+			expr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(149,32);
+			if (state.failed) return;dbg.location(149,28);
 			match(input,30,FOLLOW_30_in_arrayRef522); if (state.failed) return;
 			}
 
@@ -3138,18 +3139,18 @@ public class ulNoActionsParser extends DebugParser {
 	public static final BitSet FOLLOW_27_in_arrayAssign339 = new BitSet(new long[]{0x0000000000088B30L});
 	public static final BitSet FOLLOW_expr_in_arrayAssign341 = new BitSet(new long[]{0x0000000002000000L});
 	public static final BitSet FOLLOW_25_in_arrayAssign343 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifBlock352 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_ifBlock353 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_ifBlock354 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_ifBlock355 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_ifBlock357 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifElseBlock366 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_ifElseBlock367 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_ifElseBlock368 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_ifElseBlock369 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_ifElseBlock371 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ELSE_in_ifElseBlock373 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_ifElseBlock375 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifElseBlock352 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_ifElseBlock353 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_expr_in_ifElseBlock354 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_ifElseBlock355 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_ifElseBlock357 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ELSE_in_ifElseBlock359 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_ifElseBlock361 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifBlock370 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_ifBlock371 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_expr_in_ifBlock372 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_ifBlock373 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_ifBlock375 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_31_in_block384 = new BitSet(new long[]{0x00000001020AFF30L});
 	public static final BitSet FOLLOW_statement_in_block386 = new BitSet(new long[]{0x00000001020AFF30L});
 	public static final BitSet FOLLOW_32_in_block389 = new BitSet(new long[]{0x0000000000000002L});
@@ -3173,11 +3174,11 @@ public class ulNoActionsParser extends DebugParser {
 	public static final BitSet FOLLOW_parenExpr_in_atom496 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_identifier_in_functionCall505 = new BitSet(new long[]{0x0000000000080000L});
 	public static final BitSet FOLLOW_19_in_functionCall506 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_functionCall508 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_exprList_in_functionCall508 = new BitSet(new long[]{0x0000000000100000L});
 	public static final BitSet FOLLOW_20_in_functionCall510 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_identifier_in_arrayRef519 = new BitSet(new long[]{0x0000000020000000L});
 	public static final BitSet FOLLOW_29_in_arrayRef520 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_exprList_in_arrayRef521 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_expr_in_arrayRef521 = new BitSet(new long[]{0x0000000040000000L});
 	public static final BitSet FOLLOW_30_in_arrayRef522 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_19_in_parenExpr532 = new BitSet(new long[]{0x0000000000088B30L});
 	public static final BitSet FOLLOW_expr_in_parenExpr534 = new BitSet(new long[]{0x0000000000100000L});

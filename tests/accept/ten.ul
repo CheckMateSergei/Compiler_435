@@ -1,0 +1,21 @@
+string s_maker(int x, string s)
+{
+	if(0 < x){
+		x = x - 1;
+		println s;
+	}else{
+		return s;
+	}
+}
+
+void main()
+{
+	int x;
+	string s;
+	s = "Why hello there...";
+	x = 10;
+	println "How many times will the string print";
+
+	println s_maker(x, s);
+	
+}

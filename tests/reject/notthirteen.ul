@@ -1,0 +1,30 @@
+int arrayMax(int[3] arr)
+{
+
+	int temp;
+	int i;
+
+	temp = arr[0];
+	i = 0;
+
+	while(x < 3)
+	{
+		if(temp < arr[x]){
+			temp = arr[x];
+		}
+		x = x + 1;
+	}
+	
+	return temp;
+}
+
+void main()
+{
+	
+	int[3] arr;
+	arr[0] = 1;
+	arr[1] = 7;
+	arr[2] = 3;
+
+	pritln arrayMax(arr);
+}

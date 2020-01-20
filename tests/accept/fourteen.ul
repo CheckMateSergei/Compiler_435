@@ -1,0 +1,9 @@
+void main()
+{
+	string s;
+
+	s = "I am the main method bow before my might";
+
+	println s;
+
+}

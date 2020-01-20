@@ -1,4 +1,4 @@
-// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-17 20:16:47
+// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-18 12:36:58
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -665,11 +665,11 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = STRINGCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:16: ( '\\\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\\\"' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:18: '\\\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\\\"'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:16: ( '\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\"' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:18: '\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\"'
 			{
 			match('\"'); 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:22: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:21: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )*
 			loop4:
 			while (true) {
 				int alt4=2;

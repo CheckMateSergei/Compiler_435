@@ -1,0 +1,4 @@
+string notmain(int[2*2] x, char c)
+{
+	return "Howdy";
+}

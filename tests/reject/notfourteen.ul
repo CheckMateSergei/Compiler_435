@@ -1,0 +1,8 @@
+
+foo(){
+	string s;
+
+	s = "this should not work";
+
+	print s;
+}
