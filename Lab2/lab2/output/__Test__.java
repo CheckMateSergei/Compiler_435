@@ -6,10 +6,10 @@ import org.antlr.runtime.debug.DebugEventSocketProxy;
 public class __Test__ {
 
     public static void main(String args[]) throws Exception {
-        ulNoActionsLexer lex = new ulNoActionsLexer(new ANTLRFileStream("/home/braydon/Desktop/Spring2020/Compilers/tests/accept/eight.ul", "UTF8"));
+        simpleLexer lex = new simpleLexer(new ANTLRFileStream("/home/braydon/Desktop/Spring2020/Compilers/Lab2/lab2/input1.txt", "UTF8"));
         CommonTokenStream tokens = new CommonTokenStream(lex);
 
-        ulNoActionsParser g = new ulNoActionsParser(tokens, 49100, null);
+        simpleParser g = new simpleParser(tokens, 49100, null);
         try {
             g.program();
         } catch (RecognitionException e) {

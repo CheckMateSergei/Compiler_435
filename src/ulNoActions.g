@@ -8,6 +8,11 @@ options{
 backtrack=true;
 }
 
+@header
+{
+import packages.*;
+}
+
 				
 @members
 {
@@ -42,19 +47,44 @@ public Object recoverFromMismatchedSet (IntStream input,
  *  - change functionBody to include variable declarations and statements 
  */
 
-program : function+ EOF
+program returns [Program p]
+@init 
+{
+	p = new Program();
+}
+@after
+{
+}
+	:
+	// adds any newly created functions to the programs
+	// function vector array
+	( f = function { p.addFunction(f); } )+ EOF
 	;
 
-function: functionDecl functionBody
+function returns [Function f]
+	// creates a new function with a matched function decl and body
+	: fd = functionDecl fb = functionBody { f = new Function(fd, fb); }
 	;
 
-functionDecl: compoundType identifier '(' formalParameters? ')'
+functionDecl returns [FunctionDecl fd]
+	// creates the new function decl object
+	: ct = compoundType id = identifier { fd = new FunctionDecl(ct, id); }
+	// adds the new formal parameter to the vector for fd
+	'(' ( fp = formalParameters )? ')' { fd.addFormal(fp); }
 	;
 
-formalParameters: compoundType identifier moreFormals*
+formalParameters returns [FormalParam fp]
+	// creates a new formal parameter and passes it up to its function
+	: ct = compoundType id = identifier { fp = new FormalParam(ct, id); }
+	// matches to add more to the parameter list if applicable
+	  ( mf = moreFormals )*	
 	;
 
-moreFormals: ',' compoundType identifier
+moreFormals returns [FormalParam mf]
+	: ',' ct = compoundType id = identifier
+	// if comma is matched create another formal param and pass up 
+	// to the formal parameter rule to add to the functions parameter list
+	{ mf = new FormalParam(ct, id); }
 	;
 
 functionBody: '{' varDecl*  statement* '}'
