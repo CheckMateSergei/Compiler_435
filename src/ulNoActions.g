@@ -52,9 +52,6 @@ program returns [Program p]
 {
 	p = new Program();
 }
-@after
-{
-}
 	:
 	// adds any newly created functions to the programs
 	// function vector array
@@ -70,14 +67,14 @@ functionDecl returns [FunctionDecl fd]
 	// creates the new function decl object
 	: ct = compoundType id = identifier { fd = new FunctionDecl(ct, id); }
 	// adds the new formal parameter to the vector for fd
-	'(' ( fp = formalParameters )? ')' { fd.addFormal(fp); }
+	'(' ( fp = formalParameters { fd.addFormal(fp); } )? ')'	
 	;
 
 formalParameters returns [FormalParam fp]
 	// creates a new formal parameter and passes it up to its function
 	: ct = compoundType id = identifier { fp = new FormalParam(ct, id); }
 	// matches to add more to the parameter list if applicable
-	  ( mf = moreFormals )*	
+	  ( mf = moreFormals { fp = mf; })*	
 	;
 
 moreFormals returns [FormalParam mf]
@@ -94,9 +91,6 @@ functionBody returns [FunctionBod fb]
 	// statements and variable declarations
 	fb = new FunctionBod();
 }
-@after
-{
-}	// add the variable declarations and statements to
 	// the appropriate vectors in the new function body object
 	: '{' ( vd = varDecl { fb.addVarDecl(vd); })*  
 	      ( s = statement { fb.addStatement(s); })* '}'
@@ -110,9 +104,9 @@ varDecl returns [VarDecl vd]
 // returns a regular type for a declaration or an array type declaration
 compoundType returns [CompType ct]
 	// if it is just a normal type create a comp type object
-	: t = TYPE { ct = new CompType(t.getText()); }
+	:  ad = arrayDecl { ct = ad; }
 	// if it is an array decl
-	| ad = arrayDecl { ct = ad; }
+	| t = TYPE { ct = new CompType(t.getText()); }
 	;
 
 // passes an array declaration back up to compoundType to pass to varDecl
@@ -132,8 +126,8 @@ identifier returns [Identifier i]
 statement returns [Statement s]
 	: st = semiColon { s = st;  }
 	| ec = exprColon { s = ec;  }
-	| idas = idAssign { s = idas; }
 	| aas = arrayAssign { s = aas; }
+	| idas = idAssign { s = idas; }
 	| ie = ifElseBlock { s = ie; }
 	| is = ifBlock { s = is; }
 	| wh = whileBlock { s = wh; }
@@ -179,15 +173,16 @@ exprColon returns [ExColonStmt ec]
 	: e = expr ';' { ec = new ExColonStmt(e); }
 	;
 
+// assignment of an array cell to an expression
+arrayAssign returns [ArrayAssignStmt aas]
+	// creates a new array assignment 
+	: id = identifier '[' e1 = expr ']' '=' e2 = expr ';'
+	  { aas = new ArrayAssignStmt(id, e1, e2); }
+	;
+
 // id assignment statement
 idAssign returns [IdAssignStmt idas]
 	: id = identifier '=' e = expr ';' { idas = new IdAssignStmt(id, e); }
-	;
-
-// assignment of an array cell to an expression
-arrayAssign returns [ArrayAssignStmt aas]
-	: id = identifier '[' e1 = expr']' '=' e2 = expr ';'
-	  { aas = new ArrayAssignStmt(id, e1, e2); }
 	;
 
 // if else statement, must go before if statement
@@ -253,11 +248,11 @@ exprMore: ',' expr
 	
 // return a matched literal object
 literal returns [Literal l]
-	: sl = stringconstant { l = sl;}
-	| il = integerconstant { l = il; }
-	| cl = characterconstant { l = cl; }
+	: il = integerconstant { l = il; }
 	| fl = floatconstant { l = fl; }
 	| bl = bool { l = bl; }
+	| sl = stringconstant { l = sl;}
+	| cl = characterconstant { l = cl; }
 	;
 
 // returns a string literal
@@ -316,7 +311,7 @@ BOOL	: 'true'
 
 TYPE	: 'int' 
 	  | 'float' 
-	  | 'string' 
+	  | 'String' 
 	  | 'char' 
 	  | 'boolean' 
 	  | 'void'
@@ -325,7 +320,7 @@ TYPE	: 'int'
 ID	: ('a'..'z'|'A'..'Z'|'_')('0'..'9'|'a'..'z'|'A'..'Z'|'_')*
 	;
 
-STRINGCONSTANT	: '"'(('a'..'z')|('A'..'Z')|('0'..'9')|'!'|','|'.'|':'|'_'|'{'|'}'|' ')*'"'
+STRINGCONSTANT	: '\"'(('a'..'z')|('A'..'Z')|('0'..'9')|'!'|','|'.'|':'|'_'|'{'|'}'|' ')*'\"'
 	;
 
 INTEGERCONSTANT	: ('0'..'9')+

@@ -1,11 +1,14 @@
 int foo(int[4] i)
 {
+	String s;
+	int x;
+	float y;
+	char c;
+	boolean b;
+	s = "Braydon";
+	x = 69;
+	y = 69.69;
+	c = 'B';
+	b = "false";
 
-
-String s;
-			int x;
-		x = 69;
-s="i am a compiler";
-
-	println 'p';	
 }

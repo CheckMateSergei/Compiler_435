@@ -7,10 +7,10 @@ NC='\33[0m'
 export CLASSPATH="$CLASSPATH:./build"
 
 export CLASSPATH="$CLASSPATH:./antlr-3.5.2-complete.jar"
-make
+#make
 
 if [ "$1" ]; then
-	java Compiler $1 2>&1;
+	java Compiler $1;
 	exit;
 fi
 

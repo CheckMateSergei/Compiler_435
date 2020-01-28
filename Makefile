@@ -11,7 +11,5 @@ compiler:
 	javac ./src/*.java ./src/packages/*.java -d ./build 
 
 clean:
-	rm ./build/*.class ./src/$(GNAME)Lexer.java ./src/$(GNAME)Parser.java ./src/$(GNAME).tokens
+	rm ./build/*/* ./build/* -r
 
-
- 

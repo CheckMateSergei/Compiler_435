@@ -1,4 +1,4 @@
-// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-28 02:23:05
+// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-28 05:06:54
 
 import packages.*;
 
@@ -61,23 +61,23 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "semiColon", "synpred12_ulNoActions", "synpred13_ulNoActions", 
-		"atom", "whileBlock", "synpred10_ulNoActions", "synpred9_ulNoActions", 
-		"arrayAssign", "functionBody", "exprColon", "synpred16_ulNoActions", "varDecl", 
-		"bool", "synpred14_ulNoActions", "synpred31_ulNoActions", "stringconstant", 
-		"literal", "integerconstant", "multExpr", "arrayRef", "synpred18_ulNoActions", 
-		"function", "lessExpr", "moreFormals", "synpred3_ulNoActions", "printStmt", 
-		"synpred29_ulNoActions", "parenExpr", "synpred24_ulNoActions", "synpred26_ulNoActions", 
-		"plmiExpr", "synpred20_ulNoActions", "synpred28_ulNoActions", "compoundType", 
-		"synpred30_ulNoActions", "formalParameters", "synpred21_ulNoActions", 
-		"block", "synpred4_ulNoActions", "synpred5_ulNoActions", "idAssign", "printlnStmt", 
-		"synpred15_ulNoActions", "synpred6_ulNoActions", "expr", "synpred23_ulNoActions", 
-		"program", "returnStmt", "exprList", "synpred8_ulNoActions", "identifier", 
-		"floatconstant", "synpred17_ulNoActions", "functionDecl", "synpred25_ulNoActions", 
-		"arrayDecl", "compareExpr", "synpred19_ulNoActions", "exprMore", "ifBlock", 
-		"synpred27_ulNoActions", "synpred1_ulNoActions", "synpred11_ulNoActions", 
-		"statement", "ifElseBlock", "functionCall", "synpred2_ulNoActions", "characterconstant", 
-		"synpred22_ulNoActions", "synpred7_ulNoActions"
+		"invalidRule", "varDecl", "block", "synpred10_ulNoActions", "synpred28_ulNoActions", 
+		"floatconstant", "function", "synpred22_ulNoActions", "synpred19_ulNoActions", 
+		"literal", "functionCall", "synpred1_ulNoActions", "moreFormals", "arrayRef", 
+		"synpred11_ulNoActions", "printStmt", "synpred15_ulNoActions", "atom", 
+		"returnStmt", "semiColon", "synpred21_ulNoActions", "synpred26_ulNoActions", 
+		"synpred25_ulNoActions", "formalParameters", "synpred24_ulNoActions", 
+		"compoundType", "whileBlock", "synpred5_ulNoActions", "synpred8_ulNoActions", 
+		"synpred30_ulNoActions", "synpred4_ulNoActions", "synpred14_ulNoActions", 
+		"arrayDecl", "multExpr", "synpred18_ulNoActions", "characterconstant", 
+		"synpred27_ulNoActions", "bool", "synpred12_ulNoActions", "arrayAssign", 
+		"synpred6_ulNoActions", "synpred23_ulNoActions", "synpred31_ulNoActions", 
+		"stringconstant", "exprList", "synpred2_ulNoActions", "statement", "compareExpr", 
+		"ifBlock", "plmiExpr", "exprMore", "functionDecl", "printlnStmt", "idAssign", 
+		"synpred7_ulNoActions", "synpred9_ulNoActions", "synpred13_ulNoActions", 
+		"parenExpr", "ifElseBlock", "expr", "functionBody", "synpred17_ulNoActions", 
+		"program", "integerconstant", "synpred3_ulNoActions", "lessExpr", "synpred16_ulNoActions", 
+		"synpred29_ulNoActions", "identifier", "exprColon", "synpred20_ulNoActions"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
@@ -343,15 +343,15 @@ public class ulNoActionsParser extends DebugParser {
 					pushFollow(FOLLOW_formalParameters_in_functionDecl153);
 					fp=formalParameters();
 					state._fsp--;
-					if (state.failed) return fd;
+					if (state.failed) return fd;dbg.location(73,30);
+					if ( state.backtracking==0 ) { fd.addFormal(fp); }
 					}
 					break;
 
 			}
 			} finally {dbg.exitSubRule(2);}
-			dbg.location(73,33);
-			match(input,20,FOLLOW_20_in_functionDecl158); if (state.failed) return fd;dbg.location(73,37);
-			if ( state.backtracking==0 ) { fd.addFormal(fp); }
+			dbg.location(73,55);
+			match(input,20,FOLLOW_20_in_functionDecl160); if (state.failed) return fd;
 			}
 
 		}
@@ -401,11 +401,11 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:78:4: ct= compoundType id= identifier (mf= moreFormals )*
 			{
 			dbg.location(78,7);
-			pushFollow(FOLLOW_compoundType_in_formalParameters181);
+			pushFollow(FOLLOW_compoundType_in_formalParameters182);
 			ct=compoundType();
 			state._fsp--;
 			if (state.failed) return fp;dbg.location(78,25);
-			pushFollow(FOLLOW_identifier_in_formalParameters187);
+			pushFollow(FOLLOW_identifier_in_formalParameters188);
 			id=identifier();
 			state._fsp--;
 			if (state.failed) return fp;dbg.location(78,38);
@@ -432,10 +432,11 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:80:6: mf= moreFormals
 					{
 					dbg.location(80,9);
-					pushFollow(FOLLOW_moreFormals_in_formalParameters202);
+					pushFollow(FOLLOW_moreFormals_in_formalParameters203);
 					mf=moreFormals();
 					state._fsp--;
-					if (state.failed) return fp;
+					if (state.failed) return fp;dbg.location(80,23);
+					if ( state.backtracking==0 ) { fp = mf; }
 					}
 					break;
 
@@ -493,12 +494,12 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:84:4: ',' ct= compoundType id= identifier
 			{
 			dbg.location(84,4);
-			match(input,23,FOLLOW_23_in_moreFormals221); if (state.failed) return mf;dbg.location(84,11);
-			pushFollow(FOLLOW_compoundType_in_moreFormals227);
+			match(input,23,FOLLOW_23_in_moreFormals223); if (state.failed) return mf;dbg.location(84,11);
+			pushFollow(FOLLOW_compoundType_in_moreFormals229);
 			ct=compoundType();
 			state._fsp--;
 			if (state.failed) return mf;dbg.location(84,29);
-			pushFollow(FOLLOW_identifier_in_moreFormals233);
+			pushFollow(FOLLOW_identifier_in_moreFormals235);
 			id=identifier();
 			state._fsp--;
 			if (state.failed) return mf;dbg.location(87,2);
@@ -556,7 +557,7 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:101:4: '{' (vd= varDecl )* (s= statement )* '}'
 			{
 			dbg.location(101,4);
-			match(input,31,FOLLOW_31_in_functionBody268); if (state.failed) return fb;dbg.location(101,8);
+			match(input,31,FOLLOW_31_in_functionBody270); if (state.failed) return fb;dbg.location(101,8);
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:101:8: (vd= varDecl )*
 			try { dbg.enterSubRule(4);
 
@@ -579,7 +580,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:101:10: vd= varDecl
 					{
 					dbg.location(101,13);
-					pushFollow(FOLLOW_varDecl_in_functionBody276);
+					pushFollow(FOLLOW_varDecl_in_functionBody278);
 					vd=varDecl();
 					state._fsp--;
 					if (state.failed) return fb;dbg.location(101,23);
@@ -615,7 +616,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:102:10: s= statement
 					{
 					dbg.location(102,12);
-					pushFollow(FOLLOW_statement_in_functionBody297);
+					pushFollow(FOLLOW_statement_in_functionBody299);
 					s=statement();
 					state._fsp--;
 					if (state.failed) return fb;dbg.location(102,24);
@@ -629,7 +630,7 @@ public class ulNoActionsParser extends DebugParser {
 			}
 			} finally {dbg.exitSubRule(5);}
 			dbg.location(102,50);
-			match(input,32,FOLLOW_32_in_functionBody303); if (state.failed) return fb;
+			match(input,32,FOLLOW_32_in_functionBody305); if (state.failed) return fb;
 			}
 
 			if ( state.backtracking==0 ) {
@@ -680,15 +681,15 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:107:4: ct= compoundType id= identifier ';'
 			{
 			dbg.location(107,7);
-			pushFollow(FOLLOW_compoundType_in_varDecl324);
+			pushFollow(FOLLOW_compoundType_in_varDecl326);
 			ct=compoundType();
 			state._fsp--;
 			if (state.failed) return vd;dbg.location(107,25);
-			pushFollow(FOLLOW_identifier_in_varDecl330);
+			pushFollow(FOLLOW_identifier_in_varDecl332);
 			id=identifier();
 			state._fsp--;
 			if (state.failed) return vd;dbg.location(107,38);
-			match(input,25,FOLLOW_25_in_varDecl332); if (state.failed) return vd;dbg.location(107,42);
+			match(input,25,FOLLOW_25_in_varDecl334); if (state.failed) return vd;dbg.location(107,42);
 			if ( state.backtracking==0 ) { vd = new VarDecl(ct, id); }
 			}
 
@@ -718,7 +719,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "compoundType"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:111:1: compoundType returns [CompType ct] : (t= TYPE |ad= arrayDecl );
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:111:1: compoundType returns [CompType ct] : (ad= arrayDecl |t= TYPE );
 	public final CompType compoundType() throws RecognitionException {
 		CompType ct = null;
 
@@ -732,7 +733,7 @@ public class ulNoActionsParser extends DebugParser {
 		dbg.location(111, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:113:2: (t= TYPE |ad= arrayDecl )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:113:2: (ad= arrayDecl |t= TYPE )
 			int alt6=2;
 			try { dbg.enterDecision(6, decisionCanBacktrack[6]);
 
@@ -740,10 +741,10 @@ public class ulNoActionsParser extends DebugParser {
 			if ( (LA6_0==TYPE) ) {
 				int LA6_1 = input.LA(2);
 				if ( (LA6_1==29) ) {
-					alt6=2;
+					alt6=1;
 				}
 				else if ( (LA6_1==ID) ) {
-					alt6=1;
+					alt6=2;
 				}
 
 				else {
@@ -776,24 +777,24 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:113:4: t= TYPE
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:113:5: ad= arrayDecl
 					{
-					dbg.location(113,6);
-					t=(Token)match(input,TYPE,FOLLOW_TYPE_in_compoundType356); if (state.failed) return ct;dbg.location(113,13);
-					if ( state.backtracking==0 ) { ct = new CompType(t.getText()); }
+					dbg.location(113,8);
+					pushFollow(FOLLOW_arrayDecl_in_compoundType359);
+					ad=arrayDecl();
+					state._fsp--;
+					if (state.failed) return ct;dbg.location(113,20);
+					if ( state.backtracking==0 ) { ct = ad; }
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:4: ad= arrayDecl
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:115:4: t= TYPE
 					{
-					dbg.location(115,7);
-					pushFollow(FOLLOW_arrayDecl_in_compoundType369);
-					ad=arrayDecl();
-					state._fsp--;
-					if (state.failed) return ct;dbg.location(115,19);
-					if ( state.backtracking==0 ) { ct = ad; }
+					dbg.location(115,6);
+					t=(Token)match(input,TYPE,FOLLOW_TYPE_in_compoundType372); if (state.failed) return ct;dbg.location(115,13);
+					if ( state.backtracking==0 ) { ct = new CompType(t.getText()); }
 					}
 					break;
 
@@ -844,13 +845,13 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:120:4: t= TYPE '[' il= integerconstant ']'
 			{
 			dbg.location(120,6);
-			t=(Token)match(input,TYPE,FOLLOW_TYPE_in_arrayDecl391); if (state.failed) return ad;dbg.location(120,13);
-			match(input,29,FOLLOW_29_in_arrayDecl393); if (state.failed) return ad;dbg.location(120,19);
-			pushFollow(FOLLOW_integerconstant_in_arrayDecl398);
+			t=(Token)match(input,TYPE,FOLLOW_TYPE_in_arrayDecl394); if (state.failed) return ad;dbg.location(120,13);
+			match(input,29,FOLLOW_29_in_arrayDecl396); if (state.failed) return ad;dbg.location(120,19);
+			pushFollow(FOLLOW_integerconstant_in_arrayDecl401);
 			il=integerconstant();
 			state._fsp--;
 			if (state.failed) return ad;dbg.location(120,36);
-			match(input,30,FOLLOW_30_in_arrayDecl399); if (state.failed) return ad;dbg.location(122,2);
+			match(input,30,FOLLOW_30_in_arrayDecl402); if (state.failed) return ad;dbg.location(122,2);
 			if ( state.backtracking==0 ) { ad = new ArrayDecl(t.getText(), il.getValue()); }
 			}
 
@@ -899,7 +900,7 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:127:4: id= ID
 			{
 			dbg.location(127,7);
-			id=(Token)match(input,ID,FOLLOW_ID_in_identifier424); if (state.failed) return i;dbg.location(127,12);
+			id=(Token)match(input,ID,FOLLOW_ID_in_identifier427); if (state.failed) return i;dbg.location(127,12);
 			if ( state.backtracking==0 ) { i = new Identifier(id.getText()); }
 			}
 
@@ -929,15 +930,15 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "statement"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:132:1: statement returns [Statement s] : (st= semiColon |ec= exprColon |idas= idAssign |aas= arrayAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |p= printStmt |ret= returnStmt );
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:132:1: statement returns [Statement s] : (st= semiColon |ec= exprColon |aas= arrayAssign |idas= idAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |p= printStmt |ret= returnStmt );
 	public final Statement statement() throws RecognitionException {
 		Statement s = null;
 
 
 		SemiStatement st =null;
 		ExColonStmt ec =null;
-		IdAssignStmt idas =null;
 		ArrayAssignStmt aas =null;
+		IdAssignStmt idas =null;
 		IfElseStmt ie =null;
 		IfStmt is =null;
 		WhileStmt wh =null;
@@ -951,7 +952,7 @@ public class ulNoActionsParser extends DebugParser {
 		dbg.location(132, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:133:2: (st= semiColon |ec= exprColon |idas= idAssign |aas= arrayAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |p= printStmt |ret= returnStmt )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:133:2: (st= semiColon |ec= exprColon |aas= arrayAssign |idas= idAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |p= printStmt |ret= returnStmt )
 			int alt7=10;
 			try { dbg.enterDecision(7, decisionCanBacktrack[7]);
 
@@ -1058,7 +1059,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:133:4: st= semiColon
 					{
 					dbg.location(133,7);
-					pushFollow(FOLLOW_semiColon_in_statement447);
+					pushFollow(FOLLOW_semiColon_in_statement450);
 					st=semiColon();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(133,19);
@@ -1071,7 +1072,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:134:4: ec= exprColon
 					{
 					dbg.location(134,7);
-					pushFollow(FOLLOW_exprColon_in_statement458);
+					pushFollow(FOLLOW_exprColon_in_statement461);
 					ec=exprColon();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(134,19);
@@ -1081,27 +1082,27 @@ public class ulNoActionsParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:135:4: idas= idAssign
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:135:4: aas= arrayAssign
 					{
-					dbg.location(135,9);
-					pushFollow(FOLLOW_idAssign_in_statement469);
-					idas=idAssign();
+					dbg.location(135,8);
+					pushFollow(FOLLOW_arrayAssign_in_statement472);
+					aas=arrayAssign();
 					state._fsp--;
-					if (state.failed) return s;dbg.location(135,20);
-					if ( state.backtracking==0 ) { s = idas; }
+					if (state.failed) return s;dbg.location(135,22);
+					if ( state.backtracking==0 ) { s = aas; }
 					}
 					break;
 				case 4 :
 					dbg.enterAlt(4);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:136:4: aas= arrayAssign
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:136:4: idas= idAssign
 					{
-					dbg.location(136,8);
-					pushFollow(FOLLOW_arrayAssign_in_statement480);
-					aas=arrayAssign();
+					dbg.location(136,9);
+					pushFollow(FOLLOW_idAssign_in_statement483);
+					idas=idAssign();
 					state._fsp--;
-					if (state.failed) return s;dbg.location(136,22);
-					if ( state.backtracking==0 ) { s = aas; }
+					if (state.failed) return s;dbg.location(136,20);
+					if ( state.backtracking==0 ) { s = idas; }
 					}
 					break;
 				case 5 :
@@ -1110,7 +1111,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:137:4: ie= ifElseBlock
 					{
 					dbg.location(137,7);
-					pushFollow(FOLLOW_ifElseBlock_in_statement491);
+					pushFollow(FOLLOW_ifElseBlock_in_statement494);
 					ie=ifElseBlock();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(137,21);
@@ -1123,7 +1124,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:138:4: is= ifBlock
 					{
 					dbg.location(138,7);
-					pushFollow(FOLLOW_ifBlock_in_statement502);
+					pushFollow(FOLLOW_ifBlock_in_statement505);
 					is=ifBlock();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(138,17);
@@ -1136,7 +1137,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:139:4: wh= whileBlock
 					{
 					dbg.location(139,7);
-					pushFollow(FOLLOW_whileBlock_in_statement513);
+					pushFollow(FOLLOW_whileBlock_in_statement516);
 					wh=whileBlock();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(139,20);
@@ -1149,7 +1150,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:140:4: pl= printlnStmt
 					{
 					dbg.location(140,7);
-					pushFollow(FOLLOW_printlnStmt_in_statement524);
+					pushFollow(FOLLOW_printlnStmt_in_statement527);
 					pl=printlnStmt();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(140,21);
@@ -1162,7 +1163,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:141:4: p= printStmt
 					{
 					dbg.location(141,6);
-					pushFollow(FOLLOW_printStmt_in_statement535);
+					pushFollow(FOLLOW_printStmt_in_statement538);
 					p=printStmt();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(141,18);
@@ -1175,7 +1176,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:142:4: ret= returnStmt
 					{
 					dbg.location(142,8);
-					pushFollow(FOLLOW_returnStmt_in_statement546);
+					pushFollow(FOLLOW_returnStmt_in_statement549);
 					ret=returnStmt();
 					state._fsp--;
 					if (state.failed) return s;dbg.location(142,21);
@@ -1230,14 +1231,14 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:147:4: WHILE '(' e= expr ')' b= block
 			{
 			dbg.location(147,4);
-			match(input,WHILE,FOLLOW_WHILE_in_whileBlock564); if (state.failed) return wh;dbg.location(147,9);
-			match(input,19,FOLLOW_19_in_whileBlock565); if (state.failed) return wh;dbg.location(147,15);
-			pushFollow(FOLLOW_expr_in_whileBlock571);
+			match(input,WHILE,FOLLOW_WHILE_in_whileBlock567); if (state.failed) return wh;dbg.location(147,9);
+			match(input,19,FOLLOW_19_in_whileBlock568); if (state.failed) return wh;dbg.location(147,15);
+			pushFollow(FOLLOW_expr_in_whileBlock574);
 			e=expr();
 			state._fsp--;
 			if (state.failed) return wh;dbg.location(147,21);
-			match(input,20,FOLLOW_20_in_whileBlock572); if (state.failed) return wh;dbg.location(147,27);
-			pushFollow(FOLLOW_block_in_whileBlock578);
+			match(input,20,FOLLOW_20_in_whileBlock575); if (state.failed) return wh;dbg.location(147,27);
+			pushFollow(FOLLOW_block_in_whileBlock581);
 			b=block();
 			state._fsp--;
 			if (state.failed) return wh;dbg.location(147,35);
@@ -1289,12 +1290,12 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:152:4: PRINTLN e= expr ';'
 			{
 			dbg.location(152,4);
-			match(input,PRINTLN,FOLLOW_PRINTLN_in_printlnStmt596); if (state.failed) return pl;dbg.location(152,14);
-			pushFollow(FOLLOW_expr_in_printlnStmt602);
+			match(input,PRINTLN,FOLLOW_PRINTLN_in_printlnStmt599); if (state.failed) return pl;dbg.location(152,14);
+			pushFollow(FOLLOW_expr_in_printlnStmt605);
 			e=expr();
 			state._fsp--;
 			if (state.failed) return pl;dbg.location(152,21);
-			match(input,25,FOLLOW_25_in_printlnStmt604); if (state.failed) return pl;dbg.location(152,25);
+			match(input,25,FOLLOW_25_in_printlnStmt607); if (state.failed) return pl;dbg.location(152,25);
 			if ( state.backtracking==0 ) { pl = new PrintlnStmt(e); }
 			}
 
@@ -1343,12 +1344,12 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:157:4: PRINT e= expr ';'
 			{
 			dbg.location(157,4);
-			match(input,PRINT,FOLLOW_PRINT_in_printStmt622); if (state.failed) return p;dbg.location(157,12);
-			pushFollow(FOLLOW_expr_in_printStmt628);
+			match(input,PRINT,FOLLOW_PRINT_in_printStmt625); if (state.failed) return p;dbg.location(157,12);
+			pushFollow(FOLLOW_expr_in_printStmt631);
 			e=expr();
 			state._fsp--;
 			if (state.failed) return p;dbg.location(157,19);
-			match(input,25,FOLLOW_25_in_printStmt630); if (state.failed) return p;dbg.location(157,23);
+			match(input,25,FOLLOW_25_in_printStmt633); if (state.failed) return p;dbg.location(157,23);
 			if ( state.backtracking==0 ) { p = new PrintStmt(e); }
 			}
 
@@ -1401,7 +1402,7 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:169:4: RETURN (e= expr )? ';'
 			{
 			dbg.location(169,4);
-			match(input,RETURN,FOLLOW_RETURN_in_returnStmt659); if (state.failed) return ret;dbg.location(169,11);
+			match(input,RETURN,FOLLOW_RETURN_in_returnStmt662); if (state.failed) return ret;dbg.location(169,11);
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:169:11: (e= expr )?
 			int alt8=2;
 			try { dbg.enterSubRule(8);
@@ -1420,7 +1421,7 @@ public class ulNoActionsParser extends DebugParser {
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:169:12: e= expr
 					{
 					dbg.location(169,14);
-					pushFollow(FOLLOW_expr_in_returnStmt666);
+					pushFollow(FOLLOW_expr_in_returnStmt669);
 					e=expr();
 					state._fsp--;
 					if (state.failed) return ret;dbg.location(169,21);
@@ -1431,7 +1432,7 @@ public class ulNoActionsParser extends DebugParser {
 			}
 			} finally {dbg.exitSubRule(8);}
 			dbg.location(169,43);
-			match(input,25,FOLLOW_25_in_returnStmt672); if (state.failed) return ret;
+			match(input,25,FOLLOW_25_in_returnStmt675); if (state.failed) return ret;
 			}
 
 			if ( state.backtracking==0 ) {}
@@ -1478,7 +1479,7 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:174:4: ';'
 			{
 			dbg.location(174,4);
-			match(input,25,FOLLOW_25_in_semiColon688); if (state.failed) return st;dbg.location(174,8);
+			match(input,25,FOLLOW_25_in_semiColon691); if (state.failed) return st;dbg.location(174,8);
 			if ( state.backtracking==0 ) { st = new SemiStatement(); }
 			}
 
@@ -1527,11 +1528,11 @@ public class ulNoActionsParser extends DebugParser {
 			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:179:4: e= expr ';'
 			{
 			dbg.location(179,6);
-			pushFollow(FOLLOW_expr_in_exprColon710);
+			pushFollow(FOLLOW_expr_in_exprColon713);
 			e=expr();
 			state._fsp--;
 			if (state.failed) return ec;dbg.location(179,13);
-			match(input,25,FOLLOW_25_in_exprColon712); if (state.failed) return ec;dbg.location(179,17);
+			match(input,25,FOLLOW_25_in_exprColon715); if (state.failed) return ec;dbg.location(179,17);
 			if ( state.backtracking==0 ) { ec = new ExColonStmt(e); }
 			}
 
@@ -1560,67 +1561,8 @@ public class ulNoActionsParser extends DebugParser {
 
 
 
-	// $ANTLR start "idAssign"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:183:1: idAssign returns [IdAssignStmt idas] : id= identifier '=' e= expr ';' ;
-	public final IdAssignStmt idAssign() throws RecognitionException {
-		IdAssignStmt idas = null;
-
-
-		Identifier id =null;
-		Expression e =null;
-
-		try { dbg.enterRule(getGrammarFileName(), "idAssign");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(183, 0);
-
-		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:184:2: (id= identifier '=' e= expr ';' )
-			dbg.enterAlt(1);
-
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:184:4: id= identifier '=' e= expr ';'
-			{
-			dbg.location(184,7);
-			pushFollow(FOLLOW_identifier_in_idAssign734);
-			id=identifier();
-			state._fsp--;
-			if (state.failed) return idas;dbg.location(184,20);
-			match(input,27,FOLLOW_27_in_idAssign736); if (state.failed) return idas;dbg.location(184,26);
-			pushFollow(FOLLOW_expr_in_idAssign742);
-			e=expr();
-			state._fsp--;
-			if (state.failed) return idas;dbg.location(184,33);
-			match(input,25,FOLLOW_25_in_idAssign744); if (state.failed) return idas;dbg.location(184,37);
-			if ( state.backtracking==0 ) { idas = new IdAssignStmt(id, e); }
-			}
-
-		}
-
-		        catch (RecognitionException ex) {
-		                reportError(ex);
-		                throw ex;
-		        }
-
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(185, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "idAssign");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-		return idas;
-	}
-	// $ANTLR end "idAssign"
-
-
-
 	// $ANTLR start "arrayAssign"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:188:1: arrayAssign returns [ArrayAssignStmt aas] : id= identifier '[' e1= expr ']' '=' e2= expr ';' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:183:1: arrayAssign returns [ArrayAssignStmt aas] : id= identifier '[' e1= expr ']' '=' e2= expr ';' ;
 	public final ArrayAssignStmt arrayAssign() throws RecognitionException {
 		ArrayAssignStmt aas = null;
 
@@ -1632,31 +1574,31 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "arrayAssign");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(188, 0);
+		dbg.location(183, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:189:2: (id= identifier '[' e1= expr ']' '=' e2= expr ';' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:185:2: (id= identifier '[' e1= expr ']' '=' e2= expr ';' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:189:4: id= identifier '[' e1= expr ']' '=' e2= expr ';'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:185:4: id= identifier '[' e1= expr ']' '=' e2= expr ';'
 			{
-			dbg.location(189,7);
-			pushFollow(FOLLOW_identifier_in_arrayAssign766);
+			dbg.location(185,7);
+			pushFollow(FOLLOW_identifier_in_arrayAssign739);
 			id=identifier();
 			state._fsp--;
-			if (state.failed) return aas;dbg.location(189,20);
-			match(input,29,FOLLOW_29_in_arrayAssign768); if (state.failed) return aas;dbg.location(189,27);
-			pushFollow(FOLLOW_expr_in_arrayAssign774);
+			if (state.failed) return aas;dbg.location(185,20);
+			match(input,29,FOLLOW_29_in_arrayAssign741); if (state.failed) return aas;dbg.location(185,27);
+			pushFollow(FOLLOW_expr_in_arrayAssign747);
 			e1=expr();
 			state._fsp--;
-			if (state.failed) return aas;dbg.location(189,33);
-			match(input,30,FOLLOW_30_in_arrayAssign775); if (state.failed) return aas;dbg.location(189,37);
-			match(input,27,FOLLOW_27_in_arrayAssign777); if (state.failed) return aas;dbg.location(189,44);
-			pushFollow(FOLLOW_expr_in_arrayAssign783);
+			if (state.failed) return aas;dbg.location(185,33);
+			match(input,30,FOLLOW_30_in_arrayAssign748); if (state.failed) return aas;dbg.location(185,37);
+			match(input,27,FOLLOW_27_in_arrayAssign750); if (state.failed) return aas;dbg.location(185,44);
+			pushFollow(FOLLOW_expr_in_arrayAssign756);
 			e2=expr();
 			state._fsp--;
-			if (state.failed) return aas;dbg.location(189,51);
-			match(input,25,FOLLOW_25_in_arrayAssign785); if (state.failed) return aas;dbg.location(190,4);
+			if (state.failed) return aas;dbg.location(185,51);
+			match(input,25,FOLLOW_25_in_arrayAssign758); if (state.failed) return aas;dbg.location(186,4);
 			if ( state.backtracking==0 ) { aas = new ArrayAssignStmt(id, e1, e2); }
 			}
 
@@ -1670,7 +1612,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(191, 1);
+		dbg.location(187, 1);
 
 		}
 		finally {
@@ -1685,8 +1627,67 @@ public class ulNoActionsParser extends DebugParser {
 
 
 
+	// $ANTLR start "idAssign"
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:190:1: idAssign returns [IdAssignStmt idas] : id= identifier '=' e= expr ';' ;
+	public final IdAssignStmt idAssign() throws RecognitionException {
+		IdAssignStmt idas = null;
+
+
+		Identifier id =null;
+		Expression e =null;
+
+		try { dbg.enterRule(getGrammarFileName(), "idAssign");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(190, 0);
+
+		try {
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:191:2: (id= identifier '=' e= expr ';' )
+			dbg.enterAlt(1);
+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:191:4: id= identifier '=' e= expr ';'
+			{
+			dbg.location(191,7);
+			pushFollow(FOLLOW_identifier_in_idAssign783);
+			id=identifier();
+			state._fsp--;
+			if (state.failed) return idas;dbg.location(191,20);
+			match(input,27,FOLLOW_27_in_idAssign785); if (state.failed) return idas;dbg.location(191,26);
+			pushFollow(FOLLOW_expr_in_idAssign791);
+			e=expr();
+			state._fsp--;
+			if (state.failed) return idas;dbg.location(191,33);
+			match(input,25,FOLLOW_25_in_idAssign793); if (state.failed) return idas;dbg.location(191,37);
+			if ( state.backtracking==0 ) { idas = new IdAssignStmt(id, e); }
+			}
+
+		}
+
+		        catch (RecognitionException ex) {
+		                reportError(ex);
+		                throw ex;
+		        }
+
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(192, 1);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "idAssign");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+		return idas;
+	}
+	// $ANTLR end "idAssign"
+
+
+
 	// $ANTLR start "ifElseBlock"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:194:1: ifElseBlock returns [IfElseStmt ie] : IF '(' e= expr ')' b1= block ELSE b2= block ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:195:1: ifElseBlock returns [IfElseStmt ie] : IF '(' e= expr ')' b1= block ELSE b2= block ;
 	public final IfElseStmt ifElseBlock() throws RecognitionException {
 		IfElseStmt ie = null;
 
@@ -1698,31 +1699,31 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "ifElseBlock");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(194, 0);
+		dbg.location(195, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:195:2: ( IF '(' e= expr ')' b1= block ELSE b2= block )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:196:2: ( IF '(' e= expr ')' b1= block ELSE b2= block )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:195:4: IF '(' e= expr ')' b1= block ELSE b2= block
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:196:4: IF '(' e= expr ')' b1= block ELSE b2= block
 			{
-			dbg.location(195,4);
-			match(input,IF,FOLLOW_IF_in_ifElseBlock806); if (state.failed) return ie;dbg.location(195,6);
-			match(input,19,FOLLOW_19_in_ifElseBlock807); if (state.failed) return ie;dbg.location(195,11);
-			pushFollow(FOLLOW_expr_in_ifElseBlock812);
+			dbg.location(196,4);
+			match(input,IF,FOLLOW_IF_in_ifElseBlock811); if (state.failed) return ie;dbg.location(196,6);
+			match(input,19,FOLLOW_19_in_ifElseBlock812); if (state.failed) return ie;dbg.location(196,11);
+			pushFollow(FOLLOW_expr_in_ifElseBlock817);
 			e=expr();
 			state._fsp--;
-			if (state.failed) return ie;dbg.location(195,17);
-			match(input,20,FOLLOW_20_in_ifElseBlock813); if (state.failed) return ie;dbg.location(195,24);
-			pushFollow(FOLLOW_block_in_ifElseBlock819);
+			if (state.failed) return ie;dbg.location(196,17);
+			match(input,20,FOLLOW_20_in_ifElseBlock818); if (state.failed) return ie;dbg.location(196,24);
+			pushFollow(FOLLOW_block_in_ifElseBlock824);
 			b1=block();
 			state._fsp--;
-			if (state.failed) return ie;dbg.location(195,32);
-			match(input,ELSE,FOLLOW_ELSE_in_ifElseBlock821); if (state.failed) return ie;dbg.location(195,40);
-			pushFollow(FOLLOW_block_in_ifElseBlock827);
+			if (state.failed) return ie;dbg.location(196,32);
+			match(input,ELSE,FOLLOW_ELSE_in_ifElseBlock826); if (state.failed) return ie;dbg.location(196,40);
+			pushFollow(FOLLOW_block_in_ifElseBlock832);
 			b2=block();
 			state._fsp--;
-			if (state.failed) return ie;dbg.location(196,4);
+			if (state.failed) return ie;dbg.location(197,4);
 			if ( state.backtracking==0 ) { ie = new IfElseStmt(e, b1, b2); }
 			}
 
@@ -1736,7 +1737,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(197, 1);
+		dbg.location(198, 1);
 
 		}
 		finally {
@@ -1752,7 +1753,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "ifBlock"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:200:1: ifBlock returns [IfStmt is] : IF '(' e= expr ')' b= block ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:201:1: ifBlock returns [IfStmt is] : IF '(' e= expr ')' b= block ;
 	public final IfStmt ifBlock() throws RecognitionException {
 		IfStmt is = null;
 
@@ -1763,26 +1764,26 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "ifBlock");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(200, 0);
+		dbg.location(201, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:201:2: ( IF '(' e= expr ')' b= block )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:202:2: ( IF '(' e= expr ')' b= block )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:201:4: IF '(' e= expr ')' b= block
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:202:4: IF '(' e= expr ')' b= block
 			{
-			dbg.location(201,4);
-			match(input,IF,FOLLOW_IF_in_ifBlock848); if (state.failed) return is;dbg.location(201,6);
-			match(input,19,FOLLOW_19_in_ifBlock849); if (state.failed) return is;dbg.location(201,11);
-			pushFollow(FOLLOW_expr_in_ifBlock854);
+			dbg.location(202,4);
+			match(input,IF,FOLLOW_IF_in_ifBlock853); if (state.failed) return is;dbg.location(202,6);
+			match(input,19,FOLLOW_19_in_ifBlock854); if (state.failed) return is;dbg.location(202,11);
+			pushFollow(FOLLOW_expr_in_ifBlock859);
 			e=expr();
 			state._fsp--;
-			if (state.failed) return is;dbg.location(201,17);
-			match(input,20,FOLLOW_20_in_ifBlock855); if (state.failed) return is;dbg.location(201,23);
-			pushFollow(FOLLOW_block_in_ifBlock861);
+			if (state.failed) return is;dbg.location(202,17);
+			match(input,20,FOLLOW_20_in_ifBlock860); if (state.failed) return is;dbg.location(202,23);
+			pushFollow(FOLLOW_block_in_ifBlock866);
 			b=block();
 			state._fsp--;
-			if (state.failed) return is;dbg.location(201,31);
+			if (state.failed) return is;dbg.location(202,31);
 			if ( state.backtracking==0 ) { is = new IfStmt(e, b); }
 			}
 
@@ -1796,7 +1797,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(202, 1);
+		dbg.location(203, 1);
 
 		}
 		finally {
@@ -1812,7 +1813,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "block"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:205:1: block returns [Block blok] : '{' (s= statement )* '}' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:206:1: block returns [Block blok] : '{' (s= statement )* '}' ;
 	public final Block block() throws RecognitionException {
 		Block blok = null;
 
@@ -1826,17 +1827,17 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "block");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(205, 0);
+		dbg.location(206, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:213:2: ( '{' (s= statement )* '}' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:214:2: ( '{' (s= statement )* '}' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:213:4: '{' (s= statement )* '}'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:214:4: '{' (s= statement )* '}'
 			{
-			dbg.location(213,4);
-			match(input,31,FOLLOW_31_in_block890); if (state.failed) return blok;dbg.location(213,8);
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:213:8: (s= statement )*
+			dbg.location(214,4);
+			match(input,31,FOLLOW_31_in_block895); if (state.failed) return blok;dbg.location(214,8);
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:214:8: (s= statement )*
 			try { dbg.enterSubRule(9);
 
 			loop9:
@@ -1855,13 +1856,13 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:213:10: s= statement
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:214:10: s= statement
 					{
-					dbg.location(213,12);
-					pushFollow(FOLLOW_statement_in_block898);
+					dbg.location(214,12);
+					pushFollow(FOLLOW_statement_in_block903);
 					s=statement();
 					state._fsp--;
-					if (state.failed) return blok;dbg.location(213,24);
+					if (state.failed) return blok;dbg.location(214,24);
 					if ( state.backtracking==0 ) { blok.addToBlock(s); }
 					}
 					break;
@@ -1871,8 +1872,8 @@ public class ulNoActionsParser extends DebugParser {
 				}
 			}
 			} finally {dbg.exitSubRule(9);}
-			dbg.location(213,51);
-			match(input,32,FOLLOW_32_in_block905); if (state.failed) return blok;
+			dbg.location(214,51);
+			match(input,32,FOLLOW_32_in_block910); if (state.failed) return blok;
 			}
 
 			if ( state.backtracking==0 ) {}
@@ -1886,7 +1887,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(214, 1);
+		dbg.location(215, 1);
 
 		}
 		finally {
@@ -1902,7 +1903,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "expr"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:216:1: expr returns [Expression e] : l= literal ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:217:1: expr returns [Expression e] : l= literal ;
 	public final Expression expr() throws RecognitionException {
 		Expression e = null;
 
@@ -1912,19 +1913,19 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "expr");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(216, 0);
+		dbg.location(217, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:217:2: (l= literal )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:2: (l= literal )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:217:4: l= literal
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:218:4: l= literal
 			{
-			dbg.location(217,6);
-			pushFollow(FOLLOW_literal_in_expr924);
+			dbg.location(218,6);
+			pushFollow(FOLLOW_literal_in_expr929);
 			l=literal();
 			state._fsp--;
-			if (state.failed) return e;dbg.location(217,16);
+			if (state.failed) return e;dbg.location(218,16);
 			if ( state.backtracking==0 ) { e = l; }
 			}
 
@@ -1938,7 +1939,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(218, 1);
+		dbg.location(219, 1);
 
 		}
 		finally {
@@ -1954,25 +1955,25 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "compareExpr"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:220:1: compareExpr : lessExpr ( '==' lessExpr )* ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:221:1: compareExpr : lessExpr ( '==' lessExpr )* ;
 	public final void compareExpr() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "compareExpr");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(220, 0);
+		dbg.location(221, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:220:12: ( lessExpr ( '==' lessExpr )* )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:221:12: ( lessExpr ( '==' lessExpr )* )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:220:14: lessExpr ( '==' lessExpr )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:221:14: lessExpr ( '==' lessExpr )*
 			{
-			dbg.location(220,14);
-			pushFollow(FOLLOW_lessExpr_in_compareExpr936);
+			dbg.location(221,14);
+			pushFollow(FOLLOW_lessExpr_in_compareExpr941);
 			lessExpr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(220,23);
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:220:23: ( '==' lessExpr )*
+			if (state.failed) return;dbg.location(221,23);
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:221:23: ( '==' lessExpr )*
 			try { dbg.enterSubRule(10);
 
 			loop10:
@@ -1991,11 +1992,11 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:220:24: '==' lessExpr
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:221:24: '==' lessExpr
 					{
-					dbg.location(220,24);
-					match(input,28,FOLLOW_28_in_compareExpr939); if (state.failed) return;dbg.location(220,29);
-					pushFollow(FOLLOW_lessExpr_in_compareExpr941);
+					dbg.location(221,24);
+					match(input,28,FOLLOW_28_in_compareExpr944); if (state.failed) return;dbg.location(221,29);
+					pushFollow(FOLLOW_lessExpr_in_compareExpr946);
 					lessExpr();
 					state._fsp--;
 					if (state.failed) return;
@@ -2020,7 +2021,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(221, 1);
+		dbg.location(222, 1);
 
 		}
 		finally {
@@ -2035,25 +2036,25 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "lessExpr"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:223:1: lessExpr : plmiExpr ( '<' plmiExpr )* ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:224:1: lessExpr : plmiExpr ( '<' plmiExpr )* ;
 	public final void lessExpr() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "lessExpr");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(223, 0);
+		dbg.location(224, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:223:9: ( plmiExpr ( '<' plmiExpr )* )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:224:9: ( plmiExpr ( '<' plmiExpr )* )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:223:11: plmiExpr ( '<' plmiExpr )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:224:11: plmiExpr ( '<' plmiExpr )*
 			{
-			dbg.location(223,11);
-			pushFollow(FOLLOW_plmiExpr_in_lessExpr952);
+			dbg.location(224,11);
+			pushFollow(FOLLOW_plmiExpr_in_lessExpr957);
 			plmiExpr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(223,20);
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:223:20: ( '<' plmiExpr )*
+			if (state.failed) return;dbg.location(224,20);
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:224:20: ( '<' plmiExpr )*
 			try { dbg.enterSubRule(11);
 
 			loop11:
@@ -2072,11 +2073,11 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:223:21: '<' plmiExpr
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:224:21: '<' plmiExpr
 					{
-					dbg.location(223,21);
-					match(input,26,FOLLOW_26_in_lessExpr955); if (state.failed) return;dbg.location(223,25);
-					pushFollow(FOLLOW_plmiExpr_in_lessExpr957);
+					dbg.location(224,21);
+					match(input,26,FOLLOW_26_in_lessExpr960); if (state.failed) return;dbg.location(224,25);
+					pushFollow(FOLLOW_plmiExpr_in_lessExpr962);
 					plmiExpr();
 					state._fsp--;
 					if (state.failed) return;
@@ -2101,7 +2102,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(224, 1);
+		dbg.location(225, 1);
 
 		}
 		finally {
@@ -2116,25 +2117,25 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "plmiExpr"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:226:1: plmiExpr : multExpr ( ( '+' | '-' ) multExpr )* ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:227:1: plmiExpr : multExpr ( ( '+' | '-' ) multExpr )* ;
 	public final void plmiExpr() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "plmiExpr");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(226, 0);
+		dbg.location(227, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:226:9: ( multExpr ( ( '+' | '-' ) multExpr )* )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:227:9: ( multExpr ( ( '+' | '-' ) multExpr )* )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:226:11: multExpr ( ( '+' | '-' ) multExpr )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:227:11: multExpr ( ( '+' | '-' ) multExpr )*
 			{
-			dbg.location(226,11);
-			pushFollow(FOLLOW_multExpr_in_plmiExpr968);
+			dbg.location(227,11);
+			pushFollow(FOLLOW_multExpr_in_plmiExpr973);
 			multExpr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(226,20);
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:226:20: ( ( '+' | '-' ) multExpr )*
+			if (state.failed) return;dbg.location(227,20);
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:227:20: ( ( '+' | '-' ) multExpr )*
 			try { dbg.enterSubRule(12);
 
 			loop12:
@@ -2153,9 +2154,9 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:226:21: ( '+' | '-' ) multExpr
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:227:21: ( '+' | '-' ) multExpr
 					{
-					dbg.location(226,21);
+					dbg.location(227,21);
 					if ( input.LA(1)==22||input.LA(1)==24 ) {
 						input.consume();
 						state.errorRecovery=false;
@@ -2166,8 +2167,8 @@ public class ulNoActionsParser extends DebugParser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						dbg.recognitionException(mse);
 						throw mse;
-					}dbg.location(226,31);
-					pushFollow(FOLLOW_multExpr_in_plmiExpr977);
+					}dbg.location(227,31);
+					pushFollow(FOLLOW_multExpr_in_plmiExpr982);
 					multExpr();
 					state._fsp--;
 					if (state.failed) return;
@@ -2192,7 +2193,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(227, 1);
+		dbg.location(228, 1);
 
 		}
 		finally {
@@ -2207,25 +2208,25 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "multExpr"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:229:1: multExpr : atom ( '*' atom )* ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:230:1: multExpr : atom ( '*' atom )* ;
 	public final void multExpr() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "multExpr");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(229, 0);
+		dbg.location(230, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:229:9: ( atom ( '*' atom )* )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:230:9: ( atom ( '*' atom )* )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:229:11: atom ( '*' atom )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:230:11: atom ( '*' atom )*
 			{
-			dbg.location(229,11);
-			pushFollow(FOLLOW_atom_in_multExpr988);
+			dbg.location(230,11);
+			pushFollow(FOLLOW_atom_in_multExpr993);
 			atom();
 			state._fsp--;
-			if (state.failed) return;dbg.location(229,16);
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:229:16: ( '*' atom )*
+			if (state.failed) return;dbg.location(230,16);
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:230:16: ( '*' atom )*
 			try { dbg.enterSubRule(13);
 
 			loop13:
@@ -2244,11 +2245,11 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:229:17: '*' atom
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:230:17: '*' atom
 					{
-					dbg.location(229,17);
-					match(input,21,FOLLOW_21_in_multExpr991); if (state.failed) return;dbg.location(229,21);
-					pushFollow(FOLLOW_atom_in_multExpr993);
+					dbg.location(230,17);
+					match(input,21,FOLLOW_21_in_multExpr996); if (state.failed) return;dbg.location(230,21);
+					pushFollow(FOLLOW_atom_in_multExpr998);
 					atom();
 					state._fsp--;
 					if (state.failed) return;
@@ -2273,7 +2274,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(230, 1);
+		dbg.location(231, 1);
 
 		}
 		finally {
@@ -2288,15 +2289,15 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "atom"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:232:1: atom : ( literal | identifier | functionCall | arrayRef | parenExpr );
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:233:1: atom : ( literal | identifier | functionCall | arrayRef | parenExpr );
 	public final void atom() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "atom");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(232, 0);
+		dbg.location(233, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:232:5: ( literal | identifier | functionCall | arrayRef | parenExpr )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:233:5: ( literal | identifier | functionCall | arrayRef | parenExpr )
 			int alt14=5;
 			try { dbg.enterDecision(14, decisionCanBacktrack[14]);
 
@@ -2366,10 +2367,10 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:232:7: literal
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:233:7: literal
 					{
-					dbg.location(232,7);
-					pushFollow(FOLLOW_literal_in_atom1004);
+					dbg.location(233,7);
+					pushFollow(FOLLOW_literal_in_atom1009);
 					literal();
 					state._fsp--;
 					if (state.failed) return;
@@ -2378,10 +2379,10 @@ public class ulNoActionsParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:233:4: identifier
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:234:4: identifier
 					{
-					dbg.location(233,4);
-					pushFollow(FOLLOW_identifier_in_atom1010);
+					dbg.location(234,4);
+					pushFollow(FOLLOW_identifier_in_atom1015);
 					identifier();
 					state._fsp--;
 					if (state.failed) return;
@@ -2390,10 +2391,10 @@ public class ulNoActionsParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:234:4: functionCall
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:235:4: functionCall
 					{
-					dbg.location(234,4);
-					pushFollow(FOLLOW_functionCall_in_atom1016);
+					dbg.location(235,4);
+					pushFollow(FOLLOW_functionCall_in_atom1021);
 					functionCall();
 					state._fsp--;
 					if (state.failed) return;
@@ -2402,10 +2403,10 @@ public class ulNoActionsParser extends DebugParser {
 				case 4 :
 					dbg.enterAlt(4);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:235:4: arrayRef
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:236:4: arrayRef
 					{
-					dbg.location(235,4);
-					pushFollow(FOLLOW_arrayRef_in_atom1022);
+					dbg.location(236,4);
+					pushFollow(FOLLOW_arrayRef_in_atom1027);
 					arrayRef();
 					state._fsp--;
 					if (state.failed) return;
@@ -2414,10 +2415,10 @@ public class ulNoActionsParser extends DebugParser {
 				case 5 :
 					dbg.enterAlt(5);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:236:4: parenExpr
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:237:4: parenExpr
 					{
-					dbg.location(236,4);
-					pushFollow(FOLLOW_parenExpr_in_atom1028);
+					dbg.location(237,4);
+					pushFollow(FOLLOW_parenExpr_in_atom1033);
 					parenExpr();
 					state._fsp--;
 					if (state.failed) return;
@@ -2435,7 +2436,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(237, 1);
+		dbg.location(238, 1);
 
 		}
 		finally {
@@ -2450,30 +2451,30 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "functionCall"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:239:1: functionCall : identifier '(' exprList ')' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:240:1: functionCall : identifier '(' exprList ')' ;
 	public final void functionCall() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "functionCall");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(239, 0);
+		dbg.location(240, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:239:13: ( identifier '(' exprList ')' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:240:13: ( identifier '(' exprList ')' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:239:15: identifier '(' exprList ')'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:240:15: identifier '(' exprList ')'
 			{
-			dbg.location(239,15);
-			pushFollow(FOLLOW_identifier_in_functionCall1037);
+			dbg.location(240,15);
+			pushFollow(FOLLOW_identifier_in_functionCall1042);
 			identifier();
 			state._fsp--;
-			if (state.failed) return;dbg.location(239,25);
-			match(input,19,FOLLOW_19_in_functionCall1038); if (state.failed) return;dbg.location(239,29);
-			pushFollow(FOLLOW_exprList_in_functionCall1040);
+			if (state.failed) return;dbg.location(240,25);
+			match(input,19,FOLLOW_19_in_functionCall1043); if (state.failed) return;dbg.location(240,29);
+			pushFollow(FOLLOW_exprList_in_functionCall1045);
 			exprList();
 			state._fsp--;
-			if (state.failed) return;dbg.location(239,38);
-			match(input,20,FOLLOW_20_in_functionCall1042); if (state.failed) return;
+			if (state.failed) return;dbg.location(240,38);
+			match(input,20,FOLLOW_20_in_functionCall1047); if (state.failed) return;
 			}
 
 		}
@@ -2486,7 +2487,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(240, 1);
+		dbg.location(241, 1);
 
 		}
 		finally {
@@ -2501,30 +2502,30 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "arrayRef"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:242:1: arrayRef : identifier '[' expr ']' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:243:1: arrayRef : identifier '[' expr ']' ;
 	public final void arrayRef() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "arrayRef");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(242, 0);
+		dbg.location(243, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:242:9: ( identifier '[' expr ']' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:243:9: ( identifier '[' expr ']' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:242:11: identifier '[' expr ']'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:243:11: identifier '[' expr ']'
 			{
-			dbg.location(242,11);
-			pushFollow(FOLLOW_identifier_in_arrayRef1051);
+			dbg.location(243,11);
+			pushFollow(FOLLOW_identifier_in_arrayRef1056);
 			identifier();
 			state._fsp--;
-			if (state.failed) return;dbg.location(242,21);
-			match(input,29,FOLLOW_29_in_arrayRef1052); if (state.failed) return;dbg.location(242,24);
-			pushFollow(FOLLOW_expr_in_arrayRef1053);
+			if (state.failed) return;dbg.location(243,21);
+			match(input,29,FOLLOW_29_in_arrayRef1057); if (state.failed) return;dbg.location(243,24);
+			pushFollow(FOLLOW_expr_in_arrayRef1058);
 			expr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(242,28);
-			match(input,30,FOLLOW_30_in_arrayRef1054); if (state.failed) return;
+			if (state.failed) return;dbg.location(243,28);
+			match(input,30,FOLLOW_30_in_arrayRef1059); if (state.failed) return;
 			}
 
 		}
@@ -2537,7 +2538,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(243, 1);
+		dbg.location(244, 1);
 
 		}
 		finally {
@@ -2552,26 +2553,26 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "parenExpr"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:245:1: parenExpr : '(' expr ')' ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:246:1: parenExpr : '(' expr ')' ;
 	public final void parenExpr() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "parenExpr");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(245, 0);
+		dbg.location(246, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:245:10: ( '(' expr ')' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:246:10: ( '(' expr ')' )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:245:12: '(' expr ')'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:246:12: '(' expr ')'
 			{
-			dbg.location(245,12);
-			match(input,19,FOLLOW_19_in_parenExpr1064); if (state.failed) return;dbg.location(245,16);
-			pushFollow(FOLLOW_expr_in_parenExpr1066);
+			dbg.location(246,12);
+			match(input,19,FOLLOW_19_in_parenExpr1069); if (state.failed) return;dbg.location(246,16);
+			pushFollow(FOLLOW_expr_in_parenExpr1071);
 			expr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(245,21);
-			match(input,20,FOLLOW_20_in_parenExpr1068); if (state.failed) return;
+			if (state.failed) return;dbg.location(246,21);
+			match(input,20,FOLLOW_20_in_parenExpr1073); if (state.failed) return;
 			}
 
 		}
@@ -2584,7 +2585,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(246, 1);
+		dbg.location(247, 1);
 
 		}
 		finally {
@@ -2599,25 +2600,25 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "exprList"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:248:1: exprList : expr ( exprMore )* ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:249:1: exprList : expr ( exprMore )* ;
 	public final void exprList() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "exprList");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(248, 0);
+		dbg.location(249, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:248:9: ( expr ( exprMore )* )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:249:9: ( expr ( exprMore )* )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:248:11: expr ( exprMore )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:249:11: expr ( exprMore )*
 			{
-			dbg.location(248,11);
-			pushFollow(FOLLOW_expr_in_exprList1077);
+			dbg.location(249,11);
+			pushFollow(FOLLOW_expr_in_exprList1082);
 			expr();
 			state._fsp--;
-			if (state.failed) return;dbg.location(248,16);
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:248:16: ( exprMore )*
+			if (state.failed) return;dbg.location(249,16);
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:249:16: ( exprMore )*
 			try { dbg.enterSubRule(15);
 
 			loop15:
@@ -2636,10 +2637,10 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:248:16: exprMore
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:249:16: exprMore
 					{
-					dbg.location(248,16);
-					pushFollow(FOLLOW_exprMore_in_exprList1079);
+					dbg.location(249,16);
+					pushFollow(FOLLOW_exprMore_in_exprList1084);
 					exprMore();
 					state._fsp--;
 					if (state.failed) return;
@@ -2664,7 +2665,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(249, 1);
+		dbg.location(250, 1);
 
 		}
 		finally {
@@ -2679,22 +2680,22 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "exprMore"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:251:1: exprMore : ',' expr ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:252:1: exprMore : ',' expr ;
 	public final void exprMore() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "exprMore");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(251, 0);
+		dbg.location(252, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:251:9: ( ',' expr )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:252:9: ( ',' expr )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:251:11: ',' expr
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:252:11: ',' expr
 			{
-			dbg.location(251,11);
-			match(input,23,FOLLOW_23_in_exprMore1089); if (state.failed) return;dbg.location(251,15);
-			pushFollow(FOLLOW_expr_in_exprMore1091);
+			dbg.location(252,11);
+			match(input,23,FOLLOW_23_in_exprMore1094); if (state.failed) return;dbg.location(252,15);
+			pushFollow(FOLLOW_expr_in_exprMore1096);
 			expr();
 			state._fsp--;
 			if (state.failed) return;
@@ -2710,7 +2711,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(252, 1);
+		dbg.location(253, 1);
 
 		}
 		finally {
@@ -2725,49 +2726,49 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "literal"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:255:1: literal returns [Literal l] : (sl= stringconstant |il= integerconstant |cl= characterconstant |fl= floatconstant |bl= bool );
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:256:1: literal returns [Literal l] : (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant );
 	public final Literal literal() throws RecognitionException {
 		Literal l = null;
 
 
-		StringLiteral sl =null;
 		IntegerLiteral il =null;
-		CharLiteral cl =null;
 		FloatLiteral fl =null;
 		BooleanLiteral bl =null;
+		StringLiteral sl =null;
+		CharLiteral cl =null;
 
 		try { dbg.enterRule(getGrammarFileName(), "literal");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(255, 0);
+		dbg.location(256, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:256:2: (sl= stringconstant |il= integerconstant |cl= characterconstant |fl= floatconstant |bl= bool )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:257:2: (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant )
 			int alt16=5;
 			try { dbg.enterDecision(16, decisionCanBacktrack[16]);
 
 			switch ( input.LA(1) ) {
-			case STRINGCONSTANT:
+			case INTEGERCONSTANT:
 				{
 				alt16=1;
 				}
 				break;
-			case INTEGERCONSTANT:
+			case FLOATCONSTANT:
 				{
 				alt16=2;
 				}
 				break;
-			case CHARACTERCONSTANT:
+			case BOOL:
 				{
 				alt16=3;
 				}
 				break;
-			case FLOATCONSTANT:
+			case STRINGCONSTANT:
 				{
 				alt16=4;
 				}
 				break;
-			case BOOL:
+			case CHARACTERCONSTANT:
 				{
 				alt16=5;
 				}
@@ -2785,66 +2786,66 @@ public class ulNoActionsParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:256:4: sl= stringconstant
-					{
-					dbg.location(256,7);
-					pushFollow(FOLLOW_stringconstant_in_literal1112);
-					sl=stringconstant();
-					state._fsp--;
-					if (state.failed) return l;dbg.location(256,24);
-					if ( state.backtracking==0 ) { l = sl;}
-					}
-					break;
-				case 2 :
-					dbg.enterAlt(2);
-
 					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:257:4: il= integerconstant
 					{
 					dbg.location(257,7);
-					pushFollow(FOLLOW_integerconstant_in_literal1123);
+					pushFollow(FOLLOW_integerconstant_in_literal1117);
 					il=integerconstant();
 					state._fsp--;
 					if (state.failed) return l;dbg.location(257,25);
 					if ( state.backtracking==0 ) { l = il; }
 					}
 					break;
+				case 2 :
+					dbg.enterAlt(2);
+
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:258:4: fl= floatconstant
+					{
+					dbg.location(258,7);
+					pushFollow(FOLLOW_floatconstant_in_literal1128);
+					fl=floatconstant();
+					state._fsp--;
+					if (state.failed) return l;dbg.location(258,23);
+					if ( state.backtracking==0 ) { l = fl; }
+					}
+					break;
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:258:4: cl= characterconstant
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:259:4: bl= bool
 					{
-					dbg.location(258,7);
-					pushFollow(FOLLOW_characterconstant_in_literal1134);
-					cl=characterconstant();
+					dbg.location(259,7);
+					pushFollow(FOLLOW_bool_in_literal1139);
+					bl=bool();
 					state._fsp--;
-					if (state.failed) return l;dbg.location(258,27);
-					if ( state.backtracking==0 ) { l = cl; }
+					if (state.failed) return l;dbg.location(259,14);
+					if ( state.backtracking==0 ) { l = bl; }
 					}
 					break;
 				case 4 :
 					dbg.enterAlt(4);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:259:4: fl= floatconstant
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:260:4: sl= stringconstant
 					{
-					dbg.location(259,7);
-					pushFollow(FOLLOW_floatconstant_in_literal1145);
-					fl=floatconstant();
+					dbg.location(260,7);
+					pushFollow(FOLLOW_stringconstant_in_literal1150);
+					sl=stringconstant();
 					state._fsp--;
-					if (state.failed) return l;dbg.location(259,23);
-					if ( state.backtracking==0 ) { l = fl; }
+					if (state.failed) return l;dbg.location(260,24);
+					if ( state.backtracking==0 ) { l = sl;}
 					}
 					break;
 				case 5 :
 					dbg.enterAlt(5);
 
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:260:4: bl= bool
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:261:4: cl= characterconstant
 					{
-					dbg.location(260,7);
-					pushFollow(FOLLOW_bool_in_literal1156);
-					bl=bool();
+					dbg.location(261,7);
+					pushFollow(FOLLOW_characterconstant_in_literal1161);
+					cl=characterconstant();
 					state._fsp--;
-					if (state.failed) return l;dbg.location(260,14);
-					if ( state.backtracking==0 ) { l = bl; }
+					if (state.failed) return l;dbg.location(261,27);
+					if ( state.backtracking==0 ) { l = cl; }
 					}
 					break;
 
@@ -2859,7 +2860,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(261, 1);
+		dbg.location(262, 1);
 
 		}
 		finally {
@@ -2875,7 +2876,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "stringconstant"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:264:1: stringconstant returns [StringLiteral sl] : s= STRINGCONSTANT ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:265:1: stringconstant returns [StringLiteral sl] : s= STRINGCONSTANT ;
 	public final StringLiteral stringconstant() throws RecognitionException {
 		StringLiteral sl = null;
 
@@ -2885,16 +2886,16 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "stringconstant");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(264, 0);
+		dbg.location(265, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:266:2: (s= STRINGCONSTANT )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:267:2: (s= STRINGCONSTANT )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:266:4: s= STRINGCONSTANT
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:267:4: s= STRINGCONSTANT
 			{
-			dbg.location(266,6);
-			s=(Token)match(input,STRINGCONSTANT,FOLLOW_STRINGCONSTANT_in_stringconstant1180); if (state.failed) return sl;dbg.location(266,23);
+			dbg.location(267,6);
+			s=(Token)match(input,STRINGCONSTANT,FOLLOW_STRINGCONSTANT_in_stringconstant1185); if (state.failed) return sl;dbg.location(267,23);
 			if ( state.backtracking==0 ) { sl = new StringLiteral(s.getText()); }
 			}
 
@@ -2908,7 +2909,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(267, 1);
+		dbg.location(268, 1);
 
 		}
 		finally {
@@ -2924,7 +2925,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "floatconstant"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:270:1: floatconstant returns [FloatLiteral fl] : f= FLOATCONSTANT ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:271:1: floatconstant returns [FloatLiteral fl] : f= FLOATCONSTANT ;
 	public final FloatLiteral floatconstant() throws RecognitionException {
 		FloatLiteral fl = null;
 
@@ -2934,16 +2935,16 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "floatconstant");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(270, 0);
+		dbg.location(271, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:272:2: (f= FLOATCONSTANT )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:273:2: (f= FLOATCONSTANT )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:272:4: f= FLOATCONSTANT
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:273:4: f= FLOATCONSTANT
 			{
-			dbg.location(272,6);
-			f=(Token)match(input,FLOATCONSTANT,FOLLOW_FLOATCONSTANT_in_floatconstant1204); if (state.failed) return fl;dbg.location(272,22);
+			dbg.location(273,6);
+			f=(Token)match(input,FLOATCONSTANT,FOLLOW_FLOATCONSTANT_in_floatconstant1209); if (state.failed) return fl;dbg.location(273,22);
 			if ( state.backtracking==0 ) { fl = new FloatLiteral(Float.parseFloat(f.getText())); }
 			}
 
@@ -2957,7 +2958,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(273, 1);
+		dbg.location(274, 1);
 
 		}
 		finally {
@@ -2973,7 +2974,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "characterconstant"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:276:1: characterconstant returns [CharLiteral cl] : c= CHARACTERCONSTANT ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:277:1: characterconstant returns [CharLiteral cl] : c= CHARACTERCONSTANT ;
 	public final CharLiteral characterconstant() throws RecognitionException {
 		CharLiteral cl = null;
 
@@ -2983,16 +2984,16 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "characterconstant");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(276, 0);
+		dbg.location(277, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:278:2: (c= CHARACTERCONSTANT )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:279:2: (c= CHARACTERCONSTANT )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:278:4: c= CHARACTERCONSTANT
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:279:4: c= CHARACTERCONSTANT
 			{
-			dbg.location(278,6);
-			c=(Token)match(input,CHARACTERCONSTANT,FOLLOW_CHARACTERCONSTANT_in_characterconstant1228); if (state.failed) return cl;dbg.location(278,26);
+			dbg.location(279,6);
+			c=(Token)match(input,CHARACTERCONSTANT,FOLLOW_CHARACTERCONSTANT_in_characterconstant1233); if (state.failed) return cl;dbg.location(279,26);
 			if ( state.backtracking==0 ) { cl = new CharLiteral(c.getText().charAt(0)); }
 			}
 
@@ -3006,7 +3007,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(279, 1);
+		dbg.location(280, 1);
 
 		}
 		finally {
@@ -3022,7 +3023,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "integerconstant"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:282:1: integerconstant returns [IntegerLiteral il] : i= INTEGERCONSTANT ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:283:1: integerconstant returns [IntegerLiteral il] : i= INTEGERCONSTANT ;
 	public final IntegerLiteral integerconstant() throws RecognitionException {
 		IntegerLiteral il = null;
 
@@ -3032,16 +3033,16 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "integerconstant");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(282, 0);
+		dbg.location(283, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:284:2: (i= INTEGERCONSTANT )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:285:2: (i= INTEGERCONSTANT )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:284:4: i= INTEGERCONSTANT
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:285:4: i= INTEGERCONSTANT
 			{
-			dbg.location(284,6);
-			i=(Token)match(input,INTEGERCONSTANT,FOLLOW_INTEGERCONSTANT_in_integerconstant1252); if (state.failed) return il;dbg.location(284,24);
+			dbg.location(285,6);
+			i=(Token)match(input,INTEGERCONSTANT,FOLLOW_INTEGERCONSTANT_in_integerconstant1257); if (state.failed) return il;dbg.location(285,24);
 			if ( state.backtracking==0 ) { il = new IntegerLiteral(Integer.parseInt(i.getText())); }
 			}
 
@@ -3055,7 +3056,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(285, 1);
+		dbg.location(286, 1);
 
 		}
 		finally {
@@ -3071,7 +3072,7 @@ public class ulNoActionsParser extends DebugParser {
 
 
 	// $ANTLR start "bool"
-	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:288:1: bool returns [BooleanLiteral bl] : b= BOOL ;
+	// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:289:1: bool returns [BooleanLiteral bl] : b= BOOL ;
 	public final BooleanLiteral bool() throws RecognitionException {
 		BooleanLiteral bl = null;
 
@@ -3081,16 +3082,16 @@ public class ulNoActionsParser extends DebugParser {
 		try { dbg.enterRule(getGrammarFileName(), "bool");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(288, 0);
+		dbg.location(289, 0);
 
 		try {
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:290:2: (b= BOOL )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:291:2: (b= BOOL )
 			dbg.enterAlt(1);
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:290:4: b= BOOL
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:291:4: b= BOOL
 			{
-			dbg.location(290,6);
-			b=(Token)match(input,BOOL,FOLLOW_BOOL_in_bool1276); if (state.failed) return bl;dbg.location(290,13);
+			dbg.location(291,6);
+			b=(Token)match(input,BOOL,FOLLOW_BOOL_in_bool1281); if (state.failed) return bl;dbg.location(291,13);
 			if ( state.backtracking==0 ) { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); }
 			}
 
@@ -3104,7 +3105,7 @@ public class ulNoActionsParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(291, 1);
+		dbg.location(292, 1);
 
 		}
 		finally {
@@ -3119,16 +3120,16 @@ public class ulNoActionsParser extends DebugParser {
 
 	// $ANTLR start synpred9_ulNoActions
 	public final void synpred9_ulNoActions_fragment() throws RecognitionException {
-		IdAssignStmt idas =null;
+		ArrayAssignStmt aas =null;
 
-		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:135:4: (idas= idAssign )
+		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:135:4: (aas= arrayAssign )
 		dbg.enterAlt(1);
 
-		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:135:4: idas= idAssign
+		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:135:4: aas= arrayAssign
 		{
-		dbg.location(135,9);
-		pushFollow(FOLLOW_idAssign_in_synpred9_ulNoActions469);
-		idas=idAssign();
+		dbg.location(135,8);
+		pushFollow(FOLLOW_arrayAssign_in_synpred9_ulNoActions472);
+		aas=arrayAssign();
 		state._fsp--;
 		if (state.failed) return;
 		}
@@ -3138,16 +3139,16 @@ public class ulNoActionsParser extends DebugParser {
 
 	// $ANTLR start synpred10_ulNoActions
 	public final void synpred10_ulNoActions_fragment() throws RecognitionException {
-		ArrayAssignStmt aas =null;
+		IdAssignStmt idas =null;
 
-		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:136:4: (aas= arrayAssign )
+		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:136:4: (idas= idAssign )
 		dbg.enterAlt(1);
 
-		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:136:4: aas= arrayAssign
+		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:136:4: idas= idAssign
 		{
-		dbg.location(136,8);
-		pushFollow(FOLLOW_arrayAssign_in_synpred10_ulNoActions480);
-		aas=arrayAssign();
+		dbg.location(136,9);
+		pushFollow(FOLLOW_idAssign_in_synpred10_ulNoActions483);
+		idas=idAssign();
 		state._fsp--;
 		if (state.failed) return;
 		}
@@ -3165,7 +3166,7 @@ public class ulNoActionsParser extends DebugParser {
 		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:137:4: ie= ifElseBlock
 		{
 		dbg.location(137,7);
-		pushFollow(FOLLOW_ifElseBlock_in_synpred11_ulNoActions491);
+		pushFollow(FOLLOW_ifElseBlock_in_synpred11_ulNoActions494);
 		ie=ifElseBlock();
 		state._fsp--;
 		if (state.failed) return;
@@ -3184,7 +3185,7 @@ public class ulNoActionsParser extends DebugParser {
 		// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:138:4: is= ifBlock
 		{
 		dbg.location(138,7);
-		pushFollow(FOLLOW_ifBlock_in_synpred12_ulNoActions502);
+		pushFollow(FOLLOW_ifBlock_in_synpred12_ulNoActions505);
 		is=ifBlock();
 		state._fsp--;
 		if (state.failed) return;
@@ -3270,125 +3271,125 @@ public class ulNoActionsParser extends DebugParser {
 	public static final BitSet FOLLOW_identifier_in_functionDecl138 = new BitSet(new long[]{0x0000000000080000L});
 	public static final BitSet FOLLOW_19_in_functionDecl145 = new BitSet(new long[]{0x0000000000110000L});
 	public static final BitSet FOLLOW_formalParameters_in_functionDecl153 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_functionDecl158 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_compoundType_in_formalParameters181 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_identifier_in_formalParameters187 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_moreFormals_in_formalParameters202 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_23_in_moreFormals221 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_compoundType_in_moreFormals227 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_identifier_in_moreFormals233 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_31_in_functionBody268 = new BitSet(new long[]{0x000000010203FF30L});
-	public static final BitSet FOLLOW_varDecl_in_functionBody276 = new BitSet(new long[]{0x000000010203FF30L});
-	public static final BitSet FOLLOW_statement_in_functionBody297 = new BitSet(new long[]{0x000000010202FF30L});
-	public static final BitSet FOLLOW_32_in_functionBody303 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_compoundType_in_varDecl324 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_identifier_in_varDecl330 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_varDecl332 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TYPE_in_compoundType356 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arrayDecl_in_compoundType369 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TYPE_in_arrayDecl391 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_29_in_arrayDecl393 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_integerconstant_in_arrayDecl398 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_30_in_arrayDecl399 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_identifier424 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_semiColon_in_statement447 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_exprColon_in_statement458 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_idAssign_in_statement469 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arrayAssign_in_statement480 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifElseBlock_in_statement491 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifBlock_in_statement502 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whileBlock_in_statement513 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_printlnStmt_in_statement524 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_printStmt_in_statement535 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_returnStmt_in_statement546 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHILE_in_whileBlock564 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_whileBlock565 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_whileBlock571 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_whileBlock572 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_whileBlock578 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PRINTLN_in_printlnStmt596 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_printlnStmt602 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_printlnStmt604 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PRINT_in_printStmt622 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_printStmt628 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_printStmt630 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RETURN_in_returnStmt659 = new BitSet(new long[]{0x0000000002008930L});
-	public static final BitSet FOLLOW_expr_in_returnStmt666 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_returnStmt672 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_25_in_semiColon688 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_expr_in_exprColon710 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_exprColon712 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_idAssign734 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_27_in_idAssign736 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_idAssign742 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_idAssign744 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_arrayAssign766 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_29_in_arrayAssign768 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_arrayAssign774 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_30_in_arrayAssign775 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_27_in_arrayAssign777 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_arrayAssign783 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_arrayAssign785 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifElseBlock806 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_ifElseBlock807 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_ifElseBlock812 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_ifElseBlock813 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_ifElseBlock819 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ELSE_in_ifElseBlock821 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_ifElseBlock827 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifBlock848 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_ifBlock849 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_ifBlock854 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_ifBlock855 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_block_in_ifBlock861 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_31_in_block890 = new BitSet(new long[]{0x000000010202FF30L});
-	public static final BitSet FOLLOW_statement_in_block898 = new BitSet(new long[]{0x000000010202FF30L});
-	public static final BitSet FOLLOW_32_in_block905 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_literal_in_expr924 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_lessExpr_in_compareExpr936 = new BitSet(new long[]{0x0000000010000002L});
-	public static final BitSet FOLLOW_28_in_compareExpr939 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_20_in_functionDecl160 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_compoundType_in_formalParameters182 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_identifier_in_formalParameters188 = new BitSet(new long[]{0x0000000000800002L});
+	public static final BitSet FOLLOW_moreFormals_in_formalParameters203 = new BitSet(new long[]{0x0000000000800002L});
+	public static final BitSet FOLLOW_23_in_moreFormals223 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_compoundType_in_moreFormals229 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_identifier_in_moreFormals235 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_functionBody270 = new BitSet(new long[]{0x000000010203FF30L});
+	public static final BitSet FOLLOW_varDecl_in_functionBody278 = new BitSet(new long[]{0x000000010203FF30L});
+	public static final BitSet FOLLOW_statement_in_functionBody299 = new BitSet(new long[]{0x000000010202FF30L});
+	public static final BitSet FOLLOW_32_in_functionBody305 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_compoundType_in_varDecl326 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_identifier_in_varDecl332 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_varDecl334 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arrayDecl_in_compoundType359 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TYPE_in_compoundType372 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TYPE_in_arrayDecl394 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_29_in_arrayDecl396 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_integerconstant_in_arrayDecl401 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_30_in_arrayDecl402 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_identifier427 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_semiColon_in_statement450 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_exprColon_in_statement461 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arrayAssign_in_statement472 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_idAssign_in_statement483 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifElseBlock_in_statement494 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifBlock_in_statement505 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whileBlock_in_statement516 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_printlnStmt_in_statement527 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_printStmt_in_statement538 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_returnStmt_in_statement549 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHILE_in_whileBlock567 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_whileBlock568 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_whileBlock574 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_whileBlock575 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_whileBlock581 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PRINTLN_in_printlnStmt599 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_printlnStmt605 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_printlnStmt607 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PRINT_in_printStmt625 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_printStmt631 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_printStmt633 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RETURN_in_returnStmt662 = new BitSet(new long[]{0x0000000002008930L});
+	public static final BitSet FOLLOW_expr_in_returnStmt669 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_returnStmt675 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_25_in_semiColon691 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_expr_in_exprColon713 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_exprColon715 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_arrayAssign739 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_29_in_arrayAssign741 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_arrayAssign747 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_30_in_arrayAssign748 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_27_in_arrayAssign750 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_arrayAssign756 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_arrayAssign758 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_idAssign783 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_27_in_idAssign785 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_idAssign791 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_idAssign793 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifElseBlock811 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_ifElseBlock812 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_ifElseBlock817 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_ifElseBlock818 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_ifElseBlock824 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ELSE_in_ifElseBlock826 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_ifElseBlock832 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifBlock853 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_ifBlock854 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_ifBlock859 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_ifBlock860 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_block_in_ifBlock866 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_block895 = new BitSet(new long[]{0x000000010202FF30L});
+	public static final BitSet FOLLOW_statement_in_block903 = new BitSet(new long[]{0x000000010202FF30L});
+	public static final BitSet FOLLOW_32_in_block910 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_literal_in_expr929 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_lessExpr_in_compareExpr941 = new BitSet(new long[]{0x0000000010000002L});
-	public static final BitSet FOLLOW_plmiExpr_in_lessExpr952 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_26_in_lessExpr955 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_28_in_compareExpr944 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_lessExpr_in_compareExpr946 = new BitSet(new long[]{0x0000000010000002L});
 	public static final BitSet FOLLOW_plmiExpr_in_lessExpr957 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_multExpr_in_plmiExpr968 = new BitSet(new long[]{0x0000000001400002L});
-	public static final BitSet FOLLOW_set_in_plmiExpr971 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_multExpr_in_plmiExpr977 = new BitSet(new long[]{0x0000000001400002L});
-	public static final BitSet FOLLOW_atom_in_multExpr988 = new BitSet(new long[]{0x0000000000200002L});
-	public static final BitSet FOLLOW_21_in_multExpr991 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_26_in_lessExpr960 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_plmiExpr_in_lessExpr962 = new BitSet(new long[]{0x0000000004000002L});
+	public static final BitSet FOLLOW_multExpr_in_plmiExpr973 = new BitSet(new long[]{0x0000000001400002L});
+	public static final BitSet FOLLOW_set_in_plmiExpr976 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_multExpr_in_plmiExpr982 = new BitSet(new long[]{0x0000000001400002L});
 	public static final BitSet FOLLOW_atom_in_multExpr993 = new BitSet(new long[]{0x0000000000200002L});
-	public static final BitSet FOLLOW_literal_in_atom1004 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_atom1010 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_functionCall_in_atom1016 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arrayRef_in_atom1022 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenExpr_in_atom1028 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_functionCall1037 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_functionCall1038 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_exprList_in_functionCall1040 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_functionCall1042 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_arrayRef1051 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_29_in_arrayRef1052 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_arrayRef1053 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_30_in_arrayRef1054 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_19_in_parenExpr1064 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_parenExpr1066 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_parenExpr1068 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_expr_in_exprList1077 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_exprMore_in_exprList1079 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_23_in_exprMore1089 = new BitSet(new long[]{0x0000000000008930L});
-	public static final BitSet FOLLOW_expr_in_exprMore1091 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_stringconstant_in_literal1112 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_integerconstant_in_literal1123 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_characterconstant_in_literal1134 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_floatconstant_in_literal1145 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_bool_in_literal1156 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRINGCONSTANT_in_stringconstant1180 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOATCONSTANT_in_floatconstant1204 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHARACTERCONSTANT_in_characterconstant1228 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGERCONSTANT_in_integerconstant1252 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOL_in_bool1276 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_idAssign_in_synpred9_ulNoActions469 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arrayAssign_in_synpred10_ulNoActions480 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifElseBlock_in_synpred11_ulNoActions491 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifBlock_in_synpred12_ulNoActions502 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_21_in_multExpr996 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_atom_in_multExpr998 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_literal_in_atom1009 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_atom1015 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_functionCall_in_atom1021 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arrayRef_in_atom1027 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenExpr_in_atom1033 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_functionCall1042 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_functionCall1043 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_exprList_in_functionCall1045 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_functionCall1047 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_arrayRef1056 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_29_in_arrayRef1057 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_arrayRef1058 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_30_in_arrayRef1059 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_19_in_parenExpr1069 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_parenExpr1071 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_parenExpr1073 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_expr_in_exprList1082 = new BitSet(new long[]{0x0000000000800002L});
+	public static final BitSet FOLLOW_exprMore_in_exprList1084 = new BitSet(new long[]{0x0000000000800002L});
+	public static final BitSet FOLLOW_23_in_exprMore1094 = new BitSet(new long[]{0x0000000000008930L});
+	public static final BitSet FOLLOW_expr_in_exprMore1096 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_integerconstant_in_literal1117 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_floatconstant_in_literal1128 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_bool_in_literal1139 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_stringconstant_in_literal1150 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_characterconstant_in_literal1161 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRINGCONSTANT_in_stringconstant1185 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOATCONSTANT_in_floatconstant1209 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHARACTERCONSTANT_in_characterconstant1233 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGERCONSTANT_in_integerconstant1257 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOL_in_bool1281 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arrayAssign_in_synpred9_ulNoActions472 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_idAssign_in_synpred10_ulNoActions483 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifElseBlock_in_synpred11_ulNoActions494 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifBlock_in_synpred12_ulNoActions505 = new BitSet(new long[]{0x0000000000000002L});
 }
