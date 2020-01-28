@@ -1,4 +1,4 @@
-// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-27 19:33:11
+// $ANTLR null /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g 2020-01-28 02:23:05
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -339,8 +339,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = IF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:244:4: ( 'if' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:244:6: 'if'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:295:4: ( 'if' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:295:6: 'if'
 			{
 			match("if"); 
 
@@ -360,8 +360,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = ELSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:247:6: ( 'else' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:247:8: 'else'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:298:6: ( 'else' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:298:8: 'else'
 			{
 			match("else"); 
 
@@ -381,8 +381,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = WHILE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:250:7: ( 'while' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:250:9: 'while'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:301:7: ( 'while' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:301:9: 'while'
 			{
 			match("while"); 
 
@@ -402,8 +402,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = PRINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:253:7: ( 'print' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:253:9: 'print'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:304:7: ( 'print' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:304:9: 'print'
 			{
 			match("print"); 
 
@@ -423,8 +423,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = PRINTLN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:256:9: ( 'println' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:256:11: 'println'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:307:9: ( 'println' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:307:11: 'println'
 			{
 			match("println"); 
 
@@ -444,8 +444,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = RETURN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:259:8: ( 'return' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:259:10: 'return'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:310:8: ( 'return' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:310:10: 'return'
 			{
 			match("return"); 
 
@@ -465,7 +465,7 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = BOOL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:262:6: ( 'true' | 'false' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:313:6: ( 'true' | 'false' )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='t') ) {
@@ -483,14 +483,14 @@ public class ulNoActionsLexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:262:8: 'true'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:313:8: 'true'
 					{
 					match("true"); 
 
 					}
 					break;
 				case 2 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:263:4: 'false'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:314:4: 'false'
 					{
 					match("false"); 
 
@@ -512,7 +512,7 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = TYPE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:266:6: ( 'int' | 'float' | 'string' | 'char' | 'boolean' | 'void' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:317:6: ( 'int' | 'float' | 'string' | 'char' | 'boolean' | 'void' )
 			int alt2=6;
 			switch ( input.LA(1) ) {
 			case 'i':
@@ -552,42 +552,42 @@ public class ulNoActionsLexer extends Lexer {
 			}
 			switch (alt2) {
 				case 1 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:266:8: 'int'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:317:8: 'int'
 					{
 					match("int"); 
 
 					}
 					break;
 				case 2 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:267:6: 'float'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:318:6: 'float'
 					{
 					match("float"); 
 
 					}
 					break;
 				case 3 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:268:6: 'string'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:319:6: 'string'
 					{
 					match("string"); 
 
 					}
 					break;
 				case 4 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:269:6: 'char'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:320:6: 'char'
 					{
 					match("char"); 
 
 					}
 					break;
 				case 5 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:270:6: 'boolean'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:321:6: 'boolean'
 					{
 					match("boolean"); 
 
 					}
 					break;
 				case 6 :
-					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:271:6: 'void'
+					// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:322:6: 'void'
 					{
 					match("void"); 
 
@@ -609,8 +609,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:274:4: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )* )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:274:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:325:4: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )* )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:325:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -620,7 +620,7 @@ public class ulNoActionsLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:274:29: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:325:29: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -665,11 +665,11 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = STRINGCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:277:16: ( '\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\"' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:277:18: '\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\"'
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:328:16: ( '\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\"' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:328:18: '\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\"'
 			{
 			match('\"'); 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:277:21: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:328:21: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -715,10 +715,10 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = INTEGERCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:280:17: ( ( '0' .. '9' )+ )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:280:19: ( '0' .. '9' )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:331:17: ( ( '0' .. '9' )+ )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:331:19: ( '0' .. '9' )+
 			{
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:280:19: ( '0' .. '9' )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:331:19: ( '0' .. '9' )+
 			int cnt5=0;
 			loop5:
 			while (true) {
@@ -767,10 +767,10 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = FLOATCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:283:15: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:283:17: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:334:15: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:334:17: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
 			{
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:283:17: ( '0' .. '9' )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:334:17: ( '0' .. '9' )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -804,7 +804,7 @@ public class ulNoActionsLexer extends Lexer {
 			}
 
 			match('.'); 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:283:31: ( '0' .. '9' )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:334:31: ( '0' .. '9' )+
 			int cnt7=0;
 			loop7:
 			while (true) {
@@ -853,8 +853,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = CHARACTERCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:286:19: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\'' )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:286:21: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\''
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:337:19: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\'' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:337:21: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\''
 			{
 			match('\''); 
 			if ( input.LA(1)=='!'||input.LA(1)==','||input.LA(1)=='.'||(input.LA(1) >= '0' && input.LA(1) <= ':')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= '{')||input.LA(1)=='}' ) {
@@ -882,10 +882,10 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:294:9: ( ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+ )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:294:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:345:9: ( ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+ )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:345:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
 			{
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:294:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:345:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
 			int cnt8=0;
 			loop8:
 			while (true) {
@@ -935,12 +935,12 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:297:9: ( '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' ) )
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:297:11: '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:348:9: ( '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' ) )
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:348:11: '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' )
 			{
 			match("//"); 
 
-			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:297:16: (~ ( '\\r' | '\\n' ) )*
+			// /home/braydon/Desktop/Spring2020/Compilers/src/ulNoActions.g:348:16: (~ ( '\\r' | '\\n' ) )*
 			loop9:
 			while (true) {
 				int alt9=2;

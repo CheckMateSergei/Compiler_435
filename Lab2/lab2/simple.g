@@ -1,5 +1,9 @@
 grammar simple;
 
+@options{
+output=AST
+}
+
 program returns [Program p]
 @init
 {

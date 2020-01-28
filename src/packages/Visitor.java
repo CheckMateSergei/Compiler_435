@@ -11,4 +11,22 @@ public abstract class Visitor
 	public abstract Object visit(FormalParam fp);
 	public abstract Object visit(Function f);
 	public abstract Object visit(FunctionBod fb);
+	public abstract Object visit(ArrayAssignStmt aas);
+	public abstract Object visit(ArrayDecl arrayDecl);
+	public abstract Object visit(Block b);
+	public abstract Object visit(Literal l);
+	public abstract Object visit(StringLiteral sl);
+	public abstract Object visit(FloatLiteral fl);
+	public abstract Object visit(CharLiteral cl);
+	public abstract Object visit(BooleanLiteral bl);
+	public abstract Object visit(Expression e);
+	public abstract Object visit(ExColonStmt ec);
+	public abstract Object visit(IdAssignStmt idas);
+	public abstract Object visit(IfElseStmt ifel);
+	public abstract Object visit(IfStmt is);
+	public abstract Object visit(PrintlnStmt pl);
+	public abstract Object visit(PrintStmt ps);
+	public abstract Object visit(ReturnStmt ret);
+	public abstract Object visit(SemiStatement sem);
+	public abstract Object visit(WhileStmt wh);
 }

@@ -107,79 +107,114 @@ varDecl returns [VarDecl vd]
 	: ct = compoundType id = identifier ';' { vd = new VarDecl(ct, id); }
 	;
 
+// returns a regular type for a declaration or an array type declaration
 compoundType returns [CompType ct]
 	// if it is just a normal type create a comp type object
 	: t = TYPE { ct = new CompType(t.getText()); }
 	// if it is an array decl
 	| ad = arrayDecl { ct = ad; }
-//CAN EITHER KEEP THIS HERE AND MAKE CompType INTO A REGULAR VARIABLE DECL AND THEN
-//HAVE arrayDecl TAKE CARE OF ARRAY DEC'S (WOULD NEED TO CHANGE: CompType.java
-//TO INHERIT VarDecl AND ABOVE METHOD AND MAYBE SOMETHING ELSE TOO BUT GTG)
 	;
 
+// passes an array declaration back up to compoundType to pass to varDecl
 arrayDecl returns [ArrayDecl ad]
 	: t = TYPE '['il = integerconstant']'
 	// create a new array with type t and size i 
 	{ ad = new ArrayDecl(t.getText(), il.getValue()); }
 	;
 
+// identifier match and object creation
 identifier returns [Identifier i]
 	: id = ID { i = new Identifier(id.getText()); }
 	;
 
-/* *** Might not need this ***
- * type: TYPE
- *	;
- */
-
+// different kinds of statements, as all are subclasses of Statement we
+// just assign s to whichever new object gets created on rule match
 statement returns [Statement s]
 	: st = semiColon { s = st;  }
-//	| exprColon 
-//	| idAssign 
-//	| arrayAssign 
-//	| ifElseBlock 
-//	| ifBlock 
-//	| whileBlock 
-//	| printlnStmt 
-//	| printStmt 
-//	| returnStmt
+	| ec = exprColon { s = ec;  }
+	| idas = idAssign { s = idas; }
+	| aas = arrayAssign { s = aas; }
+	| ie = ifElseBlock { s = ie; }
+	| is = ifBlock { s = is; }
+	| wh = whileBlock { s = wh; }
+	| pl = printlnStmt { s = pl; }
+	| p = printStmt { s = p; }
+	| ret = returnStmt { s = ret; }
 	;
 
-whileBlock: WHILE'(' expr')' block
+// while statement and block rule
+whileBlock returns [WhileStmt wh]
+	: WHILE'(' e = expr')' b = block { wh = new WhileStmt(e, b); }
 	;
 
-printlnStmt: PRINTLN expr ';'
+// print statement with new line
+printlnStmt returns [PrintlnStmt pl]
+	: PRINTLN e = expr ';' { pl = new PrintlnStmt(e); }
 	;
 
-printStmt: PRINT expr ';'
+// normal print statement
+printStmt returns [PrintStmt p]
+	: PRINT e = expr ';' { p = new PrintStmt(e); }
 	;
 
-returnStmt: RETURN expr? ';'
+// returns one or none expressions
+returnStmt returns [ReturnStmt ret]
+@init
+{
+	// create the return statement with no expression field
+	ret = new ReturnStmt();
+}
+@after{}
+	// sets the expression field to e if expression exists
+	: RETURN (e = expr { ret.setExpr(e); })? ';'
 	;
 
+// statment with just a semicolon
 semiColon returns [SemiStatement st]
 	: ';' { st = new SemiStatement(); }
 	;
 
-exprColon: expr ';'
+// statement with just an expression and a semi colon
+exprColon returns [ExColonStmt ec]
+	: e = expr ';' { ec = new ExColonStmt(e); }
 	;
 
-idAssign: identifier '=' expr ';'
+// id assignment statement
+idAssign returns [IdAssignStmt idas]
+	: id = identifier '=' e = expr ';' { idas = new IdAssignStmt(id, e); }
 	;
 
-arrayAssign: identifier '[' expr']' '=' expr ';'
+// assignment of an array cell to an expression
+arrayAssign returns [ArrayAssignStmt aas]
+	: id = identifier '[' e1 = expr']' '=' e2 = expr ';'
+	  { aas = new ArrayAssignStmt(id, e1, e2); }
 	;
 
-ifElseBlock: IF'('expr')' block ELSE block
+// if else statement, must go before if statement
+ifElseBlock returns [IfElseStmt ie]
+	: IF'('e = expr')' b1 = block ELSE b2 = block
+	  { ie = new IfElseStmt(e, b1, b2); }
 	;
 
-ifBlock: IF'('expr')' block
+// if statement without else
+ifBlock returns [IfStmt is]
+	: IF'('e = expr')' b = block { is = new IfStmt(e, b); }
 	;
 
-block: '{' statement* '}'
+// code blocks filled with statements
+block returns [Block blok]
+@init
+{
+	// create a new block object with empty stmt list
+	blok = new Block();
+}
+@after{}
+	// add new statments to the blocks list
+	: '{' ( s = statement { blok.addToBlock(s); } )* '}'
 	;
 
-expr: compareExpr
+expr returns [Expression e]
+	: l = literal { e = l; } //compareExpr
 	;
 
 compareExpr: lessExpr ('==' lessExpr)*
@@ -216,27 +251,43 @@ exprList: expr exprMore*
 exprMore: ',' expr
 	;
 	
-literal: stringconstant 
-	| integerconstant 
-	| characterconstant 
-	| floatconstant 
-	| bool
+// return a matched literal object
+literal returns [Literal l]
+	: sl = stringconstant { l = sl;}
+	| il = integerconstant { l = il; }
+	| cl = characterconstant { l = cl; }
+	| fl = floatconstant { l = fl; }
+	| bl = bool { l = bl; }
 	;
 
-stringconstant: STRINGCONSTANT
+// returns a string literal
+stringconstant returns [StringLiteral sl]
+	// sets the value of the new string literal to the matched string
+	: s = STRINGCONSTANT { sl = new StringLiteral(s.getText()); }
 	;
 
-floatconstant: FLOATCONSTANT
+// returns a float literal
+floatconstant returns [FloatLiteral fl]
+	// sets the value of the float to matched float value
+	: f = FLOATCONSTANT { fl = new FloatLiteral(Float.parseFloat(f.getText())); }
 	;
 
-characterconstant: CHARACTERCONSTANT
+// returns a character literal
+characterconstant returns [CharLiteral cl]
+	// sets value of the new char lit to the matched character
+	: c = CHARACTERCONSTANT { cl = new CharLiteral(c.getText().charAt(0)); }
 	;
 
+// returns an integer literal
 integerconstant returns [IntegerLiteral il]
+	// sets the value of the new int literal to the matched value
 	: i = INTEGERCONSTANT { il = new IntegerLiteral(Integer.parseInt(i.getText())); }
 	;
 
-bool: BOOL
+// returns a true or false boolean
+bool returns [BooleanLiteral bl]
+	// set value of the boolean literal
+	: b = BOOL { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); }
 	;
 
 /* Lexer */

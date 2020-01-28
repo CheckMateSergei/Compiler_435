@@ -6,7 +6,7 @@ import org.antlr.runtime.debug.DebugEventSocketProxy;
 public class __Test__ {
 
     public static void main(String args[]) throws Exception {
-        ulNoActionsLexer lex = new ulNoActionsLexer(new ANTLRFileStream("/home/braydon/Desktop/Spring2020/Compilers/tests/accept/basic.ul", "UTF8"));
+        ulNoActionsLexer lex = new ulNoActionsLexer(new ANTLRFileStream("/home/braydon/Desktop/Spring2020/Compilers/tests/accept/stateTest.ul", "UTF8"));
         CommonTokenStream tokens = new CommonTokenStream(lex);
 
         ulNoActionsParser g = new ulNoActionsParser(tokens, 49100, null);

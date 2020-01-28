@@ -1,0 +1,11 @@
+int foo(int[4] i)
+{
+
+
+String s;
+			int x;
+		x = 69;
+s="i am a compiler";
+
+	println 'p';	
+}
