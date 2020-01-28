@@ -87,35 +87,62 @@ moreFormals returns [FormalParam mf]
 	{ mf = new FormalParam(ct, id); }
 	;
 
-functionBody: '{' varDecl*  statement* '}'
+functionBody returns [FunctionBod fb]
+@init
+{
+	// create the new function body object and then add the 
+	// statements and variable declarations
+	fb = new FunctionBod();
+}
+@after
+{
+}	// add the variable declarations and statements to
+	// the appropriate vectors in the new function body object
+	: '{' ( vd = varDecl { fb.addVarDecl(vd); })*  
+	      ( s = statement { fb.addStatement(s); })* '}'
 	;
 
-varDecl: compoundType identifier ';'
+varDecl returns [VarDecl vd]
+	// creates a new variable declaration
+	: ct = compoundType id = identifier ';' { vd = new VarDecl(ct, id); }
 	;
 
-compoundType: type |
-	  arrayDecl
+compoundType returns [CompType ct]
+	// if it is just a normal type create a comp type object
+	: t = TYPE { ct = new CompType(t.getText()); }
+	// if it is an array decl
+	| ad = arrayDecl { ct = ad; }
+//CAN EITHER KEEP THIS HERE AND MAKE CompType INTO A REGULAR VARIABLE DECL AND THEN
+//HAVE arrayDecl TAKE CARE OF ARRAY DEC'S (WOULD NEED TO CHANGE: CompType.java
+//TO INHERIT VarDecl AND ABOVE METHOD AND MAYBE SOMETHING ELSE TOO BUT GTG)
 	;
 
-arrayDecl: type'['integerconstant']'
+arrayDecl returns [ArrayDecl ad]
+	: t = TYPE '['il = integerconstant']'
+	// create a new array with type t and size i 
+	{ ad = new ArrayDecl(t.getText(), il.getValue()); }
 	;
 
-identifier : ID
+identifier returns [Identifier i]
+	: id = ID { i = new Identifier(id.getText()); }
 	;
 
-type: TYPE
-	;
+/* *** Might not need this ***
+ * type: TYPE
+ *	;
+ */
 
-statement: semiColon |
-	exprColon |
-	idAssign |
-	arrayAssign |
-	ifElseBlock |
-	ifBlock |
-	whileBlock |
-	printlnStmt |
-	printStmt |
-	returnStmt
+statement returns [Statement s]
+	: st = semiColon { s = st;  }
+//	| exprColon 
+//	| idAssign 
+//	| arrayAssign 
+//	| ifElseBlock 
+//	| ifBlock 
+//	| whileBlock 
+//	| printlnStmt 
+//	| printStmt 
+//	| returnStmt
 	;
 
 whileBlock: WHILE'(' expr')' block
@@ -130,7 +157,8 @@ printStmt: PRINT expr ';'
 returnStmt: RETURN expr? ';'
 	;
 
-semiColon: ';'
+semiColon returns [SemiStatement st]
+	: ';' { st = new SemiStatement(); }
 	;
 
 exprColon: expr ';'
@@ -166,11 +194,11 @@ plmiExpr: multExpr (('+'|'-') multExpr)*
 multExpr: atom ('*' atom)*
 	;
 
-atom: literal |
-	identifier |
-	functionCall |
-	arrayRef |	
-	parenExpr
+atom: literal 
+	| identifier 
+	| functionCall 
+	| arrayRef 
+	| parenExpr
 	;
 
 functionCall: identifier'(' exprList ')'
@@ -188,11 +216,11 @@ exprList: expr exprMore*
 exprMore: ',' expr
 	;
 	
-literal: stringconstant |
-	integerconstant |
-	characterconstant |
-	floatconstant |
-	bool
+literal: stringconstant 
+	| integerconstant 
+	| characterconstant 
+	| floatconstant 
+	| bool
 	;
 
 stringconstant: STRINGCONSTANT
@@ -204,7 +232,8 @@ floatconstant: FLOATCONSTANT
 characterconstant: CHARACTERCONSTANT
 	;
 
-integerconstant: INTEGERCONSTANT
+integerconstant returns [IntegerLiteral il]
+	: i = INTEGERCONSTANT { il = new IntegerLiteral(Integer.parseInt(i.getText())); }
 	;
 
 bool: BOOL
@@ -230,16 +259,16 @@ PRINTLN	: 'println'
 RETURN	: 'return'
 	;
 
-BOOL	: 'true'|
-	 'false'
+BOOL	: 'true'
+	 |'false'
 	;
 
-TYPE	: 'int' |
-	  'float' |
-	  'string' |
-	  'char' |
-	  'boolean' |
-	  'void'
+TYPE	: 'int' 
+	  | 'float' 
+	  | 'string' 
+	  | 'char' 
+	  | 'boolean' 
+	  | 'void'
 	;
 
 ID	: ('a'..'z'|'A'..'Z'|'_')('0'..'9'|'a'..'z'|'A'..'Z'|'_')*

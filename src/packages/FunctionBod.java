@@ -23,6 +23,26 @@ public class FunctionBod
 		statements.add(stmt);
 	}
 
+	public Statement getStatement(int index)
+	{
+		return statements.elementAt(index);
+	}
+
+	public int getStatementCount()
+	{
+		return statements.size();
+	}
+
+	public VarDecl getVarDecl(int index)
+	{
+		return varDecls.elementAt(index);
+	}
+
+	public int getVarDeclCount()
+	{
+		return varDecls.size();
+	}
+
 	public Object accept(Visitor v)
 	{
 		return v.visit(this);

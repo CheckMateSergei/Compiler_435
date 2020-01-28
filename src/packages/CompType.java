@@ -3,11 +3,16 @@ import packages.*;
 
 public class CompType
 {
-	Type type;
+	String type;
 
-	public CompType(Type type)
+	public CompType(String type)
 	{
 		this.type = type;
+	}
+
+	public String getType()
+	{
+		return this.type;
 	}
 
 	public Object accept(Visitor v)

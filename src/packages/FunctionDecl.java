@@ -14,7 +14,7 @@ public class FunctionDecl
 		this.parameters = new Vector<FormalParam>();
 	}
 
-	void addFormal(FormalParam fp)
+	public void addFormal(FormalParam fp)
 	{
 		parameters.add(fp);
 	}

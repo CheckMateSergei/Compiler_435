@@ -1,14 +1,11 @@
 package packages;
 import packages.*;
 
-public class Type
+public class SemiStatement extends Statement
 {
-	String type;
-
-	public Type(String type)
-	{
-		this.type = type;
-	}
+	final char c = ';';
+	
+	public SemiStatement(){}
 
 	public Object accept(Visitor v)
 	{
