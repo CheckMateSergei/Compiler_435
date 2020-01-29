@@ -1,6 +1,6 @@
 void main()
 {
-	string s;
+	String s;
 
 	s = "I am the main method bow before my might";
 

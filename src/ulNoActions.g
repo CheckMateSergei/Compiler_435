@@ -111,7 +111,7 @@ compoundType returns [CompType ct]
 
 // passes an array declaration back up to compoundType to pass to varDecl
 arrayDecl returns [ArrayDecl ad]
-	: t = TYPE '['il = integerconstant']'
+	: t = TYPE '[' il = integerconstant ']'
 	// create a new array with type t and size i 
 	{ ad = new ArrayDecl(t.getText(), il.getValue()); }
 	;
@@ -132,7 +132,7 @@ statement returns [Statement s]
 	| is = ifBlock { s = is; }
 	| wh = whileBlock { s = wh; }
 	| pl = printlnStmt { s = pl; }
-	| p = printStmt { s = p; }
+	| ps = printStmt { s = ps; }
 	| ret = returnStmt { s = ret; }
 	;
 
@@ -158,7 +158,6 @@ returnStmt returns [ReturnStmt ret]
 	// create the return statement with no expression field
 	ret = new ReturnStmt();
 }
-@after{}
 	// sets the expression field to e if expression exists
 	: RETURN (e = expr { ret.setExpr(e); })? ';'
 	;
@@ -203,48 +202,123 @@ block returns [Block blok]
 	// create a new block object with empty stmt list
 	blok = new Block();
 }
-@after{}
 	// add new statments to the blocks list
 	: '{' ( s = statement { blok.addToBlock(s); } )* '}'
 	;
 
+// enter the expression matrix try not to get lost
 expr returns [Expression e]
-	: l = literal { e = l; } //compareExpr
+	// set match a compareExpr
+	: it = compareExpr
 	;
 
-compareExpr: lessExpr ('==' lessExpr)*
+// try to match a compare expression 
+compareExpr returns [Expression e]
+@init
+{
+	// create a null compare expression
+	Expression it = null;
+}
+@after
+{
+	// sets e to it if nothing else is matched
+	e = it;
+}
+	// if the expression is matched here instantiate a new CompareExpr
+	: le = lessExpr { it = le; } ('==' ri = lessExpr { it = new CompareExpr(it, ri); })*
 	;
 
-lessExpr: plmiExpr ('<' plmiExpr)*
+lessExpr returns [Expression e]
+@init
+{
+	// create a null compare expression
+	Expression it = null;
+}
+@after
+{
+	// sets e to it if nothing else is matched
+	e = it;
+}
+	// if the expression is matched here instantiate a LessExpr
+	: le = plmiExpr { it = le; } ('<'  ri = plmiExpr { it = new LessExpr(it, ri); })*
 	;
 
-plmiExpr: multExpr (('+'|'-') multExpr)*
+// try to match a plus minus expression
+plmiExpr returns [Expression e]
+@init
+{
+	// create a null compare expression
+	Expression it = null;
+}
+@after
+{
+	// sets e to it if nothing else is matched
+	e = it;
+}
+	// Old
+	/*: le = multExpr { it = le; } 
+	| ( symbol = '+' ri = multExpr 
+	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })*
+	| ( symbol = '-' ri = multExpr 
+	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })*
+	;*/
+	: le = multExpr { it = le; } 
+	(( symbol = '+' ri = multExpr 
+	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })
+	| ( symbol = '-' ri = multExpr 
+	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); }))*
 	;
 
-multExpr: atom ('*' atom)*
+// try to match a mult expression
+multExpr returns [Expression e]
+@init
+{
+	// create a null compare expression
+	Expression it = null;
+}
+@after
+{
+	// sets e to it if nothing else is matched
+	e = it;
+}
+	: le = atom { it = le; } ('*' ri = atom { it = new MultExpr(it, ri); })*
 	;
 
-atom: literal 
-	| identifier 
-	| functionCall 
-	| arrayRef 
-	| parenExpr
+// all my super cool atoms
+atom returns [Expression e]
+	: l = literal { e = l; }
+	| id = identifier { e = id; }
+	| fc = functionCall { e = fc; }
+	| ar = arrayRef { e = ar; }
+	| pe = parenExpr { e = pe; }
 	;
 
-functionCall: identifier'(' exprList ')'
+functionCall returns [FunctionCall fc]
+@init
+{
+	fc = new FunctionCall();
+}
+	// removes the need for exprList and exprMore
+	: id = identifier'(' e1 = expr { fc.setId(id);
+					 fc.addExpr(e1); }
+	// if there is more expressions following a comma then add them 
+	// to the function calls expression list
+	  (',' e2 = expr { fc.addExpr(e2); } )* ')'
 	;
 
-arrayRef: identifier'['expr']' 
+arrayRef returns [Expression e]
+	: id = identifier'[' e1 = expr ']' { e = new ArrayRef(id, e1); } 
 	;
 
-parenExpr: '(' expr ')'
+parenExpr returns [Expression e]
+	: '(' e1 = expr ')' { e = new ParenExpr(e1); }
 	;
-
-exprList: expr exprMore*
-	;
-
-exprMore: ',' expr
-	;
+//
+//exprList: expr exprMore*
+//	;
+//
+//exprMore: ',' expr
+//	;
 	
 // return a matched literal object
 literal returns [Literal l]

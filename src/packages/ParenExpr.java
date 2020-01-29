@@ -1,13 +1,13 @@
 package packages;
 import packages.*;
 
-public class Identifier extends Expression
+public class ParenExpr extends Expression
 {
-	String id;
+	Expression e;
 
-	public Identifier(String id)
+	public ParenExpr(Expression e)
 	{
-		this.id = id;
+		this.e = e;
 	}
 
 	public Object accept(Visitor v)

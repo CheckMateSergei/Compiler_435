@@ -1,4 +1,4 @@
-string foobar(char c)
+String foobar(char c)
 {
 	char d;
 	d = c;

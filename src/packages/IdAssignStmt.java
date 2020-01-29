@@ -13,6 +13,16 @@ public class IdAssignStmt extends Statement
 		this.e = e;
 	}
 
+	public Identifier getId()
+	{
+		return this.id;
+	}
+
+	public Expression getExpr()
+	{
+		return this.e;
+	}
+
 	public Object accept(Visitor v)
 	{
 		return v.visit(this);
