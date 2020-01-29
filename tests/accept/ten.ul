@@ -1,4 +1,4 @@
-String s_maker(int x, String s)
+string s_maker(int x, string s)
 {
 	if(0 < x){
 		x = x - 1;
@@ -11,7 +11,7 @@ String s_maker(int x, String s)
 void main()
 {
 	int x;
-	String s;
+	string s;
 	s = "Why hello there...";
 	x = 10;
 	println "How many times will the string print";

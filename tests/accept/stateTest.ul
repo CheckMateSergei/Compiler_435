@@ -1,6 +1,6 @@
 int foo(int[4] i)
 {
-	String s;
+	string s;
 	int x;
 	float y;
 	char c;

@@ -385,7 +385,7 @@ BOOL	: 'true'
 
 TYPE	: 'int' 
 	  | 'float' 
-	  | 'String' 
+	  | 'string' 
 	  | 'char' 
 	  | 'boolean' 
 	  | 'void'

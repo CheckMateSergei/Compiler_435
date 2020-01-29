@@ -2,7 +2,7 @@ int foo(){
 
 int x;
 int y;
-String s;
+string s;
 
 s="My name is Braydon and I like tuna.";
 x = 2;

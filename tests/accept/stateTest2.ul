@@ -1,5 +1,5 @@
 void foobar()
 {
-	String[9] stringlist;
+	string[9] stringlist;
 	stringlist[0] = s;
 }

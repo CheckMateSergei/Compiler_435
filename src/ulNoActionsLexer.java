@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-01-28 20:05:19
+// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-01-28 20:18:08
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -512,7 +512,7 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = TYPE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:386:6: ( 'int' | 'float' | 'String' | 'char' | 'boolean' | 'void' )
+			// ./src/ulNoActions.g:386:6: ( 'int' | 'float' | 'string' | 'char' | 'boolean' | 'void' )
 			int alt2=6;
 			switch ( input.LA(1) ) {
 			case 'i':
@@ -525,7 +525,7 @@ public class ulNoActionsLexer extends Lexer {
 				alt2=2;
 				}
 				break;
-			case 'S':
+			case 's':
 				{
 				alt2=3;
 				}
@@ -566,9 +566,9 @@ public class ulNoActionsLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:388:6: 'String'
+					// ./src/ulNoActions.g:388:6: 'string'
 					{
-					match("String"); 
+					match("string"); 
 
 					}
 					break;
@@ -1236,10 +1236,10 @@ public class ulNoActionsLexer extends Lexer {
 		"\134\uffff}>";
 	static final String[] DFA10_transitionS = {
 			"\2\35\2\uffff\1\35\22\uffff\1\35\1\uffff\1\32\4\uffff\1\34\1\1\1\2\1"+
-			"\3\1\4\1\5\1\6\1\uffff\1\36\12\33\1\uffff\1\7\1\10\1\11\3\uffff\22\31"+
-			"\1\25\7\31\1\12\1\uffff\1\13\1\uffff\1\31\1\uffff\1\31\1\27\1\26\1\31"+
-			"\1\17\1\24\2\31\1\16\6\31\1\21\1\31\1\22\1\31\1\23\1\31\1\30\1\20\3\31"+
-			"\1\14\1\uffff\1\15",
+			"\3\1\4\1\5\1\6\1\uffff\1\36\12\33\1\uffff\1\7\1\10\1\11\3\uffff\32\31"+
+			"\1\12\1\uffff\1\13\1\uffff\1\31\1\uffff\1\31\1\27\1\26\1\31\1\17\1\24"+
+			"\2\31\1\16\6\31\1\21\1\31\1\22\1\25\1\23\1\31\1\30\1\20\3\31\1\14\1\uffff"+
+			"\1\15",
 			"",
 			"",
 			"",
