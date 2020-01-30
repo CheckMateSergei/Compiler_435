@@ -1,11 +1,13 @@
 package packages;
-import packages.*;
 
 public class ReturnStmt extends Statement
 {
 	Expression e;
 	
-	public ReturnStmt(){}
+	public ReturnStmt()
+	{
+		this.e = null;
+	}
 
 	public void setExpr(Expression e)
 	{

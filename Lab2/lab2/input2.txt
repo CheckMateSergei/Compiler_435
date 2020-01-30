@@ -1,6 +1,0 @@
-f = 8;
-g = 2;
-h = 12;
-
-out = f+g*h;
-output out;

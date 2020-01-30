@@ -10,7 +10,7 @@ void main()
 	int x;
 
 	x = 0;
-	c_[x] = 'A';
+	c_[x] = 'a';
 	
 	println foobar(c_, x);
 }

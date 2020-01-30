@@ -1,5 +1,4 @@
 package packages;
-import packages.*;
 
 public class ArrayDecl extends CompType
 {

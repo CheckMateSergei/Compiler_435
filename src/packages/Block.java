@@ -1,5 +1,4 @@
 package packages;
-import packages.*;
 import java.util.Vector;
 
 public class Block extends Statement

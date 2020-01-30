@@ -67,14 +67,16 @@ functionDecl returns [FunctionDecl fd]
 	// creates the new function decl object
 	: ct = compoundType id = identifier { fd = new FunctionDecl(ct, id); }
 	// adds the new formal parameter to the vector for fd
-	'(' ( fp = formalParameters { fd.addFormal(fp); } )? ')'	
+	'(' ( fp = formalParameters { fd.addFormal(fp); } )? 
+	// adds more formals if there are some
+	  ( mf = moreFormals { fd.addFormal(mf); } )* ')'	
 	;
 
 formalParameters returns [FormalParam fp]
 	// creates a new formal parameter and passes it up to its function
 	: ct = compoundType id = identifier { fp = new FormalParam(ct, id); }
 	// matches to add more to the parameter list if applicable
-	  ( mf = moreFormals { fp = mf; })*	
+	// broken stupid mistake ( mf = moreFormals { fp = mf; })*	
 	;
 
 moreFormals returns [FormalParam mf]
@@ -209,7 +211,7 @@ block returns [Block blok]
 // enter the expression matrix try not to get lost
 expr returns [Expression e]
 	// set match a compareExpr
-	: it = compareExpr
+	: it = compareExpr { e = it; }
 	;
 
 // try to match a compare expression 
@@ -255,13 +257,6 @@ plmiExpr returns [Expression e]
 	// sets e to it if nothing else is matched
 	e = it;
 }
-	// Old
-	/*: le = multExpr { it = le; } 
-	| ( symbol = '+' ri = multExpr 
-	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })*
-	| ( symbol = '-' ri = multExpr 
-	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })*
-	;*/
 	: le = multExpr { it = le; } 
 	(( symbol = '+' ri = multExpr 
 	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })
@@ -344,7 +339,7 @@ floatconstant returns [FloatLiteral fl]
 // returns a character literal
 characterconstant returns [CharLiteral cl]
 	// sets value of the new char lit to the matched character
-	: c = CHARACTERCONSTANT { cl = new CharLiteral(c.getText().charAt(0)); }
+	: c = CHARACTERCONSTANT { cl = new CharLiteral(c.getText().charAt(1)); }
 	;
 
 // returns an integer literal

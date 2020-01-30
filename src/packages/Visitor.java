@@ -1,4 +1,5 @@
 package packages;
+
 public abstract class Visitor
 {
 	public abstract Object visit(Identifier i);
@@ -29,4 +30,11 @@ public abstract class Visitor
 	public abstract Object visit(ReturnStmt ret);
 	public abstract Object visit(SemiStatement sem);
 	public abstract Object visit(WhileStmt wh);
+	public abstract Object visit(ArrayRef ar);
+	public abstract Object visit(CompareExpr ce);
+	public abstract Object visit(FunctionCall fc);
+	public abstract Object visit(LessExpr le);
+	public abstract Object visit(PlmiExpr pm);
+	public abstract Object visit(MultExpr me);
+	public abstract Object visit(ParenExpr pe);
 }

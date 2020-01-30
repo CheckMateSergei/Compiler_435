@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-01-28 20:22:50
+// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-01-29 23:27:44
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -339,8 +339,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = IF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:364:4: ( 'if' )
-			// ./src/ulNoActions.g:364:6: 'if'
+			// ./src/ulNoActions.g:359:4: ( 'if' )
+			// ./src/ulNoActions.g:359:6: 'if'
 			{
 			match("if"); 
 
@@ -360,8 +360,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = ELSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:367:6: ( 'else' )
-			// ./src/ulNoActions.g:367:8: 'else'
+			// ./src/ulNoActions.g:362:6: ( 'else' )
+			// ./src/ulNoActions.g:362:8: 'else'
 			{
 			match("else"); 
 
@@ -381,8 +381,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = WHILE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:370:7: ( 'while' )
-			// ./src/ulNoActions.g:370:9: 'while'
+			// ./src/ulNoActions.g:365:7: ( 'while' )
+			// ./src/ulNoActions.g:365:9: 'while'
 			{
 			match("while"); 
 
@@ -402,8 +402,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = PRINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:373:7: ( 'print' )
-			// ./src/ulNoActions.g:373:9: 'print'
+			// ./src/ulNoActions.g:368:7: ( 'print' )
+			// ./src/ulNoActions.g:368:9: 'print'
 			{
 			match("print"); 
 
@@ -423,8 +423,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = PRINTLN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:376:9: ( 'println' )
-			// ./src/ulNoActions.g:376:11: 'println'
+			// ./src/ulNoActions.g:371:9: ( 'println' )
+			// ./src/ulNoActions.g:371:11: 'println'
 			{
 			match("println"); 
 
@@ -444,8 +444,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = RETURN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:379:8: ( 'return' )
-			// ./src/ulNoActions.g:379:10: 'return'
+			// ./src/ulNoActions.g:374:8: ( 'return' )
+			// ./src/ulNoActions.g:374:10: 'return'
 			{
 			match("return"); 
 
@@ -465,7 +465,7 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = BOOL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:382:6: ( 'true' | 'false' )
+			// ./src/ulNoActions.g:377:6: ( 'true' | 'false' )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='t') ) {
@@ -483,14 +483,14 @@ public class ulNoActionsLexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// ./src/ulNoActions.g:382:8: 'true'
+					// ./src/ulNoActions.g:377:8: 'true'
 					{
 					match("true"); 
 
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:383:4: 'false'
+					// ./src/ulNoActions.g:378:4: 'false'
 					{
 					match("false"); 
 
@@ -512,7 +512,7 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = TYPE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:386:6: ( 'int' | 'float' | 'string' | 'char' | 'boolean' | 'void' )
+			// ./src/ulNoActions.g:381:6: ( 'int' | 'float' | 'string' | 'char' | 'boolean' | 'void' )
 			int alt2=6;
 			switch ( input.LA(1) ) {
 			case 'i':
@@ -552,42 +552,42 @@ public class ulNoActionsLexer extends Lexer {
 			}
 			switch (alt2) {
 				case 1 :
-					// ./src/ulNoActions.g:386:8: 'int'
+					// ./src/ulNoActions.g:381:8: 'int'
 					{
 					match("int"); 
 
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:387:6: 'float'
+					// ./src/ulNoActions.g:382:6: 'float'
 					{
 					match("float"); 
 
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:388:6: 'string'
+					// ./src/ulNoActions.g:383:6: 'string'
 					{
 					match("string"); 
 
 					}
 					break;
 				case 4 :
-					// ./src/ulNoActions.g:389:6: 'char'
+					// ./src/ulNoActions.g:384:6: 'char'
 					{
 					match("char"); 
 
 					}
 					break;
 				case 5 :
-					// ./src/ulNoActions.g:390:6: 'boolean'
+					// ./src/ulNoActions.g:385:6: 'boolean'
 					{
 					match("boolean"); 
 
 					}
 					break;
 				case 6 :
-					// ./src/ulNoActions.g:391:6: 'void'
+					// ./src/ulNoActions.g:386:6: 'void'
 					{
 					match("void"); 
 
@@ -609,8 +609,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:394:4: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )* )
-			// ./src/ulNoActions.g:394:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
+			// ./src/ulNoActions.g:389:4: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )* )
+			// ./src/ulNoActions.g:389:6: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -620,7 +620,7 @@ public class ulNoActionsLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// ./src/ulNoActions.g:394:29: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
+			// ./src/ulNoActions.g:389:29: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '_' )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -665,11 +665,11 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = STRINGCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:397:16: ( '\\\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\\\"' )
-			// ./src/ulNoActions.g:397:18: '\\\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\\\"'
+			// ./src/ulNoActions.g:392:16: ( '\\\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\\\"' )
+			// ./src/ulNoActions.g:392:18: '\\\"' ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )* '\\\"'
 			{
 			match('\"'); 
-			// ./src/ulNoActions.g:397:22: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )*
+			// ./src/ulNoActions.g:392:22: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | ( '0' .. '9' ) | '!' | ',' | '.' | ':' | '_' | '{' | '}' | ' ' )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -715,10 +715,10 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = INTEGERCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:400:17: ( ( '0' .. '9' )+ )
-			// ./src/ulNoActions.g:400:19: ( '0' .. '9' )+
+			// ./src/ulNoActions.g:395:17: ( ( '0' .. '9' )+ )
+			// ./src/ulNoActions.g:395:19: ( '0' .. '9' )+
 			{
-			// ./src/ulNoActions.g:400:19: ( '0' .. '9' )+
+			// ./src/ulNoActions.g:395:19: ( '0' .. '9' )+
 			int cnt5=0;
 			loop5:
 			while (true) {
@@ -767,10 +767,10 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = FLOATCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:403:15: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
-			// ./src/ulNoActions.g:403:17: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+			// ./src/ulNoActions.g:398:15: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+			// ./src/ulNoActions.g:398:17: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
 			{
-			// ./src/ulNoActions.g:403:17: ( '0' .. '9' )+
+			// ./src/ulNoActions.g:398:17: ( '0' .. '9' )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -804,7 +804,7 @@ public class ulNoActionsLexer extends Lexer {
 			}
 
 			match('.'); 
-			// ./src/ulNoActions.g:403:31: ( '0' .. '9' )+
+			// ./src/ulNoActions.g:398:31: ( '0' .. '9' )+
 			int cnt7=0;
 			loop7:
 			while (true) {
@@ -853,8 +853,8 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = CHARACTERCONSTANT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:406:19: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\'' )
-			// ./src/ulNoActions.g:406:21: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\''
+			// ./src/ulNoActions.g:401:19: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\'' )
+			// ./src/ulNoActions.g:401:21: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '!' | ',' | '.' | ':' | '_' | '{' | '}' ) '\\''
 			{
 			match('\''); 
 			if ( input.LA(1)=='!'||input.LA(1)==','||input.LA(1)=='.'||(input.LA(1) >= '0' && input.LA(1) <= ':')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= '{')||input.LA(1)=='}' ) {
@@ -882,10 +882,10 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:414:9: ( ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+ )
-			// ./src/ulNoActions.g:414:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
+			// ./src/ulNoActions.g:409:9: ( ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+ )
+			// ./src/ulNoActions.g:409:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
 			{
-			// ./src/ulNoActions.g:414:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
+			// ./src/ulNoActions.g:409:11: ( '\\t' | ' ' | ( '\\r' | '\\n' ) )+
 			int cnt8=0;
 			loop8:
 			while (true) {
@@ -935,12 +935,12 @@ public class ulNoActionsLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// ./src/ulNoActions.g:417:9: ( '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' ) )
-			// ./src/ulNoActions.g:417:11: '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' )
+			// ./src/ulNoActions.g:412:9: ( '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' ) )
+			// ./src/ulNoActions.g:412:11: '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' | '\\n' )
 			{
 			match("//"); 
 
-			// ./src/ulNoActions.g:417:16: (~ ( '\\r' | '\\n' ) )*
+			// ./src/ulNoActions.g:412:16: (~ ( '\\r' | '\\n' ) )*
 			loop9:
 			while (true) {
 				int alt9=2;

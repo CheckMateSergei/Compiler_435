@@ -1,5 +1,4 @@
 package packages;
-import packages.*;
 
 public abstract class Literal extends Expression
 {

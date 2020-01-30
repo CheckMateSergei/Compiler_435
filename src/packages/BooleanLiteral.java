@@ -1,5 +1,4 @@
 package packages;
-import packages.*;
 
 public class BooleanLiteral extends Literal
 {
