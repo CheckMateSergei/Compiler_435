@@ -4,6 +4,10 @@ import java.util.Vector;
 public class Block extends Statement
 {
 	Vector<Statement> stmtList;
+	public int line;
+	public int offset;
+
+
 
 	public Block()
 	{

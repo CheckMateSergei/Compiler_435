@@ -3,6 +3,8 @@ package packages;
 public class ArrayDecl extends CompType
 {
 	int size;
+	public int line;
+	public int offset;
 
 	public ArrayDecl(String type, int size)
 	{

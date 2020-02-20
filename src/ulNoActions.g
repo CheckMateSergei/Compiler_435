@@ -100,7 +100,9 @@ functionBody returns [FunctionBod fb]
 
 varDecl returns [VarDecl vd]
 	// creates a new variable declaration
-	: ct = compoundType id = identifier ';' { vd = new VarDecl(ct, id); }
+	: ct = compoundType id = identifier ';' { vd = new VarDecl(ct, id); 
+						  vd.line = vd.id.line;
+						  vd.offset = vd.id.offset; }
 	;
 
 // returns a regular type for a declaration or an array type declaration
@@ -108,19 +110,25 @@ compoundType returns [CompType ct]
 	// if it is just a normal type create a comp type object
 	:  ad = arrayDecl { ct = ad; }
 	// if it is an array decl
-	| t = TYPE { ct = new CompType(t.getText()); }
+	| t = TYPE { ct = new CompType(t.getText()); 
+			ct.line = t.getLine();
+			ct.offset = t.getCharPositionInLine(); }
 	;
 
 // passes an array declaration back up to compoundType to pass to varDecl
 arrayDecl returns [ArrayDecl ad]
 	: t = TYPE '[' il = integerconstant ']'
 	// create a new array with type t and size i 
-	{ ad = new ArrayDecl(t.getText(), il.getValue()); }
+	{ ad = new ArrayDecl(t.getText(), il.getValue()); 
+		ad.line = t.getLine();
+		ad.offset = t.getCharPositionInLine(); }
 	;
 
 // identifier match and object creation
 identifier returns [Identifier i]
-	: id = ID { i = new Identifier(id.getText()); }
+	: id = ID { i = new Identifier(id.getText()); 
+			i.line = id.getLine() ;
+			i.offset = id.getCharPositionInLine() ; }
 	;
 
 // different kinds of statements, as all are subclasses of Statement we
@@ -308,13 +316,7 @@ arrayRef returns [Expression e]
 parenExpr returns [Expression e]
 	: '(' e1 = expr ')' { e = new ParenExpr(e1); }
 	;
-//
-//exprList: expr exprMore*
-//	;
-//
-//exprMore: ',' expr
-//	;
-	
+
 // return a matched literal object
 literal returns [Literal l]
 	: il = integerconstant { l = il; }

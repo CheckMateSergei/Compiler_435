@@ -3,6 +3,9 @@ package packages;
 public class CompType
 {
 	String type;
+	public int line;
+	public int offset;
+
 
 	public CompType(String type)
 	{

@@ -5,6 +5,9 @@ public class IdAssignStmt extends Statement
 
 	Identifier id;
 	Expression e;
+	public int line;
+	public int offset;
+
 	
 	public IdAssignStmt(Identifier id, Expression e)
 	{

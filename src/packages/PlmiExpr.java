@@ -5,6 +5,9 @@ public class PlmiExpr extends Expression
 	Expression le;
 	Expression ri;
 	char symbol;
+	public int line;
+	public int offset;
+
 
 	public PlmiExpr(Expression le, Expression ri, char symbol)
 	{

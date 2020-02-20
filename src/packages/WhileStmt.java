@@ -4,6 +4,9 @@ public class WhileStmt extends Statement
 {
 	Expression boolExpr;
 	Block b;
+	public int line;
+	public int offset;
+
 	
 	public WhileStmt(Expression boolExpr, Block b)
 	{

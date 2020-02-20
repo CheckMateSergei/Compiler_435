@@ -4,6 +4,9 @@ public class MultExpr extends Expression
 {
 	Expression le;
 	Expression ri;
+	public int line;
+	public int offset;
+
 
 	public MultExpr(Expression le, Expression ri)
 	{

@@ -4,6 +4,10 @@ public class ArrayRef extends Expression
 {
 	Identifier id;
 	Expression index;
+	public int line;
+	public int offset;
+
+
 
 	public ArrayRef(Identifier id, Expression index)
 	{

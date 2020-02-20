@@ -4,6 +4,9 @@ public class CompareExpr extends Expression
 {
 	Expression le;
 	Expression ri;
+	public int line;
+	public int offset;
+
 
 	public CompareExpr(Expression le, Expression ri)
 	{

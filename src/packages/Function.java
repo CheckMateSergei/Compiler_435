@@ -4,6 +4,9 @@ public class Function
 {
 	FunctionDecl decl;
 	FunctionBod bod;
+	public int line;
+	public int offset;
+
 
 	public Function(FunctionDecl decl, FunctionBod bod)
 	{

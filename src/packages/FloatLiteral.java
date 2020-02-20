@@ -3,6 +3,9 @@ package packages;
 public class FloatLiteral extends Literal
 {
 	float value;
+	public int line;
+	public	int offset;
+
 
 	public FloatLiteral(float value)
 	{

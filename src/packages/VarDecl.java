@@ -2,8 +2,11 @@ package packages;
 
 public class VarDecl
 {
-	CompType type;
-	Identifier id;
+	public CompType type;
+	public Identifier id;
+	public int line;
+	public int offset;
+
 
 	public VarDecl(CompType type, Identifier id)
 	{

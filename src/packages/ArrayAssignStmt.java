@@ -5,6 +5,8 @@ public class ArrayAssignStmt extends Statement
 	Identifier id;
 	Expression index;
 	Expression value;
+	public int line;
+	public int offset;
 	
 	public ArrayAssignStmt(Identifier id, Expression index, Expression value)
 	{

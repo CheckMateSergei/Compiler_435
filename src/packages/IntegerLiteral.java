@@ -3,6 +3,9 @@ package packages;
 public class IntegerLiteral extends Literal
 {
 	int value;
+	public int line;
+	public int offset;
+
 
 	public IntegerLiteral(int value)
 	{

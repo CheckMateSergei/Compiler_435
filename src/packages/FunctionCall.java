@@ -5,6 +5,9 @@ public class FunctionCall extends Expression
 {
 	Vector<Expression> exprList;
 	Identifier id;
+	public int line;
+	public int offset;
+
 
 	public FunctionCall()
 	{

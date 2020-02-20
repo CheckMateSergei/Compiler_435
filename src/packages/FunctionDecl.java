@@ -6,6 +6,9 @@ public class FunctionDecl
 	CompType type;
 	Identifier id;
 	Vector<FormalParam> parameters;
+	public int line;
+	public int offset;
+
 
 	public FunctionDecl(CompType type, Identifier id){
 		this.type = type;

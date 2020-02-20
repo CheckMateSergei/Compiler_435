@@ -4,6 +4,9 @@ public class IfStmt extends Statement
 {
 	Expression boolExpr;
 	Block ifBlock;
+	public int line;
+	public int offset;
+
 	
 	public IfStmt(Expression boolExpr, Block ifBlock)
 	{

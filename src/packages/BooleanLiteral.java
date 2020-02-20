@@ -3,6 +3,9 @@ package packages;
 public class BooleanLiteral extends Literal
 {
 	boolean value;
+	public int line;
+	public int offset;
+
 
 	public BooleanLiteral(boolean value)
 	{

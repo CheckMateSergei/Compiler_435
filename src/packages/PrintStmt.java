@@ -3,6 +3,9 @@ package packages;
 public class PrintStmt extends Statement
 {
 	Expression e;
+	public int line;
+	public int offset;
+
 	
 	public PrintStmt(Expression e)
 	{

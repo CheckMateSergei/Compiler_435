@@ -3,6 +3,9 @@ package packages;
 public class StringLiteral extends Literal
 {
 	String value;
+	public int line;
+	public int offset;
+
 
 	public StringLiteral(String value)
 	{

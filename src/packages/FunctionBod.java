@@ -5,6 +5,9 @@ public class FunctionBod
 {
 	Vector<VarDecl> varDecls;
 	Vector<Statement> statements;
+	public int line;
+	public int offset;
+
 
 	public FunctionBod()
 	{

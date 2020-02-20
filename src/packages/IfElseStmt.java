@@ -5,6 +5,9 @@ public class IfElseStmt extends Statement
 	Expression boolExpr;
 	Block ifBlock;
 	Block elseBlock;
+	public int line;
+	public int offset;
+
 	
 	public IfElseStmt(Expression boolExpr, Block ifBlock, Block elseBlock)
 	{

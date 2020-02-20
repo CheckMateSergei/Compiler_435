@@ -3,6 +3,9 @@ package packages;
 public class CharLiteral extends Literal
 {
 	char value;
+	public int line;
+	public int offset;
+
 
 	public CharLiteral(char value)
 	{

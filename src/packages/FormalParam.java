@@ -4,6 +4,9 @@ public class FormalParam
 {
 	CompType type;
 	Identifier id;
+	public int line;
+	public int offset;
+
 
 	public FormalParam(CompType type, Identifier id)
 	{

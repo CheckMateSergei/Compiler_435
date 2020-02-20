@@ -4,6 +4,9 @@ public class LessExpr extends Expression
 {
 	Expression le;
 	Expression ri;
+	public int line;
+	public int offset;
+
 
 	public LessExpr(Expression le, Expression ri)
 	{
