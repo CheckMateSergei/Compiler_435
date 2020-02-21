@@ -29,7 +29,7 @@ public class FunctionCall extends Expression
 		this.exprList.add(e);
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

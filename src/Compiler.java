@@ -29,8 +29,11 @@ public class Compiler {
 
 		try {
 			Program p = parser.program();
-			PrettyPrintVisitor prettyBoy = new PrettyPrintVisitor();
-			prettyBoy.visit(p);
+		//	PrettyPrintVisitor prettyBoy = new PrettyPrintVisitor();
+			// prettyBoy.visit(p);
+			
+			SemanticVisitor sv = new SemanticVisitor();
+			sv.visit(p);
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.
@@ -39,8 +42,8 @@ public class Compiler {
 			// nothing to do here.
 		}
 		catch (Exception e) {
-			System.out.println(e);
-			e.printStackTrace();
+			//System.out.println(e);
+			 e.printStackTrace();
 		}
 	}
 }

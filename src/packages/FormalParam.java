@@ -2,8 +2,8 @@ package packages;
 
 public class FormalParam
 {
-	CompType type;
-	Identifier id;
+	public CompType type;
+	public Identifier id;
 	public int line;
 	public int offset;
 
@@ -14,7 +14,7 @@ public class FormalParam
 		this.id = id;
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

@@ -1,12 +1,13 @@
 package packages;
 import java.util.Stack;
 import java.util.Hashtable;
+import java.util.ArrayList;
 
-public class SymbolTable<K, V> implements Enviroment{
+public class FunctionSymbolTable implements Enviroment<String, FunctionDecl>{
 
-	Stack<Hashtable> st;
+	public Stack<Hashtable> st;
 
-	public SymbolTable(){
+	public FunctionSymbolTable(){
 
 		// creates an empty stack 
 		st = new Stack<Hashtable>();
@@ -14,7 +15,7 @@ public class SymbolTable<K, V> implements Enviroment{
 
 	public void beginScope(){
 		// push a new hastable onto the stack to represent a new scope
-		st.push(new Hashtable<K, V>());
+		st.push(new Hashtable<String, FunctionDecl>());
 	}
 
 	public void endScope(){
@@ -26,24 +27,25 @@ public class SymbolTable<K, V> implements Enviroment{
 		st.pop();
 	}
 
-	public boolean inCurrentScope(Object key){
+	public boolean inCurrentScope(String key){
 		if(st.empty()){
 			System.out.println("Tried to probe empty stack");
 		}
 		// checks the top scope only for the specified key
-		return st.peek().contains(key);
+		return (st.peek()).containsKey(key);
+		//return this.lookup(key) == null;
 	}
 
-	public void add(Object key, Object value){
+	public void add(String key, FunctionDecl value){
 		// add the new variable or function with its info
 		st.peek().put(key, value);
 	}
 
-	public V lookup(Object key){
+	public FunctionDecl lookup(String key){
 		if(st.empty()){
 			System.out.println("Tried to lookup through empty stack");
 		}
 		// search for key
-		return (V)st.peek().get(key);
+		return (FunctionDecl)st.peek().get(key);
 	}
 }

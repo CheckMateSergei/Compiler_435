@@ -31,7 +31,7 @@ public class PlmiExpr extends Expression
 		return this.symbol;
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

@@ -60,12 +60,16 @@ program returns [Program p]
 
 function returns [Function f]
 	// creates a new function with a matched function decl and body
-	: fd = functionDecl fb = functionBody { f = new Function(fd, fb); }
+	: fd = functionDecl fb = functionBody { f = new Function(fd, fb); 
+						f.line = f.decl.line;
+						f.offset = f.decl.offset; }
 	;
 
 functionDecl returns [FunctionDecl fd]
 	// creates the new function decl object
-	: ct = compoundType id = identifier { fd = new FunctionDecl(ct, id); }
+	: ct = compoundType id = identifier { fd = new FunctionDecl(ct, id); 
+						fd.line = fd.id.line;
+						fd.offset = fd.id.offset; }
 	// adds the new formal parameter to the vector for fd
 	'(' ( fp = formalParameters { fd.addFormal(fp); } )? 
 	// adds more formals if there are some
@@ -74,7 +78,9 @@ functionDecl returns [FunctionDecl fd]
 
 formalParameters returns [FormalParam fp]
 	// creates a new formal parameter and passes it up to its function
-	: ct = compoundType id = identifier { fp = new FormalParam(ct, id); }
+	: ct = compoundType id = identifier { fp = new FormalParam(ct, id); 
+						fp.line = fp.id.line;
+						fp.offset = fp.id.offset; }
 	// matches to add more to the parameter list if applicable
 	// broken stupid mistake ( mf = moreFormals { fp = mf; })*	
 	;
@@ -83,7 +89,9 @@ moreFormals returns [FormalParam mf]
 	: ',' ct = compoundType id = identifier
 	// if comma is matched create another formal param and pass up 
 	// to the formal parameter rule to add to the functions parameter list
-	{ mf = new FormalParam(ct, id); }
+	{ mf = new FormalParam(ct, id); 
+	  mf.line = mf.id.line;
+	  mf.offset = mf.id.offset; }
 	;
 
 functionBody returns [FunctionBod fb]

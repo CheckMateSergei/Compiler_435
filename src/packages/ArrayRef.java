@@ -15,7 +15,7 @@ public class ArrayRef extends Expression
 		this.index = index;
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

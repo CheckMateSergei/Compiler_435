@@ -3,9 +3,9 @@ import java.util.Vector;
 
 public class FunctionDecl
 {
-	CompType type;
-	Identifier id;
-	Vector<FormalParam> parameters;
+	public CompType type;
+	public Identifier id;
+	public Vector<FormalParam> parameters;
 	public int line;
 	public int offset;
 
@@ -21,7 +21,7 @@ public class FunctionDecl
 		parameters.add(fp);
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

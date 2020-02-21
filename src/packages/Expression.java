@@ -2,5 +2,5 @@ package packages;
 
 public abstract class Expression
 {
-	public abstract Object accept(Visitor v);
+	public abstract CompType accept(TypeVisitor v) throws SemanticException;
 }

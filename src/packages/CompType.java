@@ -2,7 +2,7 @@ package packages;
 
 public class CompType
 {
-	String type;
+	public String type;
 	public int line;
 	public int offset;
 
@@ -17,7 +17,7 @@ public class CompType
 		return this.type;
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

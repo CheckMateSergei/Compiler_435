@@ -2,8 +2,8 @@ package packages;
 
 public class Function
 {
-	FunctionDecl decl;
-	FunctionBod bod;
+	public FunctionDecl decl;
+	public FunctionBod bod;
 	public int line;
 	public int offset;
 
@@ -14,7 +14,7 @@ public class Function
 		this.bod = bod;
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}

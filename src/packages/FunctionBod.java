@@ -45,7 +45,7 @@ public class FunctionBod
 		return varDecls.size();
 	}
 
-	public Object accept(Visitor v)
+	public CompType accept(TypeVisitor v) throws SemanticException
 	{
 		return v.visit(this);
 	}
