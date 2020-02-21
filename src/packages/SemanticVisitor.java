@@ -87,7 +87,7 @@ public class SemanticVisitor extends TypeVisitor{
 			else
 			{
 				// throw error as function name duplicated
-				String msg = "Error: Function identifier: '" + temp.decl.id.id + "' duplicated ";
+				String msg = "Error: Function identifier: '" + temp.decl.id.id + "' already in use  ";
 				throw new SemanticException(msg, temp.line, temp.offset);
 			}
 		}
@@ -123,11 +123,12 @@ public class SemanticVisitor extends TypeVisitor{
 	public CompType visit(FormalParam fp) throws SemanticException
 	{
 		// check to see if fp has type void
-		CompType type = fp.type.accept(this);
+		if(fp.type.type == "void")
+		{
+			String msg = "Error: Function parameter with return type 'void' ";
+			throw new SemanticException(msg, fp.type.line, fp.type.offset);
+		}
 		
-
-
-
 		return null;
 	}
 
@@ -137,26 +138,23 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(FunctionDecl fd) throws SemanticException
 	{
+		// add parameters to hashset to see if duplicates exist
+		HashSet<String> dupCheck = new HashSet<String>();
 
-
-
-		/*
-		// see if the name already used as a function
-		if(! func.inCurrentScope(fd.id.id))
+		// for each formal parameter in parameter list for this function
+		for(FormalParam fp : fd.parameters)
 		{
-			// if its not add it and its function decl
-			// fd contains all needed information
-			func.add(fd.id.id, fd);
-		
-			for(int i = 0; i < fd.parameters.size(); i++)
+			// checks for duplicate elements 
+			// add returns false if id already in set
+			if(! dupCheck.add(fp.id.id))
 			{
-				// visit the formal parameter
-				fd.parameters.get(i).accept(this);	
+				String msg = "Error: parameter name: '"+fp.id.id+"' already in use ";
+				throw new SemanticException(msg, fp.line, fp.offset);
 			}
-
+			
+			// visit the parameter individually
+			fp.accept(this);
 		}
-		*/
-
 
 		return null;
 	}
@@ -185,7 +183,12 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(CompType c)throws SemanticException
 	{
-		// return the type if it is not an array
+		// check if instanceof ArrayDecl
+		if(c instanceof ArrayDecl)
+		{
+			// call visit on array declaration and return
+			return c.accept(this);
+		}
 
 
 
@@ -195,7 +198,21 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(ArrayDecl a) throws SemanticException
 	{
-		// jhdi3uid3
+		// check if array decl is of type void
+		if(a.type == "void")
+		{
+			String msg = "Error: variable or parameter declaration with type 'void'";
+			throw new SemanticException(msg, a.line, a.offset);
+		}
+
+		// check array size isnt 0
+		if(a.size == 0)
+		{
+			String msg = "Error: Cannot have an array of length 0";
+			throw new SemanticException(msg, a.line, a.offset);
+		}
+
+
 
 
 

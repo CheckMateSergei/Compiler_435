@@ -2,7 +2,7 @@ package packages;
 
 public class ArrayDecl extends CompType
 {
-	int size;
+	public int size;
 	public int line;
 	public int offset;
 

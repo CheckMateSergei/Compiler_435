@@ -1,21 +1,21 @@
 package packages;
 import java.util.Stack;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 public class VarSymbolTable implements Enviroment<String, CompType>{
 
-	public Stack<Hashtable> st;
+	public Stack<HashMap> st;
 
 	public VarSymbolTable(){
 
 		// creates an empty stack 
-		st = new Stack<Hashtable>();
+		st = new Stack<HashMap>();
 	}
 
 	public void beginScope(){
 		// push a new hastable onto the stack to represent a new scope
-		st.push(new Hashtable<String, CompType>());
+		st.push(new HashMap<String, CompType>());
 	}
 
 	public void endScope(){

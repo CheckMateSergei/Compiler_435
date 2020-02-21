@@ -1,21 +1,21 @@
 package packages;
 import java.util.Stack;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 public class FunctionSymbolTable implements Enviroment<String, FunctionDecl>{
 
-	public Stack<Hashtable> st;
+	public Stack<HashMap> st;
 
 	public FunctionSymbolTable(){
 
 		// creates an empty stack 
-		st = new Stack<Hashtable>();
+		st = new Stack<HashMap>();
 	}
 
 	public void beginScope(){
 		// push a new hastable onto the stack to represent a new scope
-		st.push(new Hashtable<String, FunctionDecl>());
+		st.push(new HashMap<String, FunctionDecl>());
 	}
 
 	public void endScope(){
