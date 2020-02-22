@@ -14,6 +14,13 @@ public class SemanticVisitor extends TypeVisitor{
 	// ***** EXPRESSIONS ***** //
 
 
+	public CompType visit(Expression e) throws SemanticException
+	{
+		System.out.println("YOU DO ENTER EXPRESSION");
+		return e.accept(this);
+	}
+
+
 	public CompType visit(LessExpr e) throws SemanticException{return null;};
 
 
@@ -26,9 +33,6 @@ public class SemanticVisitor extends TypeVisitor{
 	public CompType visit(PlmiExpr e) throws SemanticException{return null;};
 
 
-	public CompType visit(Expression e) throws SemanticException{return null;};
-
-
 	public CompType visit(CompareExpr e) throws SemanticException{return null;};
 
 
@@ -36,29 +40,94 @@ public class SemanticVisitor extends TypeVisitor{
 	// ***** ATOMS ***** //
 	
 
-	public CompType visit(CharLiteral c) throws SemanticException{return null;};
+	public CompType visit(CharLiteral c) throws SemanticException
+	{
+		CompType ct = new CompType("char");
+		ct.line = c.line;
+		ct.offset = c.offset;
+		return ct;
+	}
 
 
-	public CompType visit(BooleanLiteral bool) throws SemanticException{return null;};
+	public CompType visit(BooleanLiteral bool) throws SemanticException
+	{
+		CompType ct = new CompType("bool");
+		ct.line = bool.line;
+		ct.offset = bool.offset;
+		return ct;
+	}
 
 
-	public CompType visit(FloatLiteral f) throws SemanticException{return null;};
+
+	public CompType visit(FloatLiteral f) throws SemanticException
+	{
+		CompType ct = new CompType("float");
+		ct.line = f.line;
+		ct.offset = f.offset;
+		return ct;
+
+	}
 
 
-	public CompType visit(IntegerLiteral i) throws SemanticException{return null;};
+	public CompType visit(IntegerLiteral i) throws SemanticException
+	{
+		CompType ct = new CompType("int");
+		ct.line = i.line;
+		ct.offset = i.offset;
+		return ct;
+	}
+
+	public CompType visit(StringLiteral s) throws SemanticException
+	{
+		CompType ct = new CompType("string");
+		ct.line = s.line;
+		ct.offset = s.offset;
+		return ct;
+	}
 
 
-	public CompType visit(Identifier i) throws SemanticException{return null;};
-
-
-	public CompType visit(ArrayAssignStmt a) throws SemanticException{return null;};
+	public CompType visit(Identifier i) throws SemanticException
+	{
+		// check if id is initialized
+		if(! vars.inCurrentScope(i.id))
+		{
+			String msg = "Error: variable '"+i.id+"' not intialized";
+			throw new SemanticException(msg, i.line, i.offset);
+		}
+		
+		// return the type from i's declaration
+		String t = vars.lookup(i.id).type;
+		CompType ct = new CompType(t);
+		ct.line = i.line;
+		ct.offset = i.offset;
+		return ct;
+	}
 
 
 	public CompType visit(ArrayRef a) throws SemanticException{return null;};
 
 
-	public CompType visit(StringLiteral s) throws SemanticException{return null;};
+	public CompType visit(FunctionCall fc) throws SemanticException
+	{
+		System.out.println("IN FUNC CALL");
+		// check to see if function is defined
+		if(! func.inCurrentScope(fc.id.id))
+		{
+			String msg = "Error: tried to reference undefined function '"+fc.id.id+"'";
+			throw new SemanticException(msg, fc.id.line, fc.id.offset);
+		}
+		
+		// temporary decl to get parameters list
+		FunctionDecl temp = func.lookup(fc.id.id);
+		// check if exprList and paramList differ
+		if(temp.parameters.size() == fc.exprList.size())
+		{
+			String msg = "Error: parameter and argument list differ in length, function call: '"+fc.id.id+"'";
+			throw new SemanticException(msg, fc.id.line, fc.id.offset);
+		}
 
+		return func.lookup(fc.id.id).type;
+	}
 
 
 	// ***** FUNCTION RELATED ***** //
@@ -107,7 +176,7 @@ public class SemanticVisitor extends TypeVisitor{
 		}
 	
 		// check if mains return type is void
-		if(func.lookup("main").type.type != "void"){
+		if(!func.lookup("main").type.type.equals("void")){
 			int x = func.lookup("main").type.line;
 			int y = func.lookup("main").type.offset;
 			String ty = func.lookup("main").type.type;
@@ -182,12 +251,16 @@ public class SemanticVisitor extends TypeVisitor{
 			vd.accept(this);
 		}
 
+		// loop through all the statements and visit each
+		for(Statement s : fb.statements)
+		{
+			s.accept(this);
+		}
+
 
 		return null;
 	}
 
-
-	public CompType visit(FunctionCall fc) throws SemanticException{return null;};
 
 
 
@@ -250,17 +323,32 @@ public class SemanticVisitor extends TypeVisitor{
 		// add as no exceptions thrown
 		vars.add(v.id.id, v.type); 
 
-
-		System.out.println(vars.st.peek().keySet());
-
+		//System.out.println(vars.st.peek().keySet());
 		return null;
 	}
 
 
-	public CompType visit(Statement s) throws SemanticException{return null;};
+	public CompType visit(Statement s) throws SemanticException
+	{
+
+		System.out.println("YOU DO ENTER STATEMENT");	
+		return null;
+	}
 
 
-	public CompType visit(IdAssignStmt s) throws SemanticException{return null;};
+	public CompType visit(IdAssignStmt s) throws SemanticException
+	{
+	//	// check that type of id and type of expr match
+	//	CompType idt = vars.lookup(s.id.id).type;
+	//	if(idt.type.type.equals())
+	//	{
+
+	//	}
+		return null;
+	}
+
+
+	public CompType visit(ArrayAssignStmt a) throws SemanticException{return null;};
 
 
 	public CompType visit(Block b) throws SemanticException{return null;};
@@ -288,5 +376,7 @@ public class SemanticVisitor extends TypeVisitor{
 
 
 	public CompType visit(WhileStmt s) throws SemanticException{return null;};
+
+
 
 }

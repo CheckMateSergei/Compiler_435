@@ -3,8 +3,8 @@ import java.util.Vector;
 
 public class FunctionCall extends Expression
 {
-	Vector<Expression> exprList;
-	Identifier id;
+	public Vector<Expression> exprList;
+	public Identifier id;
 	public int line;
 	public int offset;
 

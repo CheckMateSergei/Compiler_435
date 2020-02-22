@@ -3,8 +3,8 @@ package packages;
 public class IdAssignStmt extends Statement
 {
 
-	Identifier id;
-	Expression e;
+	public Identifier id;
+	public Expression e;
 	public int line;
 	public int offset;
 
