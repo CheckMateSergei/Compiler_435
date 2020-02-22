@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-02-21 13:06:09
+// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-02-21 19:39:21
 
 import packages.*;
 
@@ -554,11 +554,13 @@ public class ulNoActionsParser extends Parser {
 					ad=arrayDecl();
 					state._fsp--;
 					if (state.failed) return ct;
-					if ( state.backtracking==0 ) { ct = ad; }
+					if ( state.backtracking==0 ) { ct = ad; 
+								    ct.line = ad.line;
+								    ct.offset = ad.offset; }
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:121:4: t= TYPE
+					// ./src/ulNoActions.g:123:4: t= TYPE
 					{
 					t=(Token)match(input,TYPE,FOLLOW_TYPE_in_compoundType366); if (state.failed) return ct;
 					if ( state.backtracking==0 ) { ct = new CompType(t.getText()); 
@@ -585,7 +587,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "arrayDecl"
-	// ./src/ulNoActions.g:127:1: arrayDecl returns [ArrayDecl ad] : t= TYPE '[' il= integerconstant ']' ;
+	// ./src/ulNoActions.g:129:1: arrayDecl returns [ArrayDecl ad] : t= TYPE '[' il= integerconstant ']' ;
 	public final ArrayDecl arrayDecl() throws RecognitionException {
 		ArrayDecl ad = null;
 
@@ -594,8 +596,8 @@ public class ulNoActionsParser extends Parser {
 		IntegerLiteral il =null;
 
 		try {
-			// ./src/ulNoActions.g:128:2: (t= TYPE '[' il= integerconstant ']' )
-			// ./src/ulNoActions.g:128:4: t= TYPE '[' il= integerconstant ']'
+			// ./src/ulNoActions.g:130:2: (t= TYPE '[' il= integerconstant ']' )
+			// ./src/ulNoActions.g:130:4: t= TYPE '[' il= integerconstant ']'
 			{
 			t=(Token)match(input,TYPE,FOLLOW_TYPE_in_arrayDecl388); if (state.failed) return ad;
 			match(input,29,FOLLOW_29_in_arrayDecl390); if (state.failed) return ad;
@@ -626,7 +628,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "identifier"
-	// ./src/ulNoActions.g:136:1: identifier returns [Identifier i] : id= ID ;
+	// ./src/ulNoActions.g:138:1: identifier returns [Identifier i] : id= ID ;
 	public final Identifier identifier() throws RecognitionException {
 		Identifier i = null;
 
@@ -634,8 +636,8 @@ public class ulNoActionsParser extends Parser {
 		Token id=null;
 
 		try {
-			// ./src/ulNoActions.g:137:2: (id= ID )
-			// ./src/ulNoActions.g:137:4: id= ID
+			// ./src/ulNoActions.g:139:2: (id= ID )
+			// ./src/ulNoActions.g:139:4: id= ID
 			{
 			id=(Token)match(input,ID,FOLLOW_ID_in_identifier423); if (state.failed) return i;
 			if ( state.backtracking==0 ) { i = new Identifier(id.getText()); 
@@ -660,7 +662,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "statement"
-	// ./src/ulNoActions.g:144:1: statement returns [Statement s] : (st= semiColon |ec= exprColon |aas= arrayAssign |idas= idAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |ps= printStmt |ret= returnStmt );
+	// ./src/ulNoActions.g:146:1: statement returns [Statement s] : (st= semiColon |ec= exprColon |aas= arrayAssign |idas= idAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |ps= printStmt |ret= returnStmt );
 	public final Statement statement() throws RecognitionException {
 		Statement s = null;
 
@@ -677,7 +679,7 @@ public class ulNoActionsParser extends Parser {
 		ReturnStmt ret =null;
 
 		try {
-			// ./src/ulNoActions.g:145:2: (st= semiColon |ec= exprColon |aas= arrayAssign |idas= idAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |ps= printStmt |ret= returnStmt )
+			// ./src/ulNoActions.g:147:2: (st= semiColon |ec= exprColon |aas= arrayAssign |idas= idAssign |ie= ifElseBlock |is= ifBlock |wh= whileBlock |pl= printlnStmt |ps= printStmt |ret= returnStmt )
 			int alt7=10;
 			switch ( input.LA(1) ) {
 			case 25:
@@ -776,7 +778,7 @@ public class ulNoActionsParser extends Parser {
 			}
 			switch (alt7) {
 				case 1 :
-					// ./src/ulNoActions.g:145:4: st= semiColon
+					// ./src/ulNoActions.g:147:4: st= semiColon
 					{
 					pushFollow(FOLLOW_semiColon_in_statement446);
 					st=semiColon();
@@ -786,7 +788,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:146:4: ec= exprColon
+					// ./src/ulNoActions.g:148:4: ec= exprColon
 					{
 					pushFollow(FOLLOW_exprColon_in_statement457);
 					ec=exprColon();
@@ -796,7 +798,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:147:4: aas= arrayAssign
+					// ./src/ulNoActions.g:149:4: aas= arrayAssign
 					{
 					pushFollow(FOLLOW_arrayAssign_in_statement468);
 					aas=arrayAssign();
@@ -806,7 +808,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 4 :
-					// ./src/ulNoActions.g:148:4: idas= idAssign
+					// ./src/ulNoActions.g:150:4: idas= idAssign
 					{
 					pushFollow(FOLLOW_idAssign_in_statement479);
 					idas=idAssign();
@@ -816,7 +818,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 5 :
-					// ./src/ulNoActions.g:149:4: ie= ifElseBlock
+					// ./src/ulNoActions.g:151:4: ie= ifElseBlock
 					{
 					pushFollow(FOLLOW_ifElseBlock_in_statement490);
 					ie=ifElseBlock();
@@ -826,7 +828,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 6 :
-					// ./src/ulNoActions.g:150:4: is= ifBlock
+					// ./src/ulNoActions.g:152:4: is= ifBlock
 					{
 					pushFollow(FOLLOW_ifBlock_in_statement501);
 					is=ifBlock();
@@ -836,7 +838,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 7 :
-					// ./src/ulNoActions.g:151:4: wh= whileBlock
+					// ./src/ulNoActions.g:153:4: wh= whileBlock
 					{
 					pushFollow(FOLLOW_whileBlock_in_statement512);
 					wh=whileBlock();
@@ -846,7 +848,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 8 :
-					// ./src/ulNoActions.g:152:4: pl= printlnStmt
+					// ./src/ulNoActions.g:154:4: pl= printlnStmt
 					{
 					pushFollow(FOLLOW_printlnStmt_in_statement523);
 					pl=printlnStmt();
@@ -856,7 +858,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 9 :
-					// ./src/ulNoActions.g:153:4: ps= printStmt
+					// ./src/ulNoActions.g:155:4: ps= printStmt
 					{
 					pushFollow(FOLLOW_printStmt_in_statement534);
 					ps=printStmt();
@@ -866,7 +868,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 10 :
-					// ./src/ulNoActions.g:154:4: ret= returnStmt
+					// ./src/ulNoActions.g:156:4: ret= returnStmt
 					{
 					pushFollow(FOLLOW_returnStmt_in_statement545);
 					ret=returnStmt();
@@ -894,7 +896,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "whileBlock"
-	// ./src/ulNoActions.g:158:1: whileBlock returns [WhileStmt wh] : WHILE '(' e= expr ')' b= block ;
+	// ./src/ulNoActions.g:160:1: whileBlock returns [WhileStmt wh] : WHILE '(' e= expr ')' b= block ;
 	public final WhileStmt whileBlock() throws RecognitionException {
 		WhileStmt wh = null;
 
@@ -903,8 +905,8 @@ public class ulNoActionsParser extends Parser {
 		Block b =null;
 
 		try {
-			// ./src/ulNoActions.g:159:2: ( WHILE '(' e= expr ')' b= block )
-			// ./src/ulNoActions.g:159:4: WHILE '(' e= expr ')' b= block
+			// ./src/ulNoActions.g:161:2: ( WHILE '(' e= expr ')' b= block )
+			// ./src/ulNoActions.g:161:4: WHILE '(' e= expr ')' b= block
 			{
 			match(input,WHILE,FOLLOW_WHILE_in_whileBlock563); if (state.failed) return wh;
 			match(input,19,FOLLOW_19_in_whileBlock564); if (state.failed) return wh;
@@ -937,7 +939,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "printlnStmt"
-	// ./src/ulNoActions.g:163:1: printlnStmt returns [PrintlnStmt pl] : PRINTLN e= expr ';' ;
+	// ./src/ulNoActions.g:165:1: printlnStmt returns [PrintlnStmt pl] : PRINTLN e= expr ';' ;
 	public final PrintlnStmt printlnStmt() throws RecognitionException {
 		PrintlnStmt pl = null;
 
@@ -945,8 +947,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e =null;
 
 		try {
-			// ./src/ulNoActions.g:164:2: ( PRINTLN e= expr ';' )
-			// ./src/ulNoActions.g:164:4: PRINTLN e= expr ';'
+			// ./src/ulNoActions.g:166:2: ( PRINTLN e= expr ';' )
+			// ./src/ulNoActions.g:166:4: PRINTLN e= expr ';'
 			{
 			match(input,PRINTLN,FOLLOW_PRINTLN_in_printlnStmt595); if (state.failed) return pl;
 			pushFollow(FOLLOW_expr_in_printlnStmt601);
@@ -974,7 +976,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "printStmt"
-	// ./src/ulNoActions.g:168:1: printStmt returns [PrintStmt p] : PRINT e= expr ';' ;
+	// ./src/ulNoActions.g:170:1: printStmt returns [PrintStmt p] : PRINT e= expr ';' ;
 	public final PrintStmt printStmt() throws RecognitionException {
 		PrintStmt p = null;
 
@@ -982,8 +984,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e =null;
 
 		try {
-			// ./src/ulNoActions.g:169:2: ( PRINT e= expr ';' )
-			// ./src/ulNoActions.g:169:4: PRINT e= expr ';'
+			// ./src/ulNoActions.g:171:2: ( PRINT e= expr ';' )
+			// ./src/ulNoActions.g:171:4: PRINT e= expr ';'
 			{
 			match(input,PRINT,FOLLOW_PRINT_in_printStmt621); if (state.failed) return p;
 			pushFollow(FOLLOW_expr_in_printStmt627);
@@ -1011,7 +1013,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "returnStmt"
-	// ./src/ulNoActions.g:173:1: returnStmt returns [ReturnStmt ret] : RETURN (e= expr )? ';' ;
+	// ./src/ulNoActions.g:175:1: returnStmt returns [ReturnStmt ret] : RETURN (e= expr )? ';' ;
 	public final ReturnStmt returnStmt() throws RecognitionException {
 		ReturnStmt ret = null;
 
@@ -1023,11 +1025,11 @@ public class ulNoActionsParser extends Parser {
 			ret = new ReturnStmt();
 
 		try {
-			// ./src/ulNoActions.g:180:2: ( RETURN (e= expr )? ';' )
-			// ./src/ulNoActions.g:180:4: RETURN (e= expr )? ';'
+			// ./src/ulNoActions.g:182:2: ( RETURN (e= expr )? ';' )
+			// ./src/ulNoActions.g:182:4: RETURN (e= expr )? ';'
 			{
 			match(input,RETURN,FOLLOW_RETURN_in_returnStmt654); if (state.failed) return ret;
-			// ./src/ulNoActions.g:180:11: (e= expr )?
+			// ./src/ulNoActions.g:182:11: (e= expr )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( ((LA8_0 >= BOOL && LA8_0 <= CHARACTERCONSTANT)||(LA8_0 >= FLOATCONSTANT && LA8_0 <= ID)||LA8_0==INTEGERCONSTANT||LA8_0==STRINGCONSTANT||LA8_0==19) ) {
@@ -1035,7 +1037,7 @@ public class ulNoActionsParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// ./src/ulNoActions.g:180:12: e= expr
+					// ./src/ulNoActions.g:182:12: e= expr
 					{
 					pushFollow(FOLLOW_expr_in_returnStmt661);
 					e=expr();
@@ -1067,14 +1069,14 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "semiColon"
-	// ./src/ulNoActions.g:184:1: semiColon returns [SemiStatement st] : ';' ;
+	// ./src/ulNoActions.g:186:1: semiColon returns [SemiStatement st] : ';' ;
 	public final SemiStatement semiColon() throws RecognitionException {
 		SemiStatement st = null;
 
 
 		try {
-			// ./src/ulNoActions.g:185:2: ( ';' )
-			// ./src/ulNoActions.g:185:4: ';'
+			// ./src/ulNoActions.g:187:2: ( ';' )
+			// ./src/ulNoActions.g:187:4: ';'
 			{
 			match(input,25,FOLLOW_25_in_semiColon683); if (state.failed) return st;
 			if ( state.backtracking==0 ) { st = new SemiStatement(); }
@@ -1097,7 +1099,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "exprColon"
-	// ./src/ulNoActions.g:189:1: exprColon returns [ExColonStmt ec] : e= expr ';' ;
+	// ./src/ulNoActions.g:191:1: exprColon returns [ExColonStmt ec] : e= expr ';' ;
 	public final ExColonStmt exprColon() throws RecognitionException {
 		ExColonStmt ec = null;
 
@@ -1105,8 +1107,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e =null;
 
 		try {
-			// ./src/ulNoActions.g:190:2: (e= expr ';' )
-			// ./src/ulNoActions.g:190:4: e= expr ';'
+			// ./src/ulNoActions.g:192:2: (e= expr ';' )
+			// ./src/ulNoActions.g:192:4: e= expr ';'
 			{
 			pushFollow(FOLLOW_expr_in_exprColon705);
 			e=expr();
@@ -1133,7 +1135,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "arrayAssign"
-	// ./src/ulNoActions.g:194:1: arrayAssign returns [ArrayAssignStmt aas] : id= identifier '[' e1= expr ']' '=' e2= expr ';' ;
+	// ./src/ulNoActions.g:196:1: arrayAssign returns [ArrayAssignStmt aas] : id= identifier '[' e1= expr ']' '=' e2= expr ';' ;
 	public final ArrayAssignStmt arrayAssign() throws RecognitionException {
 		ArrayAssignStmt aas = null;
 
@@ -1143,8 +1145,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e2 =null;
 
 		try {
-			// ./src/ulNoActions.g:196:2: (id= identifier '[' e1= expr ']' '=' e2= expr ';' )
-			// ./src/ulNoActions.g:196:4: id= identifier '[' e1= expr ']' '=' e2= expr ';'
+			// ./src/ulNoActions.g:198:2: (id= identifier '[' e1= expr ']' '=' e2= expr ';' )
+			// ./src/ulNoActions.g:198:4: id= identifier '[' e1= expr ']' '=' e2= expr ';'
 			{
 			pushFollow(FOLLOW_identifier_in_arrayAssign731);
 			id=identifier();
@@ -1182,7 +1184,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "idAssign"
-	// ./src/ulNoActions.g:201:1: idAssign returns [IdAssignStmt idas] : id= identifier '=' e= expr ';' ;
+	// ./src/ulNoActions.g:203:1: idAssign returns [IdAssignStmt idas] : id= identifier '=' e= expr ';' ;
 	public final IdAssignStmt idAssign() throws RecognitionException {
 		IdAssignStmt idas = null;
 
@@ -1191,8 +1193,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e =null;
 
 		try {
-			// ./src/ulNoActions.g:202:2: (id= identifier '=' e= expr ';' )
-			// ./src/ulNoActions.g:202:4: id= identifier '=' e= expr ';'
+			// ./src/ulNoActions.g:204:2: (id= identifier '=' e= expr ';' )
+			// ./src/ulNoActions.g:204:4: id= identifier '=' e= expr ';'
 			{
 			pushFollow(FOLLOW_identifier_in_idAssign776);
 			id=identifier();
@@ -1224,7 +1226,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "ifElseBlock"
-	// ./src/ulNoActions.g:206:1: ifElseBlock returns [IfElseStmt ie] : IF '(' e= expr ')' b1= block ELSE b2= block ;
+	// ./src/ulNoActions.g:208:1: ifElseBlock returns [IfElseStmt ie] : IF '(' e= expr ')' b1= block ELSE b2= block ;
 	public final IfElseStmt ifElseBlock() throws RecognitionException {
 		IfElseStmt ie = null;
 
@@ -1234,8 +1236,8 @@ public class ulNoActionsParser extends Parser {
 		Block b2 =null;
 
 		try {
-			// ./src/ulNoActions.g:207:2: ( IF '(' e= expr ')' b1= block ELSE b2= block )
-			// ./src/ulNoActions.g:207:4: IF '(' e= expr ')' b1= block ELSE b2= block
+			// ./src/ulNoActions.g:209:2: ( IF '(' e= expr ')' b1= block ELSE b2= block )
+			// ./src/ulNoActions.g:209:4: IF '(' e= expr ')' b1= block ELSE b2= block
 			{
 			match(input,IF,FOLLOW_IF_in_ifElseBlock804); if (state.failed) return ie;
 			match(input,19,FOLLOW_19_in_ifElseBlock805); if (state.failed) return ie;
@@ -1273,7 +1275,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "ifBlock"
-	// ./src/ulNoActions.g:212:1: ifBlock returns [IfStmt is] : IF '(' e= expr ')' b= block ;
+	// ./src/ulNoActions.g:214:1: ifBlock returns [IfStmt is] : IF '(' e= expr ')' b= block ;
 	public final IfStmt ifBlock() throws RecognitionException {
 		IfStmt is = null;
 
@@ -1282,8 +1284,8 @@ public class ulNoActionsParser extends Parser {
 		Block b =null;
 
 		try {
-			// ./src/ulNoActions.g:213:2: ( IF '(' e= expr ')' b= block )
-			// ./src/ulNoActions.g:213:4: IF '(' e= expr ')' b= block
+			// ./src/ulNoActions.g:215:2: ( IF '(' e= expr ')' b= block )
+			// ./src/ulNoActions.g:215:4: IF '(' e= expr ')' b= block
 			{
 			match(input,IF,FOLLOW_IF_in_ifBlock846); if (state.failed) return is;
 			match(input,19,FOLLOW_19_in_ifBlock847); if (state.failed) return is;
@@ -1316,7 +1318,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "block"
-	// ./src/ulNoActions.g:217:1: block returns [Block blok] : '{' (s= statement )* '}' ;
+	// ./src/ulNoActions.g:219:1: block returns [Block blok] : '{' (s= statement )* '}' ;
 	public final Block block() throws RecognitionException {
 		Block blok = null;
 
@@ -1328,11 +1330,11 @@ public class ulNoActionsParser extends Parser {
 			blok = new Block();
 
 		try {
-			// ./src/ulNoActions.g:224:2: ( '{' (s= statement )* '}' )
-			// ./src/ulNoActions.g:224:4: '{' (s= statement )* '}'
+			// ./src/ulNoActions.g:226:2: ( '{' (s= statement )* '}' )
+			// ./src/ulNoActions.g:226:4: '{' (s= statement )* '}'
 			{
 			match(input,31,FOLLOW_31_in_block884); if (state.failed) return blok;
-			// ./src/ulNoActions.g:224:8: (s= statement )*
+			// ./src/ulNoActions.g:226:8: (s= statement )*
 			loop9:
 			while (true) {
 				int alt9=2;
@@ -1343,7 +1345,7 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt9) {
 				case 1 :
-					// ./src/ulNoActions.g:224:10: s= statement
+					// ./src/ulNoActions.g:226:10: s= statement
 					{
 					pushFollow(FOLLOW_statement_in_block892);
 					s=statement();
@@ -1378,7 +1380,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "expr"
-	// ./src/ulNoActions.g:228:1: expr returns [Expression e] : it= compareExpr ;
+	// ./src/ulNoActions.g:230:1: expr returns [Expression e] : it= compareExpr ;
 	public final Expression expr() throws RecognitionException {
 		Expression e = null;
 
@@ -1386,8 +1388,8 @@ public class ulNoActionsParser extends Parser {
 		Expression it =null;
 
 		try {
-			// ./src/ulNoActions.g:230:2: (it= compareExpr )
-			// ./src/ulNoActions.g:230:4: it= compareExpr
+			// ./src/ulNoActions.g:232:2: (it= compareExpr )
+			// ./src/ulNoActions.g:232:4: it= compareExpr
 			{
 			pushFollow(FOLLOW_compareExpr_in_expr921);
 			it=compareExpr();
@@ -1413,7 +1415,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "compareExpr"
-	// ./src/ulNoActions.g:234:1: compareExpr returns [Expression e] : le= lessExpr ( '==' ri= lessExpr )* ;
+	// ./src/ulNoActions.g:236:1: compareExpr returns [Expression e] : le= lessExpr ( '==' ri= lessExpr )* ;
 	public final Expression compareExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1426,15 +1428,15 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:246:2: (le= lessExpr ( '==' ri= lessExpr )* )
-			// ./src/ulNoActions.g:246:4: le= lessExpr ( '==' ri= lessExpr )*
+			// ./src/ulNoActions.g:248:2: (le= lessExpr ( '==' ri= lessExpr )* )
+			// ./src/ulNoActions.g:248:4: le= lessExpr ( '==' ri= lessExpr )*
 			{
 			pushFollow(FOLLOW_lessExpr_in_compareExpr955);
 			le=lessExpr();
 			state._fsp--;
 			if (state.failed) return e;
 			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:246:31: ( '==' ri= lessExpr )*
+			// ./src/ulNoActions.g:248:31: ( '==' ri= lessExpr )*
 			loop10:
 			while (true) {
 				int alt10=2;
@@ -1445,7 +1447,7 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt10) {
 				case 1 :
-					// ./src/ulNoActions.g:246:32: '==' ri= lessExpr
+					// ./src/ulNoActions.g:248:32: '==' ri= lessExpr
 					{
 					match(input,28,FOLLOW_28_in_compareExpr960); if (state.failed) return e;
 					pushFollow(FOLLOW_lessExpr_in_compareExpr966);
@@ -1484,7 +1486,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "lessExpr"
-	// ./src/ulNoActions.g:249:1: lessExpr returns [Expression e] : le= plmiExpr ( '<' ri= plmiExpr )* ;
+	// ./src/ulNoActions.g:251:1: lessExpr returns [Expression e] : le= plmiExpr ( '<' ri= plmiExpr )* ;
 	public final Expression lessExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1497,15 +1499,15 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:261:2: (le= plmiExpr ( '<' ri= plmiExpr )* )
-			// ./src/ulNoActions.g:261:4: le= plmiExpr ( '<' ri= plmiExpr )*
+			// ./src/ulNoActions.g:263:2: (le= plmiExpr ( '<' ri= plmiExpr )* )
+			// ./src/ulNoActions.g:263:4: le= plmiExpr ( '<' ri= plmiExpr )*
 			{
 			pushFollow(FOLLOW_plmiExpr_in_lessExpr1001);
 			le=plmiExpr();
 			state._fsp--;
 			if (state.failed) return e;
 			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:261:31: ( '<' ri= plmiExpr )*
+			// ./src/ulNoActions.g:263:31: ( '<' ri= plmiExpr )*
 			loop11:
 			while (true) {
 				int alt11=2;
@@ -1516,7 +1518,7 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt11) {
 				case 1 :
-					// ./src/ulNoActions.g:261:32: '<' ri= plmiExpr
+					// ./src/ulNoActions.g:263:32: '<' ri= plmiExpr
 					{
 					match(input,26,FOLLOW_26_in_lessExpr1006); if (state.failed) return e;
 					pushFollow(FOLLOW_plmiExpr_in_lessExpr1013);
@@ -1555,7 +1557,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "plmiExpr"
-	// ./src/ulNoActions.g:265:1: plmiExpr returns [Expression e] : le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* ;
+	// ./src/ulNoActions.g:267:1: plmiExpr returns [Expression e] : le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* ;
 	public final Expression plmiExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1569,15 +1571,15 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:276:2: (le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* )
-			// ./src/ulNoActions.g:276:4: le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
+			// ./src/ulNoActions.g:278:2: (le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* )
+			// ./src/ulNoActions.g:278:4: le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
 			{
 			pushFollow(FOLLOW_multExpr_in_plmiExpr1047);
 			le=multExpr();
 			state._fsp--;
 			if (state.failed) return e;
 			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:277:2: ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
+			// ./src/ulNoActions.g:279:2: ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
 			loop12:
 			while (true) {
 				int alt12=3;
@@ -1591,10 +1593,10 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt12) {
 				case 1 :
-					// ./src/ulNoActions.g:277:3: (symbol= '+' ri= multExpr )
+					// ./src/ulNoActions.g:279:3: (symbol= '+' ri= multExpr )
 					{
-					// ./src/ulNoActions.g:277:3: (symbol= '+' ri= multExpr )
-					// ./src/ulNoActions.g:277:5: symbol= '+' ri= multExpr
+					// ./src/ulNoActions.g:279:3: (symbol= '+' ri= multExpr )
+					// ./src/ulNoActions.g:279:5: symbol= '+' ri= multExpr
 					{
 					symbol=(Token)match(input,22,FOLLOW_22_in_plmiExpr1060); if (state.failed) return e;
 					pushFollow(FOLLOW_multExpr_in_plmiExpr1066);
@@ -1607,10 +1609,10 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:279:4: (symbol= '-' ri= multExpr )
+					// ./src/ulNoActions.g:281:4: (symbol= '-' ri= multExpr )
 					{
-					// ./src/ulNoActions.g:279:4: (symbol= '-' ri= multExpr )
-					// ./src/ulNoActions.g:279:6: symbol= '-' ri= multExpr
+					// ./src/ulNoActions.g:281:4: (symbol= '-' ri= multExpr )
+					// ./src/ulNoActions.g:281:6: symbol= '-' ri= multExpr
 					{
 					symbol=(Token)match(input,24,FOLLOW_24_in_plmiExpr1084); if (state.failed) return e;
 					pushFollow(FOLLOW_multExpr_in_plmiExpr1090);
@@ -1651,7 +1653,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "multExpr"
-	// ./src/ulNoActions.g:284:1: multExpr returns [Expression e] : le= atom ( '*' ri= atom )* ;
+	// ./src/ulNoActions.g:286:1: multExpr returns [Expression e] : le= atom ( '*' ri= atom )* ;
 	public final Expression multExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1664,15 +1666,15 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:295:2: (le= atom ( '*' ri= atom )* )
-			// ./src/ulNoActions.g:295:4: le= atom ( '*' ri= atom )*
+			// ./src/ulNoActions.g:297:2: (le= atom ( '*' ri= atom )* )
+			// ./src/ulNoActions.g:297:4: le= atom ( '*' ri= atom )*
 			{
 			pushFollow(FOLLOW_atom_in_multExpr1129);
 			le=atom();
 			state._fsp--;
 			if (state.failed) return e;
 			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:295:27: ( '*' ri= atom )*
+			// ./src/ulNoActions.g:297:27: ( '*' ri= atom )*
 			loop13:
 			while (true) {
 				int alt13=2;
@@ -1683,7 +1685,7 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt13) {
 				case 1 :
-					// ./src/ulNoActions.g:295:28: '*' ri= atom
+					// ./src/ulNoActions.g:297:28: '*' ri= atom
 					{
 					match(input,21,FOLLOW_21_in_multExpr1134); if (state.failed) return e;
 					pushFollow(FOLLOW_atom_in_multExpr1140);
@@ -1722,7 +1724,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "atom"
-	// ./src/ulNoActions.g:299:1: atom returns [Expression e] : (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr );
+	// ./src/ulNoActions.g:301:1: atom returns [Expression e] : (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr );
 	public final Expression atom() throws RecognitionException {
 		Expression e = null;
 
@@ -1734,7 +1736,7 @@ public class ulNoActionsParser extends Parser {
 		Expression pe =null;
 
 		try {
-			// ./src/ulNoActions.g:300:2: (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr )
+			// ./src/ulNoActions.g:302:2: (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr )
 			int alt14=5;
 			switch ( input.LA(1) ) {
 			case BOOL:
@@ -1800,7 +1802,7 @@ public class ulNoActionsParser extends Parser {
 			}
 			switch (alt14) {
 				case 1 :
-					// ./src/ulNoActions.g:300:4: l= literal
+					// ./src/ulNoActions.g:302:4: l= literal
 					{
 					pushFollow(FOLLOW_literal_in_atom1164);
 					l=literal();
@@ -1810,7 +1812,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:301:4: id= identifier
+					// ./src/ulNoActions.g:303:4: id= identifier
 					{
 					pushFollow(FOLLOW_identifier_in_atom1175);
 					id=identifier();
@@ -1820,7 +1822,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:302:4: fc= functionCall
+					// ./src/ulNoActions.g:304:4: fc= functionCall
 					{
 					pushFollow(FOLLOW_functionCall_in_atom1186);
 					fc=functionCall();
@@ -1830,7 +1832,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 4 :
-					// ./src/ulNoActions.g:303:4: ar= arrayRef
+					// ./src/ulNoActions.g:305:4: ar= arrayRef
 					{
 					pushFollow(FOLLOW_arrayRef_in_atom1197);
 					ar=arrayRef();
@@ -1840,7 +1842,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 5 :
-					// ./src/ulNoActions.g:304:4: pe= parenExpr
+					// ./src/ulNoActions.g:306:4: pe= parenExpr
 					{
 					pushFollow(FOLLOW_parenExpr_in_atom1208);
 					pe=parenExpr();
@@ -1868,7 +1870,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "functionCall"
-	// ./src/ulNoActions.g:307:1: functionCall returns [FunctionCall fc] : id= identifier '(' e1= expr ( ',' e2= expr )* ')' ;
+	// ./src/ulNoActions.g:309:1: functionCall returns [FunctionCall fc] : id= identifier '(' e1= expr ( ',' e2= expr )* ')' ;
 	public final FunctionCall functionCall() throws RecognitionException {
 		FunctionCall fc = null;
 
@@ -1881,8 +1883,8 @@ public class ulNoActionsParser extends Parser {
 			fc = new FunctionCall();
 
 		try {
-			// ./src/ulNoActions.g:313:2: (id= identifier '(' e1= expr ( ',' e2= expr )* ')' )
-			// ./src/ulNoActions.g:313:4: id= identifier '(' e1= expr ( ',' e2= expr )* ')'
+			// ./src/ulNoActions.g:315:2: (id= identifier '(' e1= expr ( ',' e2= expr )* ')' )
+			// ./src/ulNoActions.g:315:4: id= identifier '(' e1= expr ( ',' e2= expr )* ')'
 			{
 			pushFollow(FOLLOW_identifier_in_functionCall1236);
 			id=identifier();
@@ -1895,7 +1897,7 @@ public class ulNoActionsParser extends Parser {
 			if (state.failed) return fc;
 			if ( state.backtracking==0 ) { fc.setId(id);
 								 fc.addExpr(e1); }
-			// ./src/ulNoActions.g:317:4: ( ',' e2= expr )*
+			// ./src/ulNoActions.g:319:4: ( ',' e2= expr )*
 			loop15:
 			while (true) {
 				int alt15=2;
@@ -1906,7 +1908,7 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt15) {
 				case 1 :
-					// ./src/ulNoActions.g:317:5: ',' e2= expr
+					// ./src/ulNoActions.g:319:5: ',' e2= expr
 					{
 					match(input,23,FOLLOW_23_in_functionCall1255); if (state.failed) return fc;
 					pushFollow(FOLLOW_expr_in_functionCall1261);
@@ -1942,7 +1944,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "arrayRef"
-	// ./src/ulNoActions.g:320:1: arrayRef returns [Expression e] : id= identifier '[' e1= expr ']' ;
+	// ./src/ulNoActions.g:322:1: arrayRef returns [Expression e] : id= identifier '[' e1= expr ']' ;
 	public final Expression arrayRef() throws RecognitionException {
 		Expression e = null;
 
@@ -1951,8 +1953,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e1 =null;
 
 		try {
-			// ./src/ulNoActions.g:321:2: (id= identifier '[' e1= expr ']' )
-			// ./src/ulNoActions.g:321:4: id= identifier '[' e1= expr ']'
+			// ./src/ulNoActions.g:323:2: (id= identifier '[' e1= expr ']' )
+			// ./src/ulNoActions.g:323:4: id= identifier '[' e1= expr ']'
 			{
 			pushFollow(FOLLOW_identifier_in_arrayRef1287);
 			id=identifier();
@@ -1984,7 +1986,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "parenExpr"
-	// ./src/ulNoActions.g:324:1: parenExpr returns [Expression e] : '(' e1= expr ')' ;
+	// ./src/ulNoActions.g:326:1: parenExpr returns [Expression e] : '(' e1= expr ')' ;
 	public final Expression parenExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1992,8 +1994,8 @@ public class ulNoActionsParser extends Parser {
 		Expression e1 =null;
 
 		try {
-			// ./src/ulNoActions.g:325:2: ( '(' e1= expr ')' )
-			// ./src/ulNoActions.g:325:4: '(' e1= expr ')'
+			// ./src/ulNoActions.g:327:2: ( '(' e1= expr ')' )
+			// ./src/ulNoActions.g:327:4: '(' e1= expr ')'
 			{
 			match(input,19,FOLLOW_19_in_parenExpr1314); if (state.failed) return e;
 			pushFollow(FOLLOW_expr_in_parenExpr1320);
@@ -2021,7 +2023,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "literal"
-	// ./src/ulNoActions.g:329:1: literal returns [Literal l] : (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant );
+	// ./src/ulNoActions.g:331:1: literal returns [Literal l] : (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant );
 	public final Literal literal() throws RecognitionException {
 		Literal l = null;
 
@@ -2033,7 +2035,7 @@ public class ulNoActionsParser extends Parser {
 		CharLiteral cl =null;
 
 		try {
-			// ./src/ulNoActions.g:330:2: (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant )
+			// ./src/ulNoActions.g:332:2: (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant )
 			int alt16=5;
 			switch ( input.LA(1) ) {
 			case INTEGERCONSTANT:
@@ -2069,7 +2071,7 @@ public class ulNoActionsParser extends Parser {
 			}
 			switch (alt16) {
 				case 1 :
-					// ./src/ulNoActions.g:330:4: il= integerconstant
+					// ./src/ulNoActions.g:332:4: il= integerconstant
 					{
 					pushFollow(FOLLOW_integerconstant_in_literal1344);
 					il=integerconstant();
@@ -2079,7 +2081,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:331:4: fl= floatconstant
+					// ./src/ulNoActions.g:333:4: fl= floatconstant
 					{
 					pushFollow(FOLLOW_floatconstant_in_literal1355);
 					fl=floatconstant();
@@ -2089,7 +2091,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:332:4: bl= bool
+					// ./src/ulNoActions.g:334:4: bl= bool
 					{
 					pushFollow(FOLLOW_bool_in_literal1366);
 					bl=bool();
@@ -2099,7 +2101,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 4 :
-					// ./src/ulNoActions.g:333:4: sl= stringconstant
+					// ./src/ulNoActions.g:335:4: sl= stringconstant
 					{
 					pushFollow(FOLLOW_stringconstant_in_literal1377);
 					sl=stringconstant();
@@ -2109,7 +2111,7 @@ public class ulNoActionsParser extends Parser {
 					}
 					break;
 				case 5 :
-					// ./src/ulNoActions.g:334:4: cl= characterconstant
+					// ./src/ulNoActions.g:336:4: cl= characterconstant
 					{
 					pushFollow(FOLLOW_characterconstant_in_literal1388);
 					cl=characterconstant();
@@ -2137,7 +2139,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "stringconstant"
-	// ./src/ulNoActions.g:338:1: stringconstant returns [StringLiteral sl] : s= STRINGCONSTANT ;
+	// ./src/ulNoActions.g:340:1: stringconstant returns [StringLiteral sl] : s= STRINGCONSTANT ;
 	public final StringLiteral stringconstant() throws RecognitionException {
 		StringLiteral sl = null;
 
@@ -2145,8 +2147,8 @@ public class ulNoActionsParser extends Parser {
 		Token s=null;
 
 		try {
-			// ./src/ulNoActions.g:340:2: (s= STRINGCONSTANT )
-			// ./src/ulNoActions.g:340:4: s= STRINGCONSTANT
+			// ./src/ulNoActions.g:342:2: (s= STRINGCONSTANT )
+			// ./src/ulNoActions.g:342:4: s= STRINGCONSTANT
 			{
 			s=(Token)match(input,STRINGCONSTANT,FOLLOW_STRINGCONSTANT_in_stringconstant1412); if (state.failed) return sl;
 			if ( state.backtracking==0 ) { sl = new StringLiteral(s.getText()); }
@@ -2169,7 +2171,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "floatconstant"
-	// ./src/ulNoActions.g:344:1: floatconstant returns [FloatLiteral fl] : f= FLOATCONSTANT ;
+	// ./src/ulNoActions.g:346:1: floatconstant returns [FloatLiteral fl] : f= FLOATCONSTANT ;
 	public final FloatLiteral floatconstant() throws RecognitionException {
 		FloatLiteral fl = null;
 
@@ -2177,8 +2179,8 @@ public class ulNoActionsParser extends Parser {
 		Token f=null;
 
 		try {
-			// ./src/ulNoActions.g:346:2: (f= FLOATCONSTANT )
-			// ./src/ulNoActions.g:346:4: f= FLOATCONSTANT
+			// ./src/ulNoActions.g:348:2: (f= FLOATCONSTANT )
+			// ./src/ulNoActions.g:348:4: f= FLOATCONSTANT
 			{
 			f=(Token)match(input,FLOATCONSTANT,FOLLOW_FLOATCONSTANT_in_floatconstant1436); if (state.failed) return fl;
 			if ( state.backtracking==0 ) { fl = new FloatLiteral(Float.parseFloat(f.getText())); }
@@ -2201,7 +2203,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "characterconstant"
-	// ./src/ulNoActions.g:350:1: characterconstant returns [CharLiteral cl] : c= CHARACTERCONSTANT ;
+	// ./src/ulNoActions.g:352:1: characterconstant returns [CharLiteral cl] : c= CHARACTERCONSTANT ;
 	public final CharLiteral characterconstant() throws RecognitionException {
 		CharLiteral cl = null;
 
@@ -2209,8 +2211,8 @@ public class ulNoActionsParser extends Parser {
 		Token c=null;
 
 		try {
-			// ./src/ulNoActions.g:352:2: (c= CHARACTERCONSTANT )
-			// ./src/ulNoActions.g:352:4: c= CHARACTERCONSTANT
+			// ./src/ulNoActions.g:354:2: (c= CHARACTERCONSTANT )
+			// ./src/ulNoActions.g:354:4: c= CHARACTERCONSTANT
 			{
 			c=(Token)match(input,CHARACTERCONSTANT,FOLLOW_CHARACTERCONSTANT_in_characterconstant1460); if (state.failed) return cl;
 			if ( state.backtracking==0 ) { cl = new CharLiteral(c.getText().charAt(1)); }
@@ -2233,7 +2235,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "integerconstant"
-	// ./src/ulNoActions.g:356:1: integerconstant returns [IntegerLiteral il] : i= INTEGERCONSTANT ;
+	// ./src/ulNoActions.g:358:1: integerconstant returns [IntegerLiteral il] : i= INTEGERCONSTANT ;
 	public final IntegerLiteral integerconstant() throws RecognitionException {
 		IntegerLiteral il = null;
 
@@ -2241,8 +2243,8 @@ public class ulNoActionsParser extends Parser {
 		Token i=null;
 
 		try {
-			// ./src/ulNoActions.g:358:2: (i= INTEGERCONSTANT )
-			// ./src/ulNoActions.g:358:4: i= INTEGERCONSTANT
+			// ./src/ulNoActions.g:360:2: (i= INTEGERCONSTANT )
+			// ./src/ulNoActions.g:360:4: i= INTEGERCONSTANT
 			{
 			i=(Token)match(input,INTEGERCONSTANT,FOLLOW_INTEGERCONSTANT_in_integerconstant1484); if (state.failed) return il;
 			if ( state.backtracking==0 ) { il = new IntegerLiteral(Integer.parseInt(i.getText())); }
@@ -2265,7 +2267,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "bool"
-	// ./src/ulNoActions.g:362:1: bool returns [BooleanLiteral bl] : b= BOOL ;
+	// ./src/ulNoActions.g:364:1: bool returns [BooleanLiteral bl] : b= BOOL ;
 	public final BooleanLiteral bool() throws RecognitionException {
 		BooleanLiteral bl = null;
 
@@ -2273,8 +2275,8 @@ public class ulNoActionsParser extends Parser {
 		Token b=null;
 
 		try {
-			// ./src/ulNoActions.g:364:2: (b= BOOL )
-			// ./src/ulNoActions.g:364:4: b= BOOL
+			// ./src/ulNoActions.g:366:2: (b= BOOL )
+			// ./src/ulNoActions.g:366:4: b= BOOL
 			{
 			b=(Token)match(input,BOOL,FOLLOW_BOOL_in_bool1508); if (state.failed) return bl;
 			if ( state.backtracking==0 ) { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); }
@@ -2298,8 +2300,8 @@ public class ulNoActionsParser extends Parser {
 	public final void synpred8_ulNoActions_fragment() throws RecognitionException {
 		ExColonStmt ec =null;
 
-		// ./src/ulNoActions.g:146:4: (ec= exprColon )
-		// ./src/ulNoActions.g:146:4: ec= exprColon
+		// ./src/ulNoActions.g:148:4: (ec= exprColon )
+		// ./src/ulNoActions.g:148:4: ec= exprColon
 		{
 		pushFollow(FOLLOW_exprColon_in_synpred8_ulNoActions457);
 		ec=exprColon();
@@ -2314,8 +2316,8 @@ public class ulNoActionsParser extends Parser {
 	public final void synpred9_ulNoActions_fragment() throws RecognitionException {
 		ArrayAssignStmt aas =null;
 
-		// ./src/ulNoActions.g:147:4: (aas= arrayAssign )
-		// ./src/ulNoActions.g:147:4: aas= arrayAssign
+		// ./src/ulNoActions.g:149:4: (aas= arrayAssign )
+		// ./src/ulNoActions.g:149:4: aas= arrayAssign
 		{
 		pushFollow(FOLLOW_arrayAssign_in_synpred9_ulNoActions468);
 		aas=arrayAssign();
@@ -2330,8 +2332,8 @@ public class ulNoActionsParser extends Parser {
 	public final void synpred10_ulNoActions_fragment() throws RecognitionException {
 		IdAssignStmt idas =null;
 
-		// ./src/ulNoActions.g:148:4: (idas= idAssign )
-		// ./src/ulNoActions.g:148:4: idas= idAssign
+		// ./src/ulNoActions.g:150:4: (idas= idAssign )
+		// ./src/ulNoActions.g:150:4: idas= idAssign
 		{
 		pushFollow(FOLLOW_idAssign_in_synpred10_ulNoActions479);
 		idas=idAssign();
@@ -2346,8 +2348,8 @@ public class ulNoActionsParser extends Parser {
 	public final void synpred11_ulNoActions_fragment() throws RecognitionException {
 		IfElseStmt ie =null;
 
-		// ./src/ulNoActions.g:149:4: (ie= ifElseBlock )
-		// ./src/ulNoActions.g:149:4: ie= ifElseBlock
+		// ./src/ulNoActions.g:151:4: (ie= ifElseBlock )
+		// ./src/ulNoActions.g:151:4: ie= ifElseBlock
 		{
 		pushFollow(FOLLOW_ifElseBlock_in_synpred11_ulNoActions490);
 		ie=ifElseBlock();
@@ -2362,8 +2364,8 @@ public class ulNoActionsParser extends Parser {
 	public final void synpred12_ulNoActions_fragment() throws RecognitionException {
 		IfStmt is =null;
 
-		// ./src/ulNoActions.g:150:4: (is= ifBlock )
-		// ./src/ulNoActions.g:150:4: is= ifBlock
+		// ./src/ulNoActions.g:152:4: (is= ifBlock )
+		// ./src/ulNoActions.g:152:4: is= ifBlock
 		{
 		pushFollow(FOLLOW_ifBlock_in_synpred12_ulNoActions501);
 		is=ifBlock();

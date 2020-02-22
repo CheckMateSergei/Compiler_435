@@ -3,8 +3,8 @@ import java.util.Vector;
 
 public class FunctionBod
 {
-	Vector<VarDecl> varDecls;
-	Vector<Statement> statements;
+	public Vector<VarDecl> varDecls;
+	public Vector<Statement> statements;
 	public int line;
 	public int offset;
 

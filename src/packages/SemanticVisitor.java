@@ -5,8 +5,9 @@ import java.util.*;
 public class SemanticVisitor extends TypeVisitor{
 
 	// symbol tables for functions and variables
-	FunctionSymbolTable func = new FunctionSymbolTable();
-	VarSymbolTable vars = new VarSymbolTable();
+	public FunctionSymbolTable func = new FunctionSymbolTable();
+	public VarSymbolTable vars = new VarSymbolTable();
+	public CompType returnType;
 	
 
 
@@ -122,18 +123,14 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(FormalParam fp) throws SemanticException
 	{
-		// check to see if fp has type void
-		if(fp.type.type == "void")
-		{
-			String msg = "Error: Function parameter with return type 'void' ";
-			throw new SemanticException(msg, fp.type.line, fp.type.offset);
-		}
+		// visit the type (array or primitive)
+		fp.type.accept(this);
+		// add the parameter to the variable symbol table
+		vars.add(fp.id.id, fp.type);
+
 		
 		return null;
 	}
-
-
-	public CompType visit(FunctionBod fb) throws SemanticException{return null;};
 
 
 	public CompType visit(FunctionDecl fd) throws SemanticException
@@ -156,6 +153,9 @@ public class SemanticVisitor extends TypeVisitor{
 			fp.accept(this);
 		}
 
+		// set the return type to the current functions return type
+		returnType = fd.type;
+
 		return null;
 	}
 
@@ -174,6 +174,19 @@ public class SemanticVisitor extends TypeVisitor{
 	}
 
 
+	public CompType visit(FunctionBod fb) throws SemanticException
+	{
+		// loop through variable declarations and visit each
+		for(VarDecl vd : fb.varDecls)
+		{
+			vd.accept(this);
+		}
+
+
+		return null;
+	}
+
+
 	public CompType visit(FunctionCall fc) throws SemanticException{return null;};
 
 
@@ -188,6 +201,13 @@ public class SemanticVisitor extends TypeVisitor{
 		{
 			// call visit on array declaration and return
 			return c.accept(this);
+		}
+
+		// check to see if fp has type void
+		if(c.getType().equals("void"))
+		{
+			String msg = "Error: variable or parameter declaration with type 'void'";
+			throw new SemanticException(msg, c.line, c.offset);
 		}
 
 
@@ -212,21 +232,26 @@ public class SemanticVisitor extends TypeVisitor{
 			throw new SemanticException(msg, a.line, a.offset);
 		}
 
-
-
-
-
 		return null;
 	}
 
 
 	public CompType visit(VarDecl v) throws SemanticException
 	{
-		// if v is not already in
-		// if(! )
+		// if v is already in symbol table
+		if(vars.inCurrentScope(v.id.id))
+		{
+			String msg = "Error: Variable id '"+v.id.id+"' already in use";
+			throw new SemanticException(msg, v.id.line, v.id.offset);
+		}
 
-		
+		// visit the variable declarations type
+		v.type.accept(this);
+		// add as no exceptions thrown
+		vars.add(v.id.id, v.type); 
 
+
+		System.out.println(vars.st.peek().keySet());
 
 		return null;
 	}

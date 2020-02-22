@@ -116,7 +116,9 @@ varDecl returns [VarDecl vd]
 // returns a regular type for a declaration or an array type declaration
 compoundType returns [CompType ct]
 	// if it is just a normal type create a comp type object
-	:  ad = arrayDecl { ct = ad; }
+	:  ad = arrayDecl { ct = ad; 
+			    ct.line = ad.line;
+			    ct.offset = ad.offset; }
 	// if it is an array decl
 	| t = TYPE { ct = new CompType(t.getText()); 
 			ct.line = t.getLine();
