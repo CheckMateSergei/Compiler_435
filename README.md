@@ -14,9 +14,9 @@ Assignment #1 Tests:
  	java -cp "antlr-3.5.2-complete.jar:./build" Compiler tests/accept/<filename>.ul
 
 Assignment #2 Tests:
--place test cases in home directory
--cd to build directory and run ./runTests.sh
--read error message without stack trace
+-place test cases in home directory (withoutSubtypes cases)
+-cd to build directory and run ../runTests.sh
+-read error messages without stack trace
 -to add stack trace uncomment line in catch statement in Compiler.java
 
 
