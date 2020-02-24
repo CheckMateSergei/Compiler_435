@@ -2,8 +2,8 @@ package packages;
 
 public class IfStmt extends Statement
 {
-	Expression boolExpr;
-	Block ifBlock;
+	public Expression boolExpr;
+	public Block ifBlock;
 	public int line;
 	public int offset;
 

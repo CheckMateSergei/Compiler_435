@@ -2,9 +2,9 @@ package packages;
 
 public class IfElseStmt extends Statement
 {
-	Expression boolExpr;
-	Block ifBlock;
-	Block elseBlock;
+	public Expression boolExpr;
+	public Block ifBlock;
+	public Block elseBlock;
 	public int line;
 	public int offset;
 

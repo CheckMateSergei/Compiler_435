@@ -2,9 +2,9 @@ package packages;
 
 public class ArrayAssignStmt extends Statement
 {
-	Identifier id;
-	Expression index;
-	Expression value;
+	public Identifier id;
+	public Expression index;
+	public Expression value;
 	public int line;
 	public int offset;
 	

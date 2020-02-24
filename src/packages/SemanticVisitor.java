@@ -21,20 +21,95 @@ public class SemanticVisitor extends TypeVisitor{
 	}
 
 
-	public CompType visit(LessExpr e) throws SemanticException{return null;};
+	public CompType visit(LessExpr e) throws SemanticException
+	{
+		String s, t;
+		// let s be the left op's type
+		s = e.getLeftOperand().accept(this).type;
+		// let t be the right op's type
+		t = e.getRightOperand().accept(this).type;
+
+		// check the types match
+		if(! s.equals(t))
+		{
+			String msg = "Error: left and right operands of different type";
+			throw new SemanticException(msg, e.line, e.offset);
+		}
+
+		// must return boolean type
+		CompType ct = new CompType("boolean");
+		ct.line = e.line;
+		ct.offset = e.offset;
+		return ct;
+	}
 
 
-	public CompType visit(MultExpr e) throws SemanticException{return null;};
+	public CompType visit(MultExpr e) throws SemanticException
+	{
+		String s, t;
+		// let s be the left op's type
+		s = e.getLeftOperand().accept(this).type;
+		// let t be the right op's type
+		t = e.getRightOperand().accept(this).type;
+
+		// check the types match
+		if(! s.equals(t))
+		{
+			String msg = "Error: left and right operands of different type";
+			throw new SemanticException(msg, e.line, e.offset);
+		}
+
+		return e.getLeftOperand().accept(this);
+	}
 
 
-	public CompType visit(ParenExpr e) throws SemanticException{return null;};
+	public CompType visit(ParenExpr e) throws SemanticException
+	{
+		return e.e.accept(this);
+	}
 
 
-	public CompType visit(PlmiExpr e) throws SemanticException{return null;};
+	public CompType visit(PlmiExpr e) throws SemanticException
+	{	
+		String s, t;
+		// let s be the left op's type
+		s = e.getLeftOperand().accept(this).type;
+		// let t be the right op's type
+		t = e.getRightOperand().accept(this).type;
+
+		// check the types match
+		if(! s.equals(t))
+		{
+			String msg = "Error: left and right operands of different type";
+			throw new SemanticException(msg, e.line, e.offset);
+		}
+
+		return e.getLeftOperand().accept(this);
+
+	}
 
 
-	public CompType visit(CompareExpr e) throws SemanticException{return null;};
+	public CompType visit(CompareExpr e) throws SemanticException
+	{
+		String s, t;
+		// let s be the left op's type
+		s = e.getLeftOperand().accept(this).type;
+		// let t be the right op's type
+		t = e.getRightOperand().accept(this).type;
 
+		// check the types match
+		if(! s.equals(t))
+		{
+			String msg = "Error: left and right operands of different type";
+			throw new SemanticException(msg, e.line, e.offset);
+		}
+
+		// must return boolean type
+		CompType ct = new CompType("boolean");
+		ct.line = e.line;
+		ct.offset = e.offset;
+		return ct;
+	}
 
 
 	// ***** ATOMS ***** //
@@ -104,7 +179,22 @@ public class SemanticVisitor extends TypeVisitor{
 	}
 
 
-	public CompType visit(ArrayRef a) throws SemanticException{return null;};
+	public CompType visit(ArrayRef a) throws SemanticException
+	{
+		// check if a.id is initialized
+		if(! vars.inCurrentScope(a.id.id))
+		{
+			String msg = "Error: array variable '"+a.id.id+"' not intialized";
+			throw new SemanticException(msg, a.id.line, a.id.offset);
+		}
+
+		// return the type from a.id's declaration
+		String t = vars.lookup(a.id.id).type;
+		CompType ct = new CompType(t);
+		ct.line = a.id.line;
+		ct.offset = a.id.offset;
+		return ct;
+	}
 
 
 	public CompType visit(FunctionCall fc) throws SemanticException
@@ -124,6 +214,12 @@ public class SemanticVisitor extends TypeVisitor{
 		{
 			String msg = "Error: parameter and argument list differ in length, function call: '"+fc.id.id+"'";
 			throw new SemanticException(msg, fc.id.line, fc.id.offset);
+		}
+
+		// check if types differ in any position
+		for(FormalParam f : temp.parameters)
+		{
+			//
 		}
 
 		return func.lookup(fc.id.id).type;
@@ -283,9 +379,7 @@ public class SemanticVisitor extends TypeVisitor{
 			throw new SemanticException(msg, c.line, c.offset);
 		}
 
-
-
-		return null;
+		return c;
 	}
 
 
@@ -305,7 +399,7 @@ public class SemanticVisitor extends TypeVisitor{
 			throw new SemanticException(msg, a.line, a.offset);
 		}
 
-		return null;
+		return a;
 	}
 
 
@@ -324,7 +418,7 @@ public class SemanticVisitor extends TypeVisitor{
 		vars.add(v.id.id, v.type); 
 
 		//System.out.println(vars.st.peek().keySet());
-		return null;
+		return v.type;
 	}
 
 
@@ -332,50 +426,148 @@ public class SemanticVisitor extends TypeVisitor{
 	{
 
 		System.out.println("YOU DO ENTER STATEMENT");	
-		return null;
+		return s.accept(this);
 	}
 
 
 	public CompType visit(IdAssignStmt s) throws SemanticException
 	{
-	//	// check that type of id and type of expr match
-	//	CompType idt = vars.lookup(s.id.id).type;
-	//	if(idt.type.type.equals())
-	//	{
+		// check that type of id and type of expr match
+		if(! s.id.accept(this).type.equals(s.e.accept(this).type))
+		{
+			String msg = "Error: identifier '"+s.id.id+"' is of type '"+vars.lookup(s.id.id).type+"'";
+			throw new SemanticException(msg, s.id.line, s.id.offset);
 
-	//	}
+		}
+		return s.e.accept(this);
+	}
+
+
+	public CompType visit(ArrayAssignStmt a) throws SemanticException
+	{
+		// check that index is an int
+		if(! a.index.accept(this).type.equals("int"))
+		{
+			String msg = "Error: array index must be of type 'int'";
+			throw new SemanticException(msg, a.index.line, a.index.offset);
+		}
+
+		// check that types match
+		if(! a.value.accept(this).type.equals(a.id.accept(this).type))
+		{
+			String msg = "Error: type mismatch, array is of type '"+a.id.accept(this).type+"'";
+			throw new SemanticException(msg, a.id.line, a.id.offset);
+		}
+		
+		return a.id.accept(this);
+	}
+
+
+	public CompType visit(Block b) throws SemanticException
+	{
+		// visit each statment in b's statement list
+		for(Statement s : b.stmtList)
+		{
+			s.accept(this);
+		}
 		return null;
 	}
 
 
-	public CompType visit(ArrayAssignStmt a) throws SemanticException{return null;};
+	public CompType visit(WhileStmt s) throws SemanticException
+	{
+		// check to make sure expression is boolean
+		if(! s.e.accept(this).type.equals("boolean"))
+		{
+			String msg = "Error: expression must be of type 'boolean'";
+			throw new SemanticException(msg, s.e.line, s.e.offset);
+		}
+
+		return null;
+	}
 
 
-	public CompType visit(Block b) throws SemanticException{return null;};
+	public CompType visit(IfElseStmt ie) throws SemanticException
+	{
+		// check that boolExpr is boolean
+		if(! ie.boolExpr.accept(this).type.equals("boolean"))
+		{
+			String msg = "Error: expression must be of type 'boolean'";
+			throw new SemanticException(msg, ie.boolExpr.line, ie.boolExpr.offset);
+		}
+
+		// visit blocks in order
+		ie.ifBlock.accept(this);
+		ie.elseBlock.accept(this);
+		
+		return null;
+	}
 
 
-	public CompType visit(ExColonStmt e) throws SemanticException{return null;};
+	public CompType visit(IfStmt s) throws SemanticException
+	{
+		// check that boolExpr is boolean
+		if(! s.boolExpr.accept(this).type.equals("boolean"))
+		{
+			String msg = "Error: expression must be of type 'boolean'";
+			throw new SemanticException(msg, s.boolExpr.line, s.boolExpr.offset);
+		}
+
+		// visit blocks in order
+		s.ifBlock.accept(this);
+
+		return null;
+	}
 
 
-	public CompType visit(IfElseStmt ie) throws SemanticException{return null;};
+	public CompType visit(PrintlnStmt s) throws SemanticException
+	{
+		// make sure the expression is of type string
+		if(! s.e.accept(this).type.equals("string"))
+		{
+			String msg = "Error: can only print 'string' expressions";
+			throw new SemanticException(msg, s.e.line, s.e.offset);
+		}
+		
+		return s.e.accept(this);
+	}
 
 
-	public CompType visit(IfStmt s) throws SemanticException{return null;};
+	public CompType visit(PrintStmt s) throws SemanticException
+	{
+		// make sure the expression is of type string
+		if(! s.e.accept(this).type.equals("string"))
+		{
+			String msg = "Error: can only print 'string' expressions";
+			throw new SemanticException(msg, s.e.line, s.e.offset);
+		}
+		
+		return s.e.accept(this);
+	}
 
 
-	public CompType visit(PrintlnStmt s) throws SemanticException{return null;};
+	public CompType visit(ReturnStmt s) throws SemanticException
+	{
+		// make sure the current return statement type matches s.e
+		if(! s.e.accept(this).type.equals(returnType.type))
+		{
+			String msg = "Error: function must return type '"+returnType.type+"'";
+			throw new SemanticException(msg, s.e.line, s.e.offset);
+		}
+
+		return s.e.type;
+	}
 
 
-	public CompType visit(PrintStmt s) throws SemanticException{return null;};
+	public CompType visit(SemiStatement s) throws SemanticException
+	{
+		return null;
+	}
 
-
-	public CompType visit(ReturnStmt s) throws SemanticException{return null;};
-
-
-	public CompType visit(SemiStatement s) throws SemanticException{return null;};
-
-
-	public CompType visit(WhileStmt s) throws SemanticException{return null;};
+	public CompType visit(ExColonStmt e) throws SemanticException
+	{
+		return e.accept(this);
+	}
 
 
 
