@@ -7,10 +7,17 @@ Note:
 -grammar file, Compiler.java in src/
 -test cases are in tests/accept and tests/reject
 
-To test:
+Assignment #1 Tests:
 -Add build to CLASSPATH
 -Run make
 -Run with command:
  	java -cp "antlr-3.5.2-complete.jar:./build" Compiler tests/accept/<filename>.ul
+
+Assignment #2 Tests:
+-place test cases in home directory
+-cd to build directory and run ./runTests.sh
+-read error message without stack trace
+-to add stack trace uncomment line in catch statement in Compiler.java
+
 
 enjoy
