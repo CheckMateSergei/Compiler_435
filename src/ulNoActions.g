@@ -196,12 +196,16 @@ exprColon returns [ExColonStmt ec]
 arrayAssign returns [ArrayAssignStmt aas]
 	// creates a new array assignment 
 	: id = identifier '[' e1 = expr ']' '=' e2 = expr ';'
-	  { aas = new ArrayAssignStmt(id, e1, e2); }
+	  { aas = new ArrayAssignStmt(id, e1, e2); 
+		aas.line = id.line;
+		aas.offset = id.offset;}
 	;
 
 // id assignment statement
 idAssign returns [IdAssignStmt idas]
-	: id = identifier '=' e = expr ';' { idas = new IdAssignStmt(id, e); }
+	: id = identifier '=' e = expr ';' { idas = new IdAssignStmt(id, e);
+						idas.line = id.line;
+						idas.offset = id.offset; }
 	;
 
 // if else statement, must go before if statement
@@ -345,7 +349,9 @@ functionCall returns [FunctionCall fc]
 	fc = new FunctionCall();
 }
 	// removes the need for exprList and exprMore
-	: id = identifier'(' {  fc.setId(id); } ( e1 = expr { fc.addExpr(e1); } )?
+	: id = identifier'(' {  fc.setId(id);
+				fc.line = id.line;
+				fc.offset = id.offset; } ( e1 = expr { fc.addExpr(e1); } )?
 	// if there is more expressions following a comma then add them 
 	// to the function calls expression list
 	  (',' e2 = expr { fc.addExpr(e2); } )* ')'

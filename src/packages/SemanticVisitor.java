@@ -16,7 +16,6 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(Expression e) throws SemanticException
 	{
-		System.out.println("YOU DO ENTER EXPRESSION");
 		return e.accept(this);
 	}
 
@@ -33,7 +32,7 @@ public class SemanticVisitor extends TypeVisitor{
 		if(! s.equals(t))
 		{
 			String msg = "Error: left and right operands of different type";
-			throw new SemanticException(msg, e.line, e.offset);
+			throw new SemanticException(msg, e.le.line, e.le.offset);
 		}
 
 		// must return boolean type
@@ -57,14 +56,14 @@ public class SemanticVisitor extends TypeVisitor{
 				|| t.equals("char"))
 		{
 			String msg = "Error: incompatible data type for '*'";
-			throw new SemanticException(msg, e.line, e.offset);
+			throw new SemanticException(msg, e.le.line, e.le.offset);
 		}
 
 		// check the types match
 		if(! s.equals(t))
 		{
 			String msg = "Error: left and right operands of different type";
-			throw new SemanticException(msg, e.line, e.offset);
+			throw new SemanticException(msg, e.le.line, e.le.offset);
 		}
 
 		return e.getLeftOperand().accept(this);
@@ -110,7 +109,7 @@ public class SemanticVisitor extends TypeVisitor{
 		if(! s.equals(t))
 		{
 			String msg = "Error: left and right operands of different type";
-			throw new SemanticException(msg, e.line, e.offset);
+			throw new SemanticException(msg, e.le.line, e.le.offset);
 		}
 
 		// must return boolean type
@@ -327,7 +326,7 @@ public class SemanticVisitor extends TypeVisitor{
 		vars.add(fp.id.id, fp.type);
 
 		
-		return null;
+		return fp.type;
 	}
 
 
@@ -354,7 +353,7 @@ public class SemanticVisitor extends TypeVisitor{
 		// set the return type to the current functions return type
 		returnType = fd.type;
 
-		return null;
+		return fd.type;
 	}
 
 
@@ -457,8 +456,6 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(Statement s) throws SemanticException
 	{
-
-		System.out.println("YOU DO ENTER STATEMENT");	
 		return s.accept(this);
 	}
 
@@ -484,14 +481,12 @@ public class SemanticVisitor extends TypeVisitor{
 			String msg = "Error: array index must be of type 'int'";
 			throw new SemanticException(msg, a.index.line, a.index.offset);
 		}
-
 		// check that types match
 		if(! a.value.accept(this).type.equals(a.id.accept(this).type))
 		{
 			String msg = "Error: type mismatch, array is of type '"+a.id.accept(this).type+"'";
 			throw new SemanticException(msg, a.id.line, a.id.offset);
 		}
-		
 		return a.id.accept(this);
 	}
 
