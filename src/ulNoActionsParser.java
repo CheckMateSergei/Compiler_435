@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-02-23 16:38:28
+// $ANTLR 3.5.2 ./src/ulNoActions.g 2020-02-23 21:27:34
 
 import packages.*;
 
@@ -1395,7 +1395,9 @@ public class ulNoActionsParser extends Parser {
 			it=compareExpr();
 			state._fsp--;
 			if (state.failed) return e;
-			if ( state.backtracking==0 ) { e = it; }
+			if ( state.backtracking==0 ) { e = it;
+							e.line = it.line;
+							e.offset = it.offset; }
 			}
 
 		}
@@ -1415,7 +1417,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "compareExpr"
-	// ./src/ulNoActions.g:236:1: compareExpr returns [Expression e] : le= lessExpr ( '==' ri= lessExpr )* ;
+	// ./src/ulNoActions.g:238:1: compareExpr returns [Expression e] : le= lessExpr ( '==' ri= lessExpr )* ;
 	public final Expression compareExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1428,15 +1430,17 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:248:2: (le= lessExpr ( '==' ri= lessExpr )* )
-			// ./src/ulNoActions.g:248:4: le= lessExpr ( '==' ri= lessExpr )*
+			// ./src/ulNoActions.g:250:2: (le= lessExpr ( '==' ri= lessExpr )* )
+			// ./src/ulNoActions.g:250:4: le= lessExpr ( '==' ri= lessExpr )*
 			{
 			pushFollow(FOLLOW_lessExpr_in_compareExpr955);
 			le=lessExpr();
 			state._fsp--;
 			if (state.failed) return e;
-			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:248:31: ( '==' ri= lessExpr )*
+			if ( state.backtracking==0 ) { it = le; 
+						it.line = le.line;
+						it.offset = le.offset; }
+			// ./src/ulNoActions.g:253:3: ( '==' ri= lessExpr )*
 			loop10:
 			while (true) {
 				int alt10=2;
@@ -1447,14 +1451,16 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt10) {
 				case 1 :
-					// ./src/ulNoActions.g:248:32: '==' ri= lessExpr
+					// ./src/ulNoActions.g:253:4: '==' ri= lessExpr
 					{
-					match(input,28,FOLLOW_28_in_compareExpr960); if (state.failed) return e;
-					pushFollow(FOLLOW_lessExpr_in_compareExpr966);
+					match(input,28,FOLLOW_28_in_compareExpr962); if (state.failed) return e;
+					pushFollow(FOLLOW_lessExpr_in_compareExpr968);
 					ri=lessExpr();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { it = new CompareExpr(it, ri); }
+					if ( state.backtracking==0 ) { it = new CompareExpr(it, ri);
+										it.line = le.line;
+										it.offset = le.offset; }
 					}
 					break;
 
@@ -1486,7 +1492,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "lessExpr"
-	// ./src/ulNoActions.g:251:1: lessExpr returns [Expression e] : le= plmiExpr ( '<' ri= plmiExpr )* ;
+	// ./src/ulNoActions.g:258:1: lessExpr returns [Expression e] : le= plmiExpr ( '<' ri= plmiExpr )* ;
 	public final Expression lessExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1499,15 +1505,17 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:263:2: (le= plmiExpr ( '<' ri= plmiExpr )* )
-			// ./src/ulNoActions.g:263:4: le= plmiExpr ( '<' ri= plmiExpr )*
+			// ./src/ulNoActions.g:270:2: (le= plmiExpr ( '<' ri= plmiExpr )* )
+			// ./src/ulNoActions.g:270:4: le= plmiExpr ( '<' ri= plmiExpr )*
 			{
-			pushFollow(FOLLOW_plmiExpr_in_lessExpr1001);
+			pushFollow(FOLLOW_plmiExpr_in_lessExpr1003);
 			le=plmiExpr();
 			state._fsp--;
 			if (state.failed) return e;
-			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:263:31: ( '<' ri= plmiExpr )*
+			if ( state.backtracking==0 ) { it = le; 
+						it.line = le.line;
+						it.offset = le.offset; }
+			// ./src/ulNoActions.g:273:2: ( '<' ri= plmiExpr )*
 			loop11:
 			while (true) {
 				int alt11=2;
@@ -1518,14 +1526,16 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt11) {
 				case 1 :
-					// ./src/ulNoActions.g:263:32: '<' ri= plmiExpr
+					// ./src/ulNoActions.g:273:3: '<' ri= plmiExpr
 					{
-					match(input,26,FOLLOW_26_in_lessExpr1006); if (state.failed) return e;
-					pushFollow(FOLLOW_plmiExpr_in_lessExpr1013);
+					match(input,26,FOLLOW_26_in_lessExpr1010); if (state.failed) return e;
+					pushFollow(FOLLOW_plmiExpr_in_lessExpr1017);
 					ri=plmiExpr();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { it = new LessExpr(it, ri); }
+					if ( state.backtracking==0 ) { it = new LessExpr(it, ri);
+										it.line = le.line;
+										it.offset = le.offset;  }
 					}
 					break;
 
@@ -1557,7 +1567,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "plmiExpr"
-	// ./src/ulNoActions.g:267:1: plmiExpr returns [Expression e] : le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* ;
+	// ./src/ulNoActions.g:279:1: plmiExpr returns [Expression e] : le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* ;
 	public final Expression plmiExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1571,15 +1581,17 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:278:2: (le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* )
-			// ./src/ulNoActions.g:278:4: le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
+			// ./src/ulNoActions.g:290:2: (le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )* )
+			// ./src/ulNoActions.g:290:4: le= multExpr ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
 			{
-			pushFollow(FOLLOW_multExpr_in_plmiExpr1047);
+			pushFollow(FOLLOW_multExpr_in_plmiExpr1051);
 			le=multExpr();
 			state._fsp--;
 			if (state.failed) return e;
-			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:279:2: ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
+			if ( state.backtracking==0 ) { it = le;
+						it.line = le.line;
+						it.offset = le.offset; }
+			// ./src/ulNoActions.g:293:2: ( (symbol= '+' ri= multExpr ) | (symbol= '-' ri= multExpr ) )*
 			loop12:
 			while (true) {
 				int alt12=3;
@@ -1593,33 +1605,37 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt12) {
 				case 1 :
-					// ./src/ulNoActions.g:279:3: (symbol= '+' ri= multExpr )
+					// ./src/ulNoActions.g:293:3: (symbol= '+' ri= multExpr )
 					{
-					// ./src/ulNoActions.g:279:3: (symbol= '+' ri= multExpr )
-					// ./src/ulNoActions.g:279:5: symbol= '+' ri= multExpr
+					// ./src/ulNoActions.g:293:3: (symbol= '+' ri= multExpr )
+					// ./src/ulNoActions.g:293:5: symbol= '+' ri= multExpr
 					{
-					symbol=(Token)match(input,22,FOLLOW_22_in_plmiExpr1060); if (state.failed) return e;
-					pushFollow(FOLLOW_multExpr_in_plmiExpr1066);
+					symbol=(Token)match(input,22,FOLLOW_22_in_plmiExpr1064); if (state.failed) return e;
+					pushFollow(FOLLOW_multExpr_in_plmiExpr1070);
 					ri=multExpr();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); }
+					if ( state.backtracking==0 ) { it = new PlmiExpr(it, ri, symbol.getText().charAt(0));
+					 		it.line = le.line;
+							it.offset = le.offset; }
 					}
 
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:281:4: (symbol= '-' ri= multExpr )
+					// ./src/ulNoActions.g:297:4: (symbol= '-' ri= multExpr )
 					{
-					// ./src/ulNoActions.g:281:4: (symbol= '-' ri= multExpr )
-					// ./src/ulNoActions.g:281:6: symbol= '-' ri= multExpr
+					// ./src/ulNoActions.g:297:4: (symbol= '-' ri= multExpr )
+					// ./src/ulNoActions.g:297:6: symbol= '-' ri= multExpr
 					{
-					symbol=(Token)match(input,24,FOLLOW_24_in_plmiExpr1084); if (state.failed) return e;
-					pushFollow(FOLLOW_multExpr_in_plmiExpr1090);
+					symbol=(Token)match(input,24,FOLLOW_24_in_plmiExpr1088); if (state.failed) return e;
+					pushFollow(FOLLOW_multExpr_in_plmiExpr1094);
 					ri=multExpr();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); }
+					if ( state.backtracking==0 ) { it = new PlmiExpr(it, ri, symbol.getText().charAt(0));
+							it.line = le.line;
+							it.offset = le.offset;  }
 					}
 
 					}
@@ -1653,7 +1669,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "multExpr"
-	// ./src/ulNoActions.g:286:1: multExpr returns [Expression e] : le= atom ( '*' ri= atom )* ;
+	// ./src/ulNoActions.g:304:1: multExpr returns [Expression e] : le= atom ( '*' ri= atom )* ;
 	public final Expression multExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1666,15 +1682,17 @@ public class ulNoActionsParser extends Parser {
 			Expression it = null;
 
 		try {
-			// ./src/ulNoActions.g:297:2: (le= atom ( '*' ri= atom )* )
-			// ./src/ulNoActions.g:297:4: le= atom ( '*' ri= atom )*
+			// ./src/ulNoActions.g:315:2: (le= atom ( '*' ri= atom )* )
+			// ./src/ulNoActions.g:315:4: le= atom ( '*' ri= atom )*
 			{
-			pushFollow(FOLLOW_atom_in_multExpr1129);
+			pushFollow(FOLLOW_atom_in_multExpr1133);
 			le=atom();
 			state._fsp--;
 			if (state.failed) return e;
-			if ( state.backtracking==0 ) { it = le; }
-			// ./src/ulNoActions.g:297:27: ( '*' ri= atom )*
+			if ( state.backtracking==0 ) { it = le; 
+						it.line = le.line;
+						it.offset = le.offset; }
+			// ./src/ulNoActions.g:318:3: ( '*' ri= atom )*
 			loop13:
 			while (true) {
 				int alt13=2;
@@ -1685,14 +1703,16 @@ public class ulNoActionsParser extends Parser {
 
 				switch (alt13) {
 				case 1 :
-					// ./src/ulNoActions.g:297:28: '*' ri= atom
+					// ./src/ulNoActions.g:318:4: '*' ri= atom
 					{
-					match(input,21,FOLLOW_21_in_multExpr1134); if (state.failed) return e;
-					pushFollow(FOLLOW_atom_in_multExpr1140);
+					match(input,21,FOLLOW_21_in_multExpr1140); if (state.failed) return e;
+					pushFollow(FOLLOW_atom_in_multExpr1146);
 					ri=atom();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { it = new MultExpr(it, ri); }
+					if ( state.backtracking==0 ) { it = new MultExpr(it, ri);
+								it.line = le.line;
+								it.offset = le.offset; }
 					}
 					break;
 
@@ -1724,7 +1744,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "atom"
-	// ./src/ulNoActions.g:301:1: atom returns [Expression e] : (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr );
+	// ./src/ulNoActions.g:324:1: atom returns [Expression e] : (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr );
 	public final Expression atom() throws RecognitionException {
 		Expression e = null;
 
@@ -1736,7 +1756,7 @@ public class ulNoActionsParser extends Parser {
 		Expression pe =null;
 
 		try {
-			// ./src/ulNoActions.g:302:2: (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr )
+			// ./src/ulNoActions.g:325:2: (l= literal |id= identifier |fc= functionCall |ar= arrayRef |pe= parenExpr )
 			int alt14=5;
 			switch ( input.LA(1) ) {
 			case BOOL:
@@ -1802,53 +1822,63 @@ public class ulNoActionsParser extends Parser {
 			}
 			switch (alt14) {
 				case 1 :
-					// ./src/ulNoActions.g:302:4: l= literal
+					// ./src/ulNoActions.g:325:4: l= literal
 					{
-					pushFollow(FOLLOW_literal_in_atom1164);
+					pushFollow(FOLLOW_literal_in_atom1170);
 					l=literal();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { e = l; }
+					if ( state.backtracking==0 ) { e = l; 
+								e.line = l.line;
+								e.offset = l.offset; }
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:303:4: id= identifier
+					// ./src/ulNoActions.g:328:4: id= identifier
 					{
-					pushFollow(FOLLOW_identifier_in_atom1175);
+					pushFollow(FOLLOW_identifier_in_atom1181);
 					id=identifier();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { e = id; }
+					if ( state.backtracking==0 ) { e = id; 
+									e.line = id.line;
+									e.offset = id.offset; }
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:304:4: fc= functionCall
+					// ./src/ulNoActions.g:331:4: fc= functionCall
 					{
-					pushFollow(FOLLOW_functionCall_in_atom1186);
+					pushFollow(FOLLOW_functionCall_in_atom1192);
 					fc=functionCall();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { e = fc; }
+					if ( state.backtracking==0 ) { e = fc; 
+									e.line = fc.id.line;
+									e.offset = fc.id.offset; }
 					}
 					break;
 				case 4 :
-					// ./src/ulNoActions.g:305:4: ar= arrayRef
+					// ./src/ulNoActions.g:334:4: ar= arrayRef
 					{
-					pushFollow(FOLLOW_arrayRef_in_atom1197);
+					pushFollow(FOLLOW_arrayRef_in_atom1203);
 					ar=arrayRef();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { e = ar; }
+					if ( state.backtracking==0 ) { e = ar; 
+									e.line = ar.line;
+									e.offset = ar.offset; }
 					}
 					break;
 				case 5 :
-					// ./src/ulNoActions.g:306:4: pe= parenExpr
+					// ./src/ulNoActions.g:337:4: pe= parenExpr
 					{
-					pushFollow(FOLLOW_parenExpr_in_atom1208);
+					pushFollow(FOLLOW_parenExpr_in_atom1214);
 					pe=parenExpr();
 					state._fsp--;
 					if (state.failed) return e;
-					if ( state.backtracking==0 ) { e = pe; }
+					if ( state.backtracking==0 ) { e = pe; 
+								e.line = pe.line;
+								e.offset = pe.offset; }
 					}
 					break;
 
@@ -1870,7 +1900,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "functionCall"
-	// ./src/ulNoActions.g:309:1: functionCall returns [FunctionCall fc] : id= identifier '(' e1= expr ( ',' e2= expr )* ')' ;
+	// ./src/ulNoActions.g:342:1: functionCall returns [FunctionCall fc] : id= identifier '(' (e1= expr )? ( ',' e2= expr )* ')' ;
 	public final FunctionCall functionCall() throws RecognitionException {
 		FunctionCall fc = null;
 
@@ -1883,35 +1913,50 @@ public class ulNoActionsParser extends Parser {
 			fc = new FunctionCall();
 
 		try {
-			// ./src/ulNoActions.g:315:2: (id= identifier '(' e1= expr ( ',' e2= expr )* ')' )
-			// ./src/ulNoActions.g:315:4: id= identifier '(' e1= expr ( ',' e2= expr )* ')'
+			// ./src/ulNoActions.g:348:2: (id= identifier '(' (e1= expr )? ( ',' e2= expr )* ')' )
+			// ./src/ulNoActions.g:348:4: id= identifier '(' (e1= expr )? ( ',' e2= expr )* ')'
 			{
-			pushFollow(FOLLOW_identifier_in_functionCall1236);
+			pushFollow(FOLLOW_identifier_in_functionCall1242);
 			id=identifier();
 			state._fsp--;
 			if (state.failed) return fc;
-			match(input,19,FOLLOW_19_in_functionCall1237); if (state.failed) return fc;
-			pushFollow(FOLLOW_expr_in_functionCall1243);
-			e1=expr();
-			state._fsp--;
-			if (state.failed) return fc;
-			if ( state.backtracking==0 ) { fc.setId(id);
-								 fc.addExpr(e1); }
-			// ./src/ulNoActions.g:319:4: ( ',' e2= expr )*
-			loop15:
+			match(input,19,FOLLOW_19_in_functionCall1243); if (state.failed) return fc;
+			if ( state.backtracking==0 ) {  fc.setId(id); }
+			// ./src/ulNoActions.g:348:42: (e1= expr )?
+			int alt15=2;
+			int LA15_0 = input.LA(1);
+			if ( ((LA15_0 >= BOOL && LA15_0 <= CHARACTERCONSTANT)||(LA15_0 >= FLOATCONSTANT && LA15_0 <= ID)||LA15_0==INTEGERCONSTANT||LA15_0==STRINGCONSTANT||LA15_0==19) ) {
+				alt15=1;
+			}
+			switch (alt15) {
+				case 1 :
+					// ./src/ulNoActions.g:348:44: e1= expr
+					{
+					pushFollow(FOLLOW_expr_in_functionCall1253);
+					e1=expr();
+					state._fsp--;
+					if (state.failed) return fc;
+					if ( state.backtracking==0 ) { fc.addExpr(e1); }
+					}
+					break;
+
+			}
+
+			// ./src/ulNoActions.g:351:4: ( ',' e2= expr )*
+			loop16:
 			while (true) {
-				int alt15=2;
-				int LA15_0 = input.LA(1);
-				if ( (LA15_0==23) ) {
-					alt15=1;
+				int alt16=2;
+				int LA16_0 = input.LA(1);
+				if ( (LA16_0==23) ) {
+					alt16=1;
 				}
 
-				switch (alt15) {
+				switch (alt16) {
 				case 1 :
-					// ./src/ulNoActions.g:319:5: ',' e2= expr
+					// ./src/ulNoActions.g:351:5: ',' e2= expr
 					{
-					match(input,23,FOLLOW_23_in_functionCall1255); if (state.failed) return fc;
-					pushFollow(FOLLOW_expr_in_functionCall1261);
+					match(input,23,FOLLOW_23_in_functionCall1268); if (state.failed) return fc;
+					pushFollow(FOLLOW_expr_in_functionCall1274);
 					e2=expr();
 					state._fsp--;
 					if (state.failed) return fc;
@@ -1920,11 +1965,11 @@ public class ulNoActionsParser extends Parser {
 					break;
 
 				default :
-					break loop15;
+					break loop16;
 				}
 			}
 
-			match(input,20,FOLLOW_20_in_functionCall1268); if (state.failed) return fc;
+			match(input,20,FOLLOW_20_in_functionCall1281); if (state.failed) return fc;
 			}
 
 		}
@@ -1944,7 +1989,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "arrayRef"
-	// ./src/ulNoActions.g:322:1: arrayRef returns [Expression e] : id= identifier '[' e1= expr ']' ;
+	// ./src/ulNoActions.g:354:1: arrayRef returns [Expression e] : id= identifier '[' e1= expr ']' ;
 	public final Expression arrayRef() throws RecognitionException {
 		Expression e = null;
 
@@ -1953,20 +1998,22 @@ public class ulNoActionsParser extends Parser {
 		Expression e1 =null;
 
 		try {
-			// ./src/ulNoActions.g:323:2: (id= identifier '[' e1= expr ']' )
-			// ./src/ulNoActions.g:323:4: id= identifier '[' e1= expr ']'
+			// ./src/ulNoActions.g:355:2: (id= identifier '[' e1= expr ']' )
+			// ./src/ulNoActions.g:355:4: id= identifier '[' e1= expr ']'
 			{
-			pushFollow(FOLLOW_identifier_in_arrayRef1287);
+			pushFollow(FOLLOW_identifier_in_arrayRef1300);
 			id=identifier();
 			state._fsp--;
 			if (state.failed) return e;
-			match(input,29,FOLLOW_29_in_arrayRef1288); if (state.failed) return e;
-			pushFollow(FOLLOW_expr_in_arrayRef1294);
+			match(input,29,FOLLOW_29_in_arrayRef1301); if (state.failed) return e;
+			pushFollow(FOLLOW_expr_in_arrayRef1307);
 			e1=expr();
 			state._fsp--;
 			if (state.failed) return e;
-			match(input,30,FOLLOW_30_in_arrayRef1296); if (state.failed) return e;
-			if ( state.backtracking==0 ) { e = new ArrayRef(id, e1); }
+			match(input,30,FOLLOW_30_in_arrayRef1309); if (state.failed) return e;
+			if ( state.backtracking==0 ) { e = new ArrayRef(id, e1); 
+									e.line = id.line;
+									e.offset = id.offset; }
 			}
 
 		}
@@ -1986,7 +2033,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "parenExpr"
-	// ./src/ulNoActions.g:326:1: parenExpr returns [Expression e] : '(' e1= expr ')' ;
+	// ./src/ulNoActions.g:360:1: parenExpr returns [Expression e] : '(' e1= expr ')' ;
 	public final Expression parenExpr() throws RecognitionException {
 		Expression e = null;
 
@@ -1994,16 +2041,18 @@ public class ulNoActionsParser extends Parser {
 		Expression e1 =null;
 
 		try {
-			// ./src/ulNoActions.g:327:2: ( '(' e1= expr ')' )
-			// ./src/ulNoActions.g:327:4: '(' e1= expr ')'
+			// ./src/ulNoActions.g:361:2: ( '(' e1= expr ')' )
+			// ./src/ulNoActions.g:361:4: '(' e1= expr ')'
 			{
-			match(input,19,FOLLOW_19_in_parenExpr1314); if (state.failed) return e;
-			pushFollow(FOLLOW_expr_in_parenExpr1320);
+			match(input,19,FOLLOW_19_in_parenExpr1327); if (state.failed) return e;
+			pushFollow(FOLLOW_expr_in_parenExpr1333);
 			e1=expr();
 			state._fsp--;
 			if (state.failed) return e;
-			match(input,20,FOLLOW_20_in_parenExpr1322); if (state.failed) return e;
-			if ( state.backtracking==0 ) { e = new ParenExpr(e1); }
+			match(input,20,FOLLOW_20_in_parenExpr1335); if (state.failed) return e;
+			if ( state.backtracking==0 ) { e = new ParenExpr(e1); 
+							e.line = e1.line;
+							e.offset = e1.offset; }
 			}
 
 		}
@@ -2023,7 +2072,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "literal"
-	// ./src/ulNoActions.g:331:1: literal returns [Literal l] : (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant );
+	// ./src/ulNoActions.g:367:1: literal returns [Literal l] : (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant );
 	public final Literal literal() throws RecognitionException {
 		Literal l = null;
 
@@ -2035,89 +2084,99 @@ public class ulNoActionsParser extends Parser {
 		CharLiteral cl =null;
 
 		try {
-			// ./src/ulNoActions.g:332:2: (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant )
-			int alt16=5;
+			// ./src/ulNoActions.g:368:2: (il= integerconstant |fl= floatconstant |bl= bool |sl= stringconstant |cl= characterconstant )
+			int alt17=5;
 			switch ( input.LA(1) ) {
 			case INTEGERCONSTANT:
 				{
-				alt16=1;
+				alt17=1;
 				}
 				break;
 			case FLOATCONSTANT:
 				{
-				alt16=2;
+				alt17=2;
 				}
 				break;
 			case BOOL:
 				{
-				alt16=3;
+				alt17=3;
 				}
 				break;
 			case STRINGCONSTANT:
 				{
-				alt16=4;
+				alt17=4;
 				}
 				break;
 			case CHARACTERCONSTANT:
 				{
-				alt16=5;
+				alt17=5;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return l;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 16, 0, input);
+					new NoViableAltException("", 17, 0, input);
 				throw nvae;
 			}
-			switch (alt16) {
+			switch (alt17) {
 				case 1 :
-					// ./src/ulNoActions.g:332:4: il= integerconstant
+					// ./src/ulNoActions.g:368:4: il= integerconstant
 					{
-					pushFollow(FOLLOW_integerconstant_in_literal1344);
+					pushFollow(FOLLOW_integerconstant_in_literal1357);
 					il=integerconstant();
 					state._fsp--;
 					if (state.failed) return l;
-					if ( state.backtracking==0 ) { l = il; }
+					if ( state.backtracking==0 ) { l = il;
+									l.line = il.line;
+									l.offset = il.offset; }
 					}
 					break;
 				case 2 :
-					// ./src/ulNoActions.g:333:4: fl= floatconstant
+					// ./src/ulNoActions.g:371:4: fl= floatconstant
 					{
-					pushFollow(FOLLOW_floatconstant_in_literal1355);
+					pushFollow(FOLLOW_floatconstant_in_literal1368);
 					fl=floatconstant();
 					state._fsp--;
 					if (state.failed) return l;
-					if ( state.backtracking==0 ) { l = fl; }
+					if ( state.backtracking==0 ) { l = fl; 
+									l.line = fl.line;
+									l.offset = fl.offset; }
 					}
 					break;
 				case 3 :
-					// ./src/ulNoActions.g:334:4: bl= bool
+					// ./src/ulNoActions.g:374:4: bl= bool
 					{
-					pushFollow(FOLLOW_bool_in_literal1366);
+					pushFollow(FOLLOW_bool_in_literal1379);
 					bl=bool();
 					state._fsp--;
 					if (state.failed) return l;
-					if ( state.backtracking==0 ) { l = bl; }
+					if ( state.backtracking==0 ) { l = bl;
+								l.line = bl.line;
+								l.offset = bl.offset;  }
 					}
 					break;
 				case 4 :
-					// ./src/ulNoActions.g:335:4: sl= stringconstant
+					// ./src/ulNoActions.g:377:4: sl= stringconstant
 					{
-					pushFollow(FOLLOW_stringconstant_in_literal1377);
+					pushFollow(FOLLOW_stringconstant_in_literal1390);
 					sl=stringconstant();
 					state._fsp--;
 					if (state.failed) return l;
-					if ( state.backtracking==0 ) { l = sl;}
+					if ( state.backtracking==0 ) { l = sl;
+									l.line = sl.line;
+									l.offset = sl.offset; }
 					}
 					break;
 				case 5 :
-					// ./src/ulNoActions.g:336:4: cl= characterconstant
+					// ./src/ulNoActions.g:380:4: cl= characterconstant
 					{
-					pushFollow(FOLLOW_characterconstant_in_literal1388);
+					pushFollow(FOLLOW_characterconstant_in_literal1401);
 					cl=characterconstant();
 					state._fsp--;
 					if (state.failed) return l;
-					if ( state.backtracking==0 ) { l = cl; }
+					if ( state.backtracking==0 ) { l = cl; 
+										l.line = cl.line;
+										l.offset = cl.offset; }
 					}
 					break;
 
@@ -2139,7 +2198,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "stringconstant"
-	// ./src/ulNoActions.g:340:1: stringconstant returns [StringLiteral sl] : s= STRINGCONSTANT ;
+	// ./src/ulNoActions.g:386:1: stringconstant returns [StringLiteral sl] : s= STRINGCONSTANT ;
 	public final StringLiteral stringconstant() throws RecognitionException {
 		StringLiteral sl = null;
 
@@ -2147,11 +2206,13 @@ public class ulNoActionsParser extends Parser {
 		Token s=null;
 
 		try {
-			// ./src/ulNoActions.g:342:2: (s= STRINGCONSTANT )
-			// ./src/ulNoActions.g:342:4: s= STRINGCONSTANT
+			// ./src/ulNoActions.g:388:2: (s= STRINGCONSTANT )
+			// ./src/ulNoActions.g:388:4: s= STRINGCONSTANT
 			{
-			s=(Token)match(input,STRINGCONSTANT,FOLLOW_STRINGCONSTANT_in_stringconstant1412); if (state.failed) return sl;
-			if ( state.backtracking==0 ) { sl = new StringLiteral(s.getText()); }
+			s=(Token)match(input,STRINGCONSTANT,FOLLOW_STRINGCONSTANT_in_stringconstant1425); if (state.failed) return sl;
+			if ( state.backtracking==0 ) { sl = new StringLiteral(s.getText());
+							sl.line = s.getLine();
+							sl.offset = s.getCharPositionInLine(); }
 			}
 
 		}
@@ -2171,7 +2232,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "floatconstant"
-	// ./src/ulNoActions.g:346:1: floatconstant returns [FloatLiteral fl] : f= FLOATCONSTANT ;
+	// ./src/ulNoActions.g:394:1: floatconstant returns [FloatLiteral fl] : f= FLOATCONSTANT ;
 	public final FloatLiteral floatconstant() throws RecognitionException {
 		FloatLiteral fl = null;
 
@@ -2179,11 +2240,13 @@ public class ulNoActionsParser extends Parser {
 		Token f=null;
 
 		try {
-			// ./src/ulNoActions.g:348:2: (f= FLOATCONSTANT )
-			// ./src/ulNoActions.g:348:4: f= FLOATCONSTANT
+			// ./src/ulNoActions.g:396:2: (f= FLOATCONSTANT )
+			// ./src/ulNoActions.g:396:4: f= FLOATCONSTANT
 			{
-			f=(Token)match(input,FLOATCONSTANT,FOLLOW_FLOATCONSTANT_in_floatconstant1436); if (state.failed) return fl;
-			if ( state.backtracking==0 ) { fl = new FloatLiteral(Float.parseFloat(f.getText())); }
+			f=(Token)match(input,FLOATCONSTANT,FOLLOW_FLOATCONSTANT_in_floatconstant1449); if (state.failed) return fl;
+			if ( state.backtracking==0 ) { fl = new FloatLiteral(Float.parseFloat(f.getText())); 
+							fl.line = f.getLine();
+							fl.offset = f.getCharPositionInLine(); }
 			}
 
 		}
@@ -2203,7 +2266,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "characterconstant"
-	// ./src/ulNoActions.g:352:1: characterconstant returns [CharLiteral cl] : c= CHARACTERCONSTANT ;
+	// ./src/ulNoActions.g:402:1: characterconstant returns [CharLiteral cl] : c= CHARACTERCONSTANT ;
 	public final CharLiteral characterconstant() throws RecognitionException {
 		CharLiteral cl = null;
 
@@ -2211,11 +2274,13 @@ public class ulNoActionsParser extends Parser {
 		Token c=null;
 
 		try {
-			// ./src/ulNoActions.g:354:2: (c= CHARACTERCONSTANT )
-			// ./src/ulNoActions.g:354:4: c= CHARACTERCONSTANT
+			// ./src/ulNoActions.g:404:2: (c= CHARACTERCONSTANT )
+			// ./src/ulNoActions.g:404:4: c= CHARACTERCONSTANT
 			{
-			c=(Token)match(input,CHARACTERCONSTANT,FOLLOW_CHARACTERCONSTANT_in_characterconstant1460); if (state.failed) return cl;
-			if ( state.backtracking==0 ) { cl = new CharLiteral(c.getText().charAt(1)); }
+			c=(Token)match(input,CHARACTERCONSTANT,FOLLOW_CHARACTERCONSTANT_in_characterconstant1473); if (state.failed) return cl;
+			if ( state.backtracking==0 ) { cl = new CharLiteral(c.getText().charAt(1)); 
+							cl.line = c.getLine();
+							cl.offset = c.getCharPositionInLine(); }
 			}
 
 		}
@@ -2235,7 +2300,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "integerconstant"
-	// ./src/ulNoActions.g:358:1: integerconstant returns [IntegerLiteral il] : i= INTEGERCONSTANT ;
+	// ./src/ulNoActions.g:410:1: integerconstant returns [IntegerLiteral il] : i= INTEGERCONSTANT ;
 	public final IntegerLiteral integerconstant() throws RecognitionException {
 		IntegerLiteral il = null;
 
@@ -2243,11 +2308,13 @@ public class ulNoActionsParser extends Parser {
 		Token i=null;
 
 		try {
-			// ./src/ulNoActions.g:360:2: (i= INTEGERCONSTANT )
-			// ./src/ulNoActions.g:360:4: i= INTEGERCONSTANT
+			// ./src/ulNoActions.g:412:2: (i= INTEGERCONSTANT )
+			// ./src/ulNoActions.g:412:4: i= INTEGERCONSTANT
 			{
-			i=(Token)match(input,INTEGERCONSTANT,FOLLOW_INTEGERCONSTANT_in_integerconstant1484); if (state.failed) return il;
-			if ( state.backtracking==0 ) { il = new IntegerLiteral(Integer.parseInt(i.getText())); }
+			i=(Token)match(input,INTEGERCONSTANT,FOLLOW_INTEGERCONSTANT_in_integerconstant1497); if (state.failed) return il;
+			if ( state.backtracking==0 ) { il = new IntegerLiteral(Integer.parseInt(i.getText())); 
+							il.line = i.getLine();
+							il.offset = i.getCharPositionInLine(); }
 			}
 
 		}
@@ -2267,7 +2334,7 @@ public class ulNoActionsParser extends Parser {
 
 
 	// $ANTLR start "bool"
-	// ./src/ulNoActions.g:364:1: bool returns [BooleanLiteral bl] : b= BOOL ;
+	// ./src/ulNoActions.g:418:1: bool returns [BooleanLiteral bl] : b= BOOL ;
 	public final BooleanLiteral bool() throws RecognitionException {
 		BooleanLiteral bl = null;
 
@@ -2275,11 +2342,13 @@ public class ulNoActionsParser extends Parser {
 		Token b=null;
 
 		try {
-			// ./src/ulNoActions.g:366:2: (b= BOOL )
-			// ./src/ulNoActions.g:366:4: b= BOOL
+			// ./src/ulNoActions.g:420:2: (b= BOOL )
+			// ./src/ulNoActions.g:420:4: b= BOOL
 			{
-			b=(Token)match(input,BOOL,FOLLOW_BOOL_in_bool1508); if (state.failed) return bl;
-			if ( state.backtracking==0 ) { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); }
+			b=(Token)match(input,BOOL,FOLLOW_BOOL_in_bool1521); if (state.failed) return bl;
+			if ( state.backtracking==0 ) { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); 
+							bl.line = b.getLine();
+							bl.offset = b.getCharPositionInLine(); }
 			}
 
 		}
@@ -2535,47 +2604,47 @@ public class ulNoActionsParser extends Parser {
 	public static final BitSet FOLLOW_32_in_block899 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_compareExpr_in_expr921 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_lessExpr_in_compareExpr955 = new BitSet(new long[]{0x0000000010000002L});
-	public static final BitSet FOLLOW_28_in_compareExpr960 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_lessExpr_in_compareExpr966 = new BitSet(new long[]{0x0000000010000002L});
-	public static final BitSet FOLLOW_plmiExpr_in_lessExpr1001 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_26_in_lessExpr1006 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_plmiExpr_in_lessExpr1013 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_multExpr_in_plmiExpr1047 = new BitSet(new long[]{0x0000000001400002L});
-	public static final BitSet FOLLOW_22_in_plmiExpr1060 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_multExpr_in_plmiExpr1066 = new BitSet(new long[]{0x0000000001400002L});
-	public static final BitSet FOLLOW_24_in_plmiExpr1084 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_multExpr_in_plmiExpr1090 = new BitSet(new long[]{0x0000000001400002L});
-	public static final BitSet FOLLOW_atom_in_multExpr1129 = new BitSet(new long[]{0x0000000000200002L});
-	public static final BitSet FOLLOW_21_in_multExpr1134 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_atom_in_multExpr1140 = new BitSet(new long[]{0x0000000000200002L});
-	public static final BitSet FOLLOW_literal_in_atom1164 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_atom1175 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_functionCall_in_atom1186 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arrayRef_in_atom1197 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenExpr_in_atom1208 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_functionCall1236 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_functionCall1237 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_functionCall1243 = new BitSet(new long[]{0x0000000000900000L});
-	public static final BitSet FOLLOW_23_in_functionCall1255 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_functionCall1261 = new BitSet(new long[]{0x0000000000900000L});
-	public static final BitSet FOLLOW_20_in_functionCall1268 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_identifier_in_arrayRef1287 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_29_in_arrayRef1288 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_arrayRef1294 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_30_in_arrayRef1296 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_19_in_parenExpr1314 = new BitSet(new long[]{0x0000000000088B30L});
-	public static final BitSet FOLLOW_expr_in_parenExpr1320 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_parenExpr1322 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_integerconstant_in_literal1344 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_floatconstant_in_literal1355 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_bool_in_literal1366 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_stringconstant_in_literal1377 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_characterconstant_in_literal1388 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRINGCONSTANT_in_stringconstant1412 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOATCONSTANT_in_floatconstant1436 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHARACTERCONSTANT_in_characterconstant1460 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGERCONSTANT_in_integerconstant1484 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOL_in_bool1508 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_28_in_compareExpr962 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_lessExpr_in_compareExpr968 = new BitSet(new long[]{0x0000000010000002L});
+	public static final BitSet FOLLOW_plmiExpr_in_lessExpr1003 = new BitSet(new long[]{0x0000000004000002L});
+	public static final BitSet FOLLOW_26_in_lessExpr1010 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_plmiExpr_in_lessExpr1017 = new BitSet(new long[]{0x0000000004000002L});
+	public static final BitSet FOLLOW_multExpr_in_plmiExpr1051 = new BitSet(new long[]{0x0000000001400002L});
+	public static final BitSet FOLLOW_22_in_plmiExpr1064 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_multExpr_in_plmiExpr1070 = new BitSet(new long[]{0x0000000001400002L});
+	public static final BitSet FOLLOW_24_in_plmiExpr1088 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_multExpr_in_plmiExpr1094 = new BitSet(new long[]{0x0000000001400002L});
+	public static final BitSet FOLLOW_atom_in_multExpr1133 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_21_in_multExpr1140 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_atom_in_multExpr1146 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_literal_in_atom1170 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_atom1181 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_functionCall_in_atom1192 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arrayRef_in_atom1203 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenExpr_in_atom1214 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_functionCall1242 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_functionCall1243 = new BitSet(new long[]{0x0000000000988B30L});
+	public static final BitSet FOLLOW_expr_in_functionCall1253 = new BitSet(new long[]{0x0000000000900000L});
+	public static final BitSet FOLLOW_23_in_functionCall1268 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_expr_in_functionCall1274 = new BitSet(new long[]{0x0000000000900000L});
+	public static final BitSet FOLLOW_20_in_functionCall1281 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_identifier_in_arrayRef1300 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_29_in_arrayRef1301 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_expr_in_arrayRef1307 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_30_in_arrayRef1309 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_19_in_parenExpr1327 = new BitSet(new long[]{0x0000000000088B30L});
+	public static final BitSet FOLLOW_expr_in_parenExpr1333 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_parenExpr1335 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_integerconstant_in_literal1357 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_floatconstant_in_literal1368 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_bool_in_literal1379 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_stringconstant_in_literal1390 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_characterconstant_in_literal1401 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRINGCONSTANT_in_stringconstant1425 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOATCONSTANT_in_floatconstant1449 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHARACTERCONSTANT_in_characterconstant1473 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGERCONSTANT_in_integerconstant1497 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOL_in_bool1521 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_exprColon_in_synpred8_ulNoActions457 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_arrayAssign_in_synpred9_ulNoActions468 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_idAssign_in_synpred10_ulNoActions479 = new BitSet(new long[]{0x0000000000000002L});

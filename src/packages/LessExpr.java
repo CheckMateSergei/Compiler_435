@@ -2,8 +2,8 @@ package packages;
 
 public class LessExpr extends Expression
 {
-	Expression le;
-	Expression ri;
+	public Expression le;
+	public Expression ri;
 	public int line;
 	public int offset;
 

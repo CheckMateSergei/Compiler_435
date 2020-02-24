@@ -229,7 +229,9 @@ block returns [Block blok]
 // enter the expression matrix try not to get lost
 expr returns [Expression e]
 	// set match a compareExpr
-	: it = compareExpr { e = it; }
+	: it = compareExpr { e = it;
+				e.line = it.line;
+				e.offset = it.offset; }
 	;
 
 // try to match a compare expression 
@@ -245,7 +247,12 @@ compareExpr returns [Expression e]
 	e = it;
 }
 	// if the expression is matched here instantiate a new CompareExpr
-	: le = lessExpr { it = le; } ('==' ri = lessExpr { it = new CompareExpr(it, ri); })*
+	: le = lessExpr { it = le; 
+			it.line = le.line;
+			it.offset = le.offset; }
+	 ('==' ri = lessExpr { it = new CompareExpr(it, ri);
+					it.line = le.line;
+					it.offset = le.offset; })*
 	;
 
 lessExpr returns [Expression e]
@@ -260,7 +267,12 @@ lessExpr returns [Expression e]
 	e = it;
 }
 	// if the expression is matched here instantiate a LessExpr
-	: le = plmiExpr { it = le; } ('<'  ri = plmiExpr { it = new LessExpr(it, ri); })*
+	: le = plmiExpr { it = le; 
+			it.line = le.line;
+			it.offset = le.offset; } 
+	('<'  ri = plmiExpr { it = new LessExpr(it, ri);
+					it.line = le.line;
+					it.offset = le.offset;  })*
 	;
 
 // try to match a plus minus expression
@@ -275,11 +287,17 @@ plmiExpr returns [Expression e]
 	// sets e to it if nothing else is matched
 	e = it;
 }
-	: le = multExpr { it = le; } 
+	: le = multExpr { it = le;
+			it.line = le.line;
+			it.offset = le.offset; } 
 	(( symbol = '+' ri = multExpr 
-	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); })
+	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0));
+ 		it.line = le.line;
+		it.offset = le.offset; })
 	| ( symbol = '-' ri = multExpr 
-	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0)); }))*
+	  { it = new PlmiExpr(it, ri, symbol.getText().charAt(0));
+		it.line = le.line;
+		it.offset = le.offset;  }))*
 	;
 
 // try to match a mult expression
@@ -294,16 +312,31 @@ multExpr returns [Expression e]
 	// sets e to it if nothing else is matched
 	e = it;
 }
-	: le = atom { it = le; } ('*' ri = atom { it = new MultExpr(it, ri); })*
+	: le = atom { it = le; 
+			it.line = le.line;
+			it.offset = le.offset; }
+	 ('*' ri = atom { it = new MultExpr(it, ri);
+			it.line = le.line;
+			it.offset = le.offset; })*
 	;
 
 // all my super cool atoms
 atom returns [Expression e]
-	: l = literal { e = l; }
-	| id = identifier { e = id; }
-	| fc = functionCall { e = fc; }
-	| ar = arrayRef { e = ar; }
-	| pe = parenExpr { e = pe; }
+	: l = literal { e = l; 
+			e.line = l.line;
+			e.offset = l.offset; }
+	| id = identifier { e = id; 
+				e.line = id.line;
+				e.offset = id.offset; }
+	| fc = functionCall { e = fc; 
+				e.line = fc.id.line;
+				e.offset = fc.id.offset; }
+	| ar = arrayRef { e = ar; 
+				e.line = ar.line;
+				e.offset = ar.offset; }
+	| pe = parenExpr { e = pe; 
+			e.line = pe.line;
+			e.offset = pe.offset; }
 	;
 
 functionCall returns [FunctionCall fc]
@@ -312,58 +345,82 @@ functionCall returns [FunctionCall fc]
 	fc = new FunctionCall();
 }
 	// removes the need for exprList and exprMore
-	: id = identifier'(' e1 = expr { fc.setId(id);
-					 fc.addExpr(e1); }
+	: id = identifier'(' {  fc.setId(id); } ( e1 = expr { fc.addExpr(e1); } )?
 	// if there is more expressions following a comma then add them 
 	// to the function calls expression list
 	  (',' e2 = expr { fc.addExpr(e2); } )* ')'
 	;
 
 arrayRef returns [Expression e]
-	: id = identifier'[' e1 = expr ']' { e = new ArrayRef(id, e1); } 
+	: id = identifier'[' e1 = expr ']' { e = new ArrayRef(id, e1); 
+						e.line = id.line;
+						e.offset = id.offset; } 
 	;
 
 parenExpr returns [Expression e]
-	: '(' e1 = expr ')' { e = new ParenExpr(e1); }
+	: '(' e1 = expr ')' { e = new ParenExpr(e1); 
+				e.line = e1.line;
+				e.offset = e1.offset; }
 	;
 
 // return a matched literal object
 literal returns [Literal l]
-	: il = integerconstant { l = il; }
-	| fl = floatconstant { l = fl; }
-	| bl = bool { l = bl; }
-	| sl = stringconstant { l = sl;}
-	| cl = characterconstant { l = cl; }
+	: il = integerconstant { l = il;
+				l.line = il.line;
+				l.offset = il.offset; }
+	| fl = floatconstant { l = fl; 
+				l.line = fl.line;
+				l.offset = fl.offset; }
+	| bl = bool { l = bl;
+			l.line = bl.line;
+			l.offset = bl.offset;  }
+	| sl = stringconstant { l = sl;
+				l.line = sl.line;
+				l.offset = sl.offset; }
+	| cl = characterconstant { l = cl; 
+					l.line = cl.line;
+					l.offset = cl.offset; }
 	;
 
 // returns a string literal
 stringconstant returns [StringLiteral sl]
 	// sets the value of the new string literal to the matched string
-	: s = STRINGCONSTANT { sl = new StringLiteral(s.getText()); }
+	: s = STRINGCONSTANT { sl = new StringLiteral(s.getText());
+				sl.line = s.getLine();
+				sl.offset = s.getCharPositionInLine(); }
 	;
 
 // returns a float literal
 floatconstant returns [FloatLiteral fl]
 	// sets the value of the float to matched float value
-	: f = FLOATCONSTANT { fl = new FloatLiteral(Float.parseFloat(f.getText())); }
+	: f = FLOATCONSTANT { fl = new FloatLiteral(Float.parseFloat(f.getText())); 
+				fl.line = f.getLine();
+				fl.offset = f.getCharPositionInLine(); }
 	;
 
 // returns a character literal
 characterconstant returns [CharLiteral cl]
 	// sets value of the new char lit to the matched character
-	: c = CHARACTERCONSTANT { cl = new CharLiteral(c.getText().charAt(1)); }
+	: c = CHARACTERCONSTANT { cl = new CharLiteral(c.getText().charAt(1)); 
+				cl.line = c.getLine();
+				cl.offset = c.getCharPositionInLine(); }
 	;
 
 // returns an integer literal
 integerconstant returns [IntegerLiteral il]
 	// sets the value of the new int literal to the matched value
-	: i = INTEGERCONSTANT { il = new IntegerLiteral(Integer.parseInt(i.getText())); }
+	: i = INTEGERCONSTANT { il = new IntegerLiteral(Integer.parseInt(i.getText())); 
+				il.line = i.getLine();
+				il.offset = i.getCharPositionInLine(); }
 	;
 
 // returns a true or false boolean
 bool returns [BooleanLiteral bl]
 	// set value of the boolean literal
-	: b = BOOL { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); }
+	: b = BOOL { bl = new BooleanLiteral(Boolean.parseBoolean(b.getText())); 
+				bl.line = b.getLine();
+				bl.offset = b.getCharPositionInLine(); }
+	 
 	;
 
 /* Lexer */

@@ -2,7 +2,7 @@ package packages;
 
 public class ParenExpr extends Expression
 {
-	Expression e;
+	public Expression e;
 	public int line;
 	public int offset;
 

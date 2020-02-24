@@ -2,7 +2,7 @@ package packages;
 
 public class ExColonStmt extends Statement
 {
-	Expression e;
+	public Expression e;
 	public int line;
 	public int offset;
 

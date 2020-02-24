@@ -2,8 +2,8 @@ package packages;
 
 public class ArrayRef extends Expression
 {
-	Identifier id;
-	Expression index;
+	public Identifier id;
+	public Expression index;
 	public int line;
 	public int offset;
 

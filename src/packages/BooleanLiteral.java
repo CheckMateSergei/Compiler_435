@@ -2,7 +2,7 @@ package packages;
 
 public class BooleanLiteral extends Literal
 {
-	boolean value;
+	public boolean value;
 	public int line;
 	public int offset;
 

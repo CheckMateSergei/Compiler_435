@@ -2,9 +2,9 @@ package packages;
 
 public class PlmiExpr extends Expression
 {
-	Expression le;
-	Expression ri;
-	char symbol;
+	public Expression le;
+	public Expression ri;
+	public char symbol;
 	public int line;
 	public int offset;
 

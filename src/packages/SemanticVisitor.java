@@ -52,6 +52,14 @@ public class SemanticVisitor extends TypeVisitor{
 		// let t be the right op's type
 		t = e.getRightOperand().accept(this).type;
 
+		// cannot multiply strings or chars
+		if(s.equals("string") || s.equals("char") || t.equals("string") 
+				|| t.equals("char"))
+		{
+			String msg = "Error: incompatible data type for '*'";
+			throw new SemanticException(msg, e.line, e.offset);
+		}
+
 		// check the types match
 		if(! s.equals(t))
 		{
@@ -81,7 +89,8 @@ public class SemanticVisitor extends TypeVisitor{
 		if(! s.equals(t))
 		{
 			String msg = "Error: left and right operands of different type";
-			throw new SemanticException(msg, e.line, e.offset);
+			throw new SemanticException(msg, e.getLeftOperand().line, 
+							 e.getLeftOperand().offset);
 		}
 
 		return e.getLeftOperand().accept(this);
@@ -126,7 +135,7 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(BooleanLiteral bool) throws SemanticException
 	{
-		CompType ct = new CompType("bool");
+		CompType ct = new CompType("boolean");
 		ct.line = bool.line;
 		ct.offset = bool.offset;
 		return ct;
@@ -188,6 +197,13 @@ public class SemanticVisitor extends TypeVisitor{
 			throw new SemanticException(msg, a.id.line, a.id.offset);
 		}
 
+		// check if a.index is integer
+		if(! a.index.accept(this).type.equals("int"))
+		{
+			String msg = "Error: array index must be of type 'int'";
+			throw new SemanticException(msg, a.index.line, a.index.offset);
+		}
+
 		// return the type from a.id's declaration
 		String t = vars.lookup(a.id.id).type;
 		CompType ct = new CompType(t);
@@ -199,27 +215,36 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(FunctionCall fc) throws SemanticException
 	{
-		System.out.println("IN FUNC CALL");
 		// check to see if function is defined
 		if(! func.inCurrentScope(fc.id.id))
 		{
 			String msg = "Error: tried to reference undefined function '"+fc.id.id+"'";
 			throw new SemanticException(msg, fc.id.line, fc.id.offset);
 		}
+
 		
 		// temporary decl to get parameters list
 		FunctionDecl temp = func.lookup(fc.id.id);
 		// check if exprList and paramList differ
-		if(temp.parameters.size() == fc.exprList.size())
+		if(! (temp.parameters.size() == fc.exprList.size()))
 		{
 			String msg = "Error: parameter and argument list differ in length, function call: '"+fc.id.id+"'";
 			throw new SemanticException(msg, fc.id.line, fc.id.offset);
 		}
 
+		int x = 0;
 		// check if types differ in any position
 		for(FormalParam f : temp.parameters)
 		{
-			//
+			// check if all parameter and types match
+			if(! f.type.type.equals(fc.getExpr(x).accept(this).type))
+			{
+				String msg = "Error: parameter and argument types do not match";
+				throw new SemanticException(msg, fc.getExpr(x).accept(this).line, 
+								fc.getExpr(x).accept(this).offset);
+			}
+
+			x++;
 		}
 
 		return func.lookup(fc.id.id).type;
@@ -278,6 +303,14 @@ public class SemanticVisitor extends TypeVisitor{
 			String ty = func.lookup("main").type.type;
 			// throw exception baby
 			throw new SemanticException("Error: Function 'main' must be of type 'void' but is of type '"+ty+"'", x, y);
+		}
+
+		// check if main has parameters
+		if(! (func.lookup("main").parameters.size() == 0))
+		{
+			String msg = "Error: function 'main' must not accept parameters";
+			throw new SemanticException(msg, func.lookup("main").line, 
+							func.lookup("main").offset);
 		}
 		
 		// end the function scope
@@ -522,10 +555,17 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(PrintlnStmt s) throws SemanticException
 	{
+		HashSet<String> types = new HashSet<String>();
+		types.add("string");
+		types.add("char");
+		types.add("float");
+		types.add("int");
+		types.add("boolean");
+
 		// make sure the expression is of type string
-		if(! s.e.accept(this).type.equals("string"))
+		if(! types.contains(s.e.accept(this).type))
 		{
-			String msg = "Error: can only print 'string' expressions";
+			String msg = "Error: cannot print data type";
 			throw new SemanticException(msg, s.e.line, s.e.offset);
 		}
 		
@@ -535,10 +575,17 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(PrintStmt s) throws SemanticException
 	{
+		HashSet<String> types = new HashSet<String>();
+		types.add("string");
+		types.add("char");
+		types.add("float");
+		types.add("int");
+		types.add("boolean");
+
 		// make sure the expression is of type string
-		if(! s.e.accept(this).type.equals("string"))
+		if(! types.contains(s.e.accept(this).type))
 		{
-			String msg = "Error: can only print 'string' expressions";
+			String msg = "Error: cannot print data type";
 			throw new SemanticException(msg, s.e.line, s.e.offset);
 		}
 		
@@ -566,7 +613,7 @@ public class SemanticVisitor extends TypeVisitor{
 
 	public CompType visit(ExColonStmt e) throws SemanticException
 	{
-		return e.accept(this);
+		return e.e.accept(this);
 	}
 
 
