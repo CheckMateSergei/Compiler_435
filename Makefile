@@ -8,7 +8,7 @@ grammar: $(GSRCS)
 	java org.antlr.Tool -fo ./src ./src/$(GSRC) 
 
 compiler:
-	javac ./src/*.java ./src/packages/*.java -d ./build 
+	javac ./src/*.java ./src/*/*.java -d ./build 
 
 clean:
 	rm ./build/*/* ./build/* -r

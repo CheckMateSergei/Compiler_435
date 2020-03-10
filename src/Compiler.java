@@ -7,7 +7,8 @@
 
 import org.antlr.runtime.*;
 import java.io.*;
-import packages.*;
+import ast.*;
+import visitor.*;
 
 public class Compiler {
 	public static void main (String[] args) throws Exception {
