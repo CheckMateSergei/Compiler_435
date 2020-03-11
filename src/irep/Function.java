@@ -4,11 +4,11 @@ import java.util.ArrayList;
 public class Function
 {
 	public String name;
-	public String type;
+	public Type type;
 	public ArrayList<Temp> temps;
 	public ArrayList<Inst> insts;
 
-	public Function(String name, String type)
+	public Function(String name, Type type)
 	{
 		this.name = name;
 		this.type = type;
@@ -31,7 +31,17 @@ public class Function
 	public String toString()
 	{
 		String s;
-		s = "FUNC ";
+		s = "FUNC "+name+type.toString()+"\n{\n";
+
+		for(Temp t : temps)
+		{
+			s += "TEMP "+t.num+":"+t.type.toString()+";\n";
+		}
+
+		for(Inst i : insts)
+		{
+
+		}
 
 		return s;
 	}

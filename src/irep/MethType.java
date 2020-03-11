@@ -20,7 +20,7 @@ public class MethType extends Type
 
 	public String toString()
 	{
-		String s;
+		String s = "";
 
 		for(Type t : params)
 		{
