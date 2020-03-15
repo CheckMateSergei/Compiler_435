@@ -13,6 +13,7 @@ import visitor.*;
 public class Compiler {
 	public static void main (String[] args) throws Exception {
 		ANTLRInputStream input;
+		String filename;
 
 		if (args.length == 0 ) {
 			System.out.println("Usage: Compiler filename.ul");
@@ -20,6 +21,7 @@ public class Compiler {
 		}
 		else {
 			input = new ANTLRInputStream(new FileInputStream(args[0]));
+			filename = args[0].substring(0, args[0].lastIndexOf('.'));
 		}
 
 		// The name of the grammar here is "ulNoActions",
@@ -30,11 +32,15 @@ public class Compiler {
 
 		try {
 			Program p = parser.program();
+			p.name = filename;
 		//	PrettyPrintVisitor prettyBoy = new PrettyPrintVisitor();
 			// prettyBoy.visit(p);
 			
 			SemanticVisitor sv = new SemanticVisitor();
 			sv.visit(p);
+
+			IrepVisitor ir = new IrepVisitor();
+			ir.visit(p);
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.

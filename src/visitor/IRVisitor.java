@@ -2,7 +2,7 @@ package visitor;
 import irep.Temp;
 import ast.*;
 
-public abstract class IRVisitor
+public abstract class IRVisitor extends Visitor
 {
 	public abstract Temp visit(Identifier i);
 	public abstract Temp visit(IntegerLiteral il);

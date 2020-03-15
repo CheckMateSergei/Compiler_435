@@ -41,10 +41,9 @@ public class Function
 		for(Inst i : insts)
 		{
 			// print ;\n after ever instruction
-
+			s += i.toString()+";\n";
 		}
 
 		return s;
 	}
-
 }

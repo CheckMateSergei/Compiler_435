@@ -6,6 +6,7 @@ import java.util.Vector;
 public class Program
 {
 	public Vector<Function> functions;
+	public String name;
 	
 	public Program()
 	{

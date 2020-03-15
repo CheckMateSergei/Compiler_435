@@ -1,13 +1,13 @@
 package ast;
 
 import visitor.*;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class FunctionDecl
 {
 	public CompType type;
 	public Identifier id;
-	public Vector<FormalParam> parameters;
+	public ArrayList<FormalParam> parameters;
 	public int line;
 	public int offset;
 
@@ -15,7 +15,7 @@ public class FunctionDecl
 	public FunctionDecl(CompType type, Identifier id){
 		this.type = type;
 		this.id = id;
-		this.parameters = new Vector<FormalParam>();
+		this.parameters = new ArrayList<FormalParam>();
 	}
 
 	public void addFormal(FormalParam fp)
