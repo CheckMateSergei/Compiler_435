@@ -13,6 +13,6 @@ public class IRConst extends Inst
 
 	public String toString()
 	{
-		return "T"+temp.num+" := "+c.value.toString();
+		return "T"+temp.num+" := "+c.toString();
 	}
 }

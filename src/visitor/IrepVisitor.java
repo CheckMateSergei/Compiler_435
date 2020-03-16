@@ -1,4 +1,5 @@
 package visitor;
+import java.io.*;
 import java.util.ArrayList;
 import ast.*;
 import irep.*;
@@ -56,6 +57,7 @@ public class IrepVisitor implements Visitor<Temp>
 			factory = new TempFactory();
 			returnType = f.decl.type;
 			labels = new LabelFactory();
+			funcs.beginScope();
 
 			// add function to the symbol table
 			funcs.add(f.decl.id.id, f.decl);
@@ -93,7 +95,7 @@ public class IrepVisitor implements Visitor<Temp>
 			for(VarDecl v : f.bod.varDecls)
 			{
 				temps.add(v.id.id, v.accept(this));
-				irf.addTemp(temps.lookup(v.id.id));
+				// irf.addTemp(temps.lookup(v.id.id));
 			}
 
 			// start adding to the instruction list
@@ -107,10 +109,54 @@ public class IrepVisitor implements Visitor<Temp>
 			{
 				irf.addInst(i);
 			}
+		
+			// add temps to irf temp list
+			for(Temp t : factory.temps)
+			{
+				irf.addTemp(t);
+			}
+
+			prog.add(irf);
+			temps.endScope();
+		}
 
 
+		/*
+		try
+		{
+			// after all functions have been added print ir to file
+			FileWriter writer = new FileWriter(prog.classname+".ir");
+			PrintWriter printer = new PrintWriter(writer);
+			printer.print(prog.toString());
+			printer.close();
+		}
+		catch(IOException i)
+		{
+			i = new IOException("Something happened");
+		}
+		*/
 
+		try 
+		{
+     			File file = new File(prog.classname+".ir");
+     			file.createNewFile();
+		}
+		catch (IOException e) 
+		{
+      			System.out.println("An error occurred.");
+      			e.printStackTrace();
+    		}
 
+		try 
+		{
+		      FileWriter writer = new FileWriter(prog.classname+".ir");
+		      writer.write(prog.toString());
+		      writer.close();
+		} 
+		catch (IOException e) 
+		{
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
 		}
 
 		return null;
@@ -125,12 +171,12 @@ public class IrepVisitor implements Visitor<Temp>
 			ArrayDecl ad = (ArrayDecl)decl.type;
 			Temp t = ad.accept(this);
 			insts.add(new NewArrAss(ad.size, t.type, t));
+			return t;
 		}
 		else
 		{
 			return decl.type.accept(this);
 		}
-		return null;
 	}
 
 	public Temp visit(CompType comp)
@@ -214,7 +260,7 @@ public class IrepVisitor implements Visitor<Temp>
 	{
 		Temp t1 = temps.lookup(ar.id.id);
 		Temp t2 = ar.index.accept(this);
-		return null;
+		return t1;
 	}
 
 	public Temp visit(IfStmt is)
@@ -283,6 +329,7 @@ public class IrepVisitor implements Visitor<Temp>
 		insts.add(new Jump(l3));
 		insts.add(l2);
 		wh.b.accept(this);
+		insts.add(new Jump(l1));
 		insts.add(l3);
 
 		return null;
@@ -320,7 +367,7 @@ public class IrepVisitor implements Visitor<Temp>
 		Print p;
 		Temp t = pr.e.accept(this);
 
-		if(pr.e.type.type.equals("string"))
+		if(t.type.type.equals("U"))
 		{
 			p = new PrintString(t);
 		}
@@ -328,6 +375,7 @@ public class IrepVisitor implements Visitor<Temp>
 		{
 			p = new Print(t);
 		}
+	
 		insts.add(p);
 
 		return null;
@@ -338,7 +386,7 @@ public class IrepVisitor implements Visitor<Temp>
 		Println p;
 		Temp t = pl.e.accept(this);
 
-		if(pl.e.type.type.equals("string"))
+		if(t.type.type.equals("U"))
 		{
 			p = new PrintlnString(t);
 		}
@@ -360,7 +408,6 @@ public class IrepVisitor implements Visitor<Temp>
 		insts.add(i);
 		return null;
 	}
-
 
 	public Temp visit(MultExpr me)
 	{
@@ -430,6 +477,6 @@ public class IrepVisitor implements Visitor<Temp>
 	public Temp visit(FunctionBod fb){return null;}
 	public Temp visit(FunctionDecl decl){return null;}
 	public Temp visit(Statement stmt){return null;}
-	public Temp visit(Literal l){return null;}
+	public Temp visit(Literal l){return l.accept(this);}
 	public Temp visit(SemiStatement sem){return null;}
 }
