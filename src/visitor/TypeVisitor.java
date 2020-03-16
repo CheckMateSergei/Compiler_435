@@ -3,7 +3,7 @@ import ast.*;
 
 import java.lang.*;
 
-public abstract class TypeVisitor extends Visitor
+public abstract class TypeVisitor implements Visitor<CompType>
 {
 
 	public abstract CompType visit(ArrayAssignStmt a) throws SemanticException;

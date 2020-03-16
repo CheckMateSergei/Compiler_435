@@ -12,6 +12,6 @@ public class IfJump extends Jump
 
 	public String toString()
 	{
-		return "IF "+t.toString()+" GOTO "+super.toString();
+		return "IF "+t.toString()+" "+super.toString();
 	}
 }

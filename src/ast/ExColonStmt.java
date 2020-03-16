@@ -13,7 +13,7 @@ public class ExColonStmt extends Statement
 		this.e = e;
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V  accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}

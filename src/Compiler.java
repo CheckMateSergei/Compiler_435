@@ -41,6 +41,9 @@ public class Compiler {
 
 			IrepVisitor ir = new IrepVisitor();
 			ir.visit(p);
+
+
+
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.

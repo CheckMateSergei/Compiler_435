@@ -18,7 +18,7 @@ public class BooleanLiteral extends Literal
 		return this.value;
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}

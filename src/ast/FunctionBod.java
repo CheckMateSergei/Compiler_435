@@ -1,20 +1,20 @@
 package ast;
 
 import visitor.*;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class FunctionBod
 {
-	public Vector<VarDecl> varDecls;
-	public Vector<Statement> statements;
+	public ArrayList<VarDecl> varDecls;
+	public ArrayList<Statement> statements;
 	public int line;
 	public int offset;
 
 
 	public FunctionBod()
 	{
-		varDecls = new Vector<VarDecl>();
-		statements = new Vector<Statement>();
+		varDecls = new ArrayList<VarDecl>();
+		statements = new ArrayList<Statement>();
 	}
 
 	public void addVarDecl(VarDecl varDecl)
@@ -29,7 +29,7 @@ public class FunctionBod
 
 	public Statement getStatement(int index)
 	{
-		return statements.elementAt(index);
+		return statements.get(index);
 	}
 
 	public int getStatementCount()
@@ -39,7 +39,7 @@ public class FunctionBod
 
 	public VarDecl getVarDecl(int index)
 	{
-		return varDecls.elementAt(index);
+		return varDecls.get(index);
 	}
 
 	public int getVarDeclCount()
@@ -47,7 +47,7 @@ public class FunctionBod
 		return varDecls.size();
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}

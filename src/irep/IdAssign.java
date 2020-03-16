@@ -2,18 +2,17 @@ package irep;
 
 public class IdAssign extends Assignment
 {
-	public Temp temp;
-	public Constant con;
+	public Temp temp1, temp2;
 
-	public IdAssign(Temp temp, Constant con)
+	public IdAssign(Temp temp1, Temp temp2)
 	{
-		this.temp = temp;
-		this.con = con;
+		this.temp1 = temp1;
+		this.temp2 = temp2;
 	}
 
 	public String toString()
 	{
-		return temp.toString()+" := "+con.toString();
+		return temp1.toString()+" := "+temp2.toString();
 	}
 	
 }

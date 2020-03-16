@@ -26,7 +26,7 @@ public class MultExpr extends Expression
 		return this.ri;
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}

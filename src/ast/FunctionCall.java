@@ -1,11 +1,11 @@
 package ast;
 
 import visitor.*;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class FunctionCall extends Expression
 {
-	public Vector<Expression> exprList;
+	public ArrayList<Expression> exprList;
 	public Identifier id;
 	public int line;
 	public int offset;
@@ -13,7 +13,7 @@ public class FunctionCall extends Expression
 
 	public FunctionCall()
 	{
-		this.exprList = new Vector<Expression>();
+		this.exprList = new ArrayList<Expression>();
 	}
 
 	public void setId(Identifier id)
@@ -23,7 +23,7 @@ public class FunctionCall extends Expression
 
 	public Expression getExpr(int index)
 	{
-		return exprList.elementAt(index);
+		return exprList.get(index);
 	}
 
 	public void addExpr(Expression e)
@@ -31,7 +31,7 @@ public class FunctionCall extends Expression
 		this.exprList.add(e);
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}

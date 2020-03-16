@@ -2,7 +2,10 @@ package irep;
 
 public class Return extends Inst
 {
-	public Return(){}
+
+	public Return()
+	{
+	}
 
 	public String toString()
 	{

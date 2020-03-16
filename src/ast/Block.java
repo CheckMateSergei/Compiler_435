@@ -1,10 +1,10 @@
 package ast;
 import visitor.*;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Block extends Statement
 {
-	public Vector<Statement> stmtList;
+	public ArrayList<Statement> stmtList;
 	public int line;
 	public int offset;
 
@@ -12,7 +12,7 @@ public class Block extends Statement
 
 	public Block()
 	{
-		stmtList = new Vector<Statement>();
+		stmtList = new ArrayList<Statement>();
 	}
 
 	public void addToBlock(Statement s)
@@ -22,7 +22,7 @@ public class Block extends Statement
 
 	public Statement getStmt(int index)
 	{
-		return stmtList.elementAt(index);
+		return stmtList.get(index);
 	}
 
 	public int getSize()
@@ -30,7 +30,7 @@ public class Block extends Statement
 		return stmtList.size();
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}

@@ -3,7 +3,8 @@ import ast.*;
 import java.lang.*;
 import java.util.*;
 
-public class SemanticVisitor extends TypeVisitor{
+public class SemanticVisitor implements Visitor<CompType>
+{
 
 	// symbol tables for functions and variables
 	public FunctionSymbolTable func = new FunctionSymbolTable();
@@ -123,6 +124,10 @@ public class SemanticVisitor extends TypeVisitor{
 
 	// ***** ATOMS ***** //
 	
+	public CompType visit(Literal l) throws SemanticException
+	{
+		return l.accept(this);
+	}
 
 	public CompType visit(CharLiteral c) throws SemanticException
 	{

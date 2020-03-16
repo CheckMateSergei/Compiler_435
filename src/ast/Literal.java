@@ -4,5 +4,5 @@ import visitor.*;
 
 public abstract class Literal extends Expression
 {
-	public abstract CompType accept(TypeVisitor v) throws SemanticException;
+	public abstract <V> V accept(Visitor<V> v) throws SemanticException;
 }

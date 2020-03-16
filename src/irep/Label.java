@@ -1,6 +1,6 @@
 package irep;
 
-public class Label
+public class Label extends Inst
 {
 	public int num;
 

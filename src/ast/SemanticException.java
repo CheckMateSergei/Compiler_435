@@ -2,20 +2,22 @@ package ast;
 
 import visitor.*;
 
-public class SemanticException extends Exception{
+public class SemanticException extends RuntimeException{
 
 	public String message;
 	public String line;
 	public String offset;
 
-	public SemanticException(String message, int line, int offset){
-        	this.message = message;
-		this.line = String.valueOf(line);
-		this.offset = String.valueOf(offset);
+	public SemanticException(String message, int line, int offset)
+	{
+        	super(message + " at line: " + line + " and offset: " + offset);
 	}
 
-	public String toString(){
+	/*
+	public String toString()
+	{
 		// return concatenated error message
 		return message + " at line: " + line + " and offset: " + offset;
 	}
+	*/
 }

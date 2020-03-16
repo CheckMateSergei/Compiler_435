@@ -23,7 +23,7 @@ public class ArrayDecl extends CompType
 		return this.type;
 	}
 
-	public CompType accept(TypeVisitor v) throws SemanticException
+	public <V> V accept(Visitor<V> v) throws SemanticException
 	{
 		return v.visit(this);
 	}
