@@ -11,6 +11,6 @@ public class Println extends Inst
 
 	public String toString()
 	{
-		return "PRINTLN"+t.type.toString()+" "+t.toString();
+		return "PRINTLN"+t.type.type+" "+t.toString();
 	}
 }

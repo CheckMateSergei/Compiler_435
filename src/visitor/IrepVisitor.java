@@ -119,6 +119,11 @@ public class IrepVisitor implements Visitor<Temp>
 				irf.addTemp(t);
 			}
 
+			if(f.decl.type.type.equals("void"))
+			{
+				irf.addInst(new Return());
+			}
+
 			prog.add(irf);
 			temps.endScope();
 		}
@@ -250,7 +255,11 @@ public class IrepVisitor implements Visitor<Temp>
 	{
 		Temp t1 = temps.lookup(ar.id.id);
 		Temp t2 = ar.index.accept(this);
-		return t1;
+		Temp t = factory.get(new AtomicType(t1.type.type));
+		IdArrAssign ida = new IdArrAssign(t, t1, t2);
+		insts.add(ida);
+
+		return t;
 	}
 
 	public Temp visit(IfStmt is)
@@ -269,15 +278,19 @@ public class IrepVisitor implements Visitor<Temp>
 	public Temp visit(IfElseStmt ifel)
 	{
 		Label l = labels.get();
+		Label l2 = labels.get();
+		Label l3 = labels.get();
+
 		Temp t = ifel.boolExpr.accept(this);
 		IfJump ij = new IfJump(l, t);
 		insts.add(ij);
-		ifel.elseBlock.accept(this);
-		Label l2 = labels.get();
 		insts.add(new Jump(l2));
 		insts.add(l);
 		ifel.ifBlock.accept(this);
+		insts.add(new Jump(l3));
 		insts.add(l2);
+		ifel.elseBlock.accept(this);
+		insts.add(l3);
 		return null;
 	}
 
@@ -310,13 +323,13 @@ public class IrepVisitor implements Visitor<Temp>
 
 	public Temp visit(WhileStmt wh)
 	{
-		Temp t = wh.e.accept(this);
 		Label l1, l2, l3;
 		l1 = labels.get();
 		l2 = labels.get();
 		l3 = labels.get();
 
 		insts.add(l1);
+		Temp t = wh.e.accept(this);
 		insts.add(new IfJump(l2, t));
 		insts.add(new Jump(l3));
 		insts.add(l2);
@@ -419,7 +432,7 @@ public class IrepVisitor implements Visitor<Temp>
 		t1 = ce.le.accept(this);
 		t2 = ce.ri.accept(this);
 		Operator op = new Operator("==", t1.type);
-		t3 = factory.get(t1.type);
+		t3 = factory.get(new AtomicType("Z"));
 		Inst i = new BinAssign(t3, t1, t2, op);
 		insts.add(i);
 		return t3;
@@ -431,7 +444,7 @@ public class IrepVisitor implements Visitor<Temp>
 		t1 = le.le.accept(this);
 		t2 = le.ri.accept(this);
 		Operator op = new Operator("<", t1.type);
-		t3 = factory.get(t1.type);
+		t3 = factory.get(new AtomicType("Z"));
 		Inst i = new BinAssign(t3, t1, t2, op);
 		insts.add(i);
 		return t3;

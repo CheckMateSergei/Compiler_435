@@ -11,6 +11,6 @@ public class Cha extends Constant
 
 	public String toString()
 	{
-		return Character.toString(c);
+		return "'"+Character.toString(c)+"'";
 	}
 }

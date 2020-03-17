@@ -44,6 +44,6 @@ public class Function
 			s += i.toString()+";\n";
 		}
 
-		return s;
+		return s+"}\n";
 	}
 }

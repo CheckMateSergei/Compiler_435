@@ -11,6 +11,6 @@ public class Label extends Inst
 
 	public String toString()
 	{
-		return "L"+Integer.toString(num);
+		return "L"+Integer.toString(num)+":";
 	}
 }

@@ -11,6 +11,6 @@ public class Print extends Inst
 
 	public String toString()
 	{
-		return "PRINT"+t.type.toString()+" "+t.toString();
+		return "PRINT"+t.type.type+" "+t.toString();
 	}
 }

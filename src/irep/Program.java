@@ -26,7 +26,7 @@ public class Program
 			s = s + fu.toString(); 
 		}
 
-		return s+"}\n";
+		return s;
 	}
 
 }

@@ -15,6 +15,6 @@ public class NewArrAss extends Assignment
 
 	public String toString()
 	{
-		return temp.toString()+" := NEWARRAY "+type.toString()+" "+Integer.toString(size);
+		return temp.toString()+" := NEWARRAY "+type.type+" "+Integer.toString(size);
 	}
 }

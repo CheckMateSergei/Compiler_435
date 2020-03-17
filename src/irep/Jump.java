@@ -11,7 +11,7 @@ public class Jump extends Inst
 
 	public String toString()
 	{
-		return "GOTO "+l.toString();
+		return "GOTO L"+l.num;
 	}
 
 }

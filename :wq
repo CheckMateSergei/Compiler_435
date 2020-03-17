@@ -1,0 +1,17 @@
+package irep;
+
+public class ArrRef 
+{
+	public Temp id, ex;
+
+	public ArrRef(Temp id, Temp ex)
+	{
+		this.id = id;
+		this.ex = ex;
+	}
+
+	public String toString()
+	{
+		return id.toString()+"["+ex.toString()+"]";
+	}
+}
