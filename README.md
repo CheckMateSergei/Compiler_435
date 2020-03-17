@@ -19,5 +19,10 @@ Assignment #2 Tests:
 -read error messages without stack trace
 -to add stack trace uncomment line in catch statement in Compiler.java
 
+Assignment #3:
+-place test cases somewhere accesible from Compilers/build
+-type make in Compilers/ and cd to Compilers/build
+-run "java Compiler ../FILEPATH../<filename>.ul"
+-move output <filename>.ir to same directory as codegen script
 
 enjoy
