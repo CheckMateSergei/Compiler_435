@@ -21,7 +21,7 @@ public class Compiler {
 		}
 		else {
 			input = new ANTLRInputStream(new FileInputStream(args[0]));
-			filename = args[0].substring(0, args[0].lastIndexOf('.'));
+			filename = args[0].substring(args[0].lastIndexOf('/')+1, args[0].lastIndexOf('.'));
 		}
 
 		// The name of the grammar here is "ulNoActions",

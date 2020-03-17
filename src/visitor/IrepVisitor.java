@@ -48,6 +48,13 @@ public class IrepVisitor implements Visitor<Temp>
 		irep.Function irf;
 		RetnType ret;
 
+		funcs.beginScope();
+
+		for(ast.Function f : p.functions)
+		{
+			funcs.add(f.decl.id.id, f.decl);
+		}
+
 		// loop through the function list
 		for(ast.Function f : p.functions)
 		{
@@ -57,10 +64,6 @@ public class IrepVisitor implements Visitor<Temp>
 			factory = new TempFactory();
 			returnType = f.decl.type;
 			labels = new LabelFactory();
-			funcs.beginScope();
-
-			// add function to the symbol table
-			funcs.add(f.decl.id.id, f.decl);
 
 			// create return type object
 			if(f.decl.type instanceof ArrayDecl)
@@ -120,22 +123,6 @@ public class IrepVisitor implements Visitor<Temp>
 			temps.endScope();
 		}
 
-
-		/*
-		try
-		{
-			// after all functions have been added print ir to file
-			FileWriter writer = new FileWriter(prog.classname+".ir");
-			PrintWriter printer = new PrintWriter(writer);
-			printer.print(prog.toString());
-			printer.close();
-		}
-		catch(IOException i)
-		{
-			i = new IOException("Something happened");
-		}
-		*/
-
 		try 
 		{
      			File file = new File(prog.classname+".ir");
@@ -158,6 +145,9 @@ public class IrepVisitor implements Visitor<Temp>
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		}
+
+
+		funcs.endScope();
 
 		return null;
 	}
@@ -294,6 +284,7 @@ public class IrepVisitor implements Visitor<Temp>
 	public Temp visit(FunctionCall fc)
 	{
 		Call c;
+		Temp t = null;
 		
 		// if the type is void just call
 		if(funcs.lookup(fc.id.id).type.type.equals("void"))
@@ -302,9 +293,10 @@ public class IrepVisitor implements Visitor<Temp>
 		}
 		else
 		{
-			Temp t = factory.get(funcs.lookup(fc.id.id).type.accept(this).type);
+			t = factory.get(funcs.lookup(fc.id.id).type.accept(this).type);
 			c = new IdCall(t, fc.id.id);
 		}
+
 		//add param types
 		for(Expression e : fc.exprList)
 		{
@@ -313,7 +305,7 @@ public class IrepVisitor implements Visitor<Temp>
 		
 		//add instruction to list
 		insts.add(c);
-		return null;
+		return t;
 	}
 
 	public Temp visit(WhileStmt wh)

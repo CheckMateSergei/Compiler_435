@@ -1,0 +1,38 @@
+PROG ../tests/withoutSubtypes/woSt_2.2_valid
+FUNC main()V
+{
+TEMP 0:I;
+TEMP 1:I;
+TEMP 2:I;
+TEMP 3:I;
+TEMP 4:I;
+TEMP 5:I;
+TEMP 6:I;
+TEMP 7:I;
+TEMP 8:I;
+T5 := 2;
+T6 := 2;
+T7 := 9;
+T4 := CALL sum(T5T6T7);
+T8 := 2;
+T2 := CALL mult(T4T8);
+T0 := T2;
+FUNC sum(III)I
+{
+TEMP 0:I;
+TEMP 1:I;
+TEMP 2:I;
+TEMP 3:I;
+T3 := T0I+T1;
+T2 := T3;
+RETURN T2;
+FUNC mult(II)I
+{
+TEMP 0:I;
+TEMP 1:I;
+TEMP 2:I;
+TEMP 3:I;
+T3 := T0I*T1;
+T2 := T3;
+RETURN T2;
+}

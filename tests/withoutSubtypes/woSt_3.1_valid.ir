@@ -1,0 +1,45 @@
+PROG ../tests/withoutSubtypes/woSt_3.1_valid
+FUNC main()V
+{
+TEMP 0:Z;
+TEMP 1:I;
+TEMP 2:I;
+TEMP 3:Z;
+TEMP 4:U;
+TEMP 5:Z;
+TEMP 6:U;
+TEMP 7:Z;
+TEMP 8:I;
+TEMP 9:U;
+T3 := true;
+IF T3 GOTO L0;
+GOTO L1;
+L0;
+T4 := "true if statement";
+PRINTU T4;
+L1;
+T5 := true;
+T0 := T5;
+L2;
+IF T0 GOTO L3;
+GOTO L4;
+L3;
+T6 := "looping while once";
+PRINTU T6;
+T7 := false;
+T0 := T7;
+GOTO L2;
+L4;
+T8 := 5;
+PRINTI T8;
+T9 := "new line";
+PRINTLNU T9;
+T2 := T1;
+FUNC foo()I
+{
+TEMP 0:I;
+TEMP 1:I;
+T1 := 5;
+T0 := T1;
+RETURN T0;
+}

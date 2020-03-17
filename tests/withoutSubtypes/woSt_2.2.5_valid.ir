@@ -1,0 +1,12 @@
+PROG ../tests/withoutSubtypes/woSt_2.2.5_valid
+FUNC main()V
+{
+FUNC foo(I)I
+{
+TEMP 0:I;
+TEMP 1:I;
+TEMP 2:I;
+T1 := 1;
+T2 := T0I+T1;
+RETURN T2;
+}

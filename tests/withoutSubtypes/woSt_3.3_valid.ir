@@ -1,0 +1,19 @@
+PROG ../tests/withoutSubtypes/woSt_3.3_valid
+FUNC main()V
+{
+TEMP 0:I;
+TEMP 1:I;
+TEMP 2:I;
+TEMP 3:I;
+T2 := 3;
+T0 := T2;
+T3 := 4;
+T1 := T3;
+CALL foo(T0T1);
+FUNC foo(II)V
+{
+TEMP 0:I;
+TEMP 1:I;
+PRINTI T0;
+PRINTI T1;
+}
