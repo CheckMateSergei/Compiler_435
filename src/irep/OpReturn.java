@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class OpReturn extends Return
 {
@@ -13,4 +14,10 @@ public class OpReturn extends Return
 	{
 		return super.toString()+" "+t.toString();
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

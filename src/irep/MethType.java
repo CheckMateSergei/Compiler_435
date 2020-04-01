@@ -1,5 +1,6 @@
 package irep;
 import java.util.ArrayList;
+import codegen.JasminVisitor;
 
 public class MethType extends Type
 {
@@ -29,4 +30,6 @@ public class MethType extends Type
 
 		return "("+s+")"+ret.toString();
 	}
+
+
 }

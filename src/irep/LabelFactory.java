@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class LabelFactory
 {
@@ -13,4 +14,5 @@ public class LabelFactory
 	{
 		return new Label(next++);
 	}
+
 }

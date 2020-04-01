@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class IfJump extends Jump
 {
@@ -14,4 +15,10 @@ public class IfJump extends Jump
 	{
 		return "IF "+t.toString()+" "+super.toString();
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

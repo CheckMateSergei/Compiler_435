@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class Print extends Inst
 {
@@ -13,4 +14,10 @@ public class Print extends Inst
 	{
 		return "PRINT"+t.type.type+" "+t.toString();
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class Temp
 {
@@ -14,5 +15,10 @@ public class Temp
 	public String toString()
 	{
 		return "T"+num;
+	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
 	}
 }

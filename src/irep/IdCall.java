@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 import java.util.ArrayList;
 
@@ -18,4 +19,10 @@ public class IdCall extends Call
 		s += super.toString();
 		return s;
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

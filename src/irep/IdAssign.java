@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class IdAssign extends Assignment
 {
@@ -14,5 +15,11 @@ public class IdAssign extends Assignment
 	{
 		return temp1.toString()+" := "+temp2.toString();
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 	
 }

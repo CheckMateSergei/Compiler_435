@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class BinAssign extends Assignment
 {
@@ -17,4 +18,10 @@ public class BinAssign extends Assignment
 	{
 		return res.toString()+" := "+op1.toString()+o.toString()+op2.toString();
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

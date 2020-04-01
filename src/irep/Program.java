@@ -1,5 +1,6 @@
 package irep;
 import java.util.ArrayList;
+import codegen.JasminVisitor;
 
 public class Program
 {
@@ -29,4 +30,8 @@ public class Program
 		return s;
 	}
 
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}	
 }

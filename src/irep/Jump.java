@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class Jump extends Inst
 {
@@ -13,5 +14,11 @@ public class Jump extends Inst
 	{
 		return "GOTO L"+l.num;
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 
 }

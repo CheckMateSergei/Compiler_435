@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class AtomicType extends Type
 {
@@ -11,5 +12,6 @@ public class AtomicType extends Type
 	{
 		return this.type;
 	}
+
 
 }

@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class ArrRef extends Temp
 {
@@ -15,4 +16,5 @@ public class ArrRef extends Temp
 	{
 		return id.toString()+"["+ex.toString()+"]";
 	}
+
 }

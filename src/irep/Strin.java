@@ -1,5 +1,6 @@
 package irep;
 
+
 public class Strin extends Constant
 {
 	public String s;

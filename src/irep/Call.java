@@ -1,5 +1,6 @@
 package irep;
 import java.util.ArrayList;
+import codegen.JasminVisitor;
 
 public class Call extends Inst
 {
@@ -27,6 +28,11 @@ public class Call extends Inst
 		}
 
 		return s + ")";
+	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
 	}
 
 

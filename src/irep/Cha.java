@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class Cha extends Constant
 {

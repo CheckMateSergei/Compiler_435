@@ -1,5 +1,6 @@
 package irep;
 import java.util.ArrayList;
+import codegen.JasminVisitor;
 
 public class Function
 {
@@ -7,6 +8,7 @@ public class Function
 	public Type type;
 	public ArrayList<Temp> temps;
 	public ArrayList<Inst> insts;
+	public int labels = 0;
 
 	public Function(String name, Type type)
 	{
@@ -14,6 +16,11 @@ public class Function
 		this.type = type;
 		temps = new ArrayList<Temp>();
 		insts = new ArrayList<Inst>();
+	}
+
+	public int getLabel()
+	{
+		return labels++;
 	}
 
 	public void addTemp(Temp t)
@@ -46,4 +53,10 @@ public class Function
 
 		return s+"}\n";
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

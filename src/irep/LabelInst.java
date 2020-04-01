@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class LabelInst extends Label
 {
@@ -11,4 +12,10 @@ public class LabelInst extends Label
 	{
 		return super.toString()+":";
 	}
+
+	public String accept(JasminVisitor j)
+	{
+		return j.visit(this);
+	}
+
 }

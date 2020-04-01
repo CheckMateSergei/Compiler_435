@@ -1,4 +1,5 @@
 package irep;
+import codegen.JasminVisitor;
 
 public class Int extends Constant
 {
@@ -13,4 +14,5 @@ public class Int extends Constant
 	{
 		return Integer.toString(val);
 	}
+
 }
