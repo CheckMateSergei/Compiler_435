@@ -9,6 +9,7 @@ import org.antlr.runtime.*;
 import java.io.*;
 import ast.*;
 import visitor.*;
+import codegen.JasminVisitor;
 
 public class Compiler {
 	public static void main (String[] args) throws Exception {
@@ -41,6 +42,9 @@ public class Compiler {
 
 			IrepVisitor ir = new IrepVisitor();
 			ir.visit(p);
+
+			JasminVisitor jas = new JasminVisitor();
+			jas.visit(ir.output_program);
 
 
 

@@ -12,6 +12,7 @@ public class IrepVisitor implements Visitor<Temp>
 	public TempFactory factory;
 	public LabelFactory labels;
 	public CompType returnType;
+	public irep.Program output_program;
 
 	public AtomicType getType(String type)
 	{
@@ -127,6 +128,8 @@ public class IrepVisitor implements Visitor<Temp>
 			prog.add(irf);
 			temps.endScope();
 		}
+
+		output_program = prog;
 
 		try 
 		{
