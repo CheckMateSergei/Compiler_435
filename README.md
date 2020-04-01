@@ -25,4 +25,9 @@ Assignment #3:
 -run "java Compiler ../FILEPATH../<filename>.ul"
 -move output <filename>.ir to same directory as codegen script
 
+Assignment #4:
+-same as assignment 3
+-invoke jasmin on codegenerated .j file
+-run java <filename> 
+
 enjoy
